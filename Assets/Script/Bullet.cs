@@ -1,35 +1,57 @@
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour, IAttackable, IMoveable
 {
-    public bool isRight = true;
-    public float damage = 10f;
-    public float speed = 10f;
-    public List<string> targetTags = new List<string>();
+    public bool goRight = true;
 
-    private Rigidbody characterRigidbody;
+    public float Damage { get; private set; } = 1f;
+
+    public float Speed { get; protected set; } = 10f;
+
+    public virtual Vector2 Velocity => new Vector3(Speed * (goRight ? 1f : -1f), 0, 0);
+
+    public List<string> TargetTags { get; private set; } = null;
+
+    new private Rigidbody2D rigidbody2D;
 
     void Start(){
-        characterRigidbody = GetComponent<Rigidbody>();
+        rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected void FixedUpdate()
     {
-        Vector3 velocity = new Vector3(speed * (isRight ? 1f : -1f), 0, 0);
-        characterRigidbody.linearVelocity = velocity;
+        IMoveable.UpdateVelocity(rigidbody2D, this);
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!targetTags.Contains(other.tag)) return;
-        
-        Hitable hitable = other.GetComponent<Hitable>();
-        if (hitable != null)
+        if (TargetTags.Contains(collision.tag))
         {
-            hitable.OnHit();
+            IHittable hitable = collision.GetComponent<IHittable>();
+            hitable?.TakeDamage(Damage, (Vector2)transform.right);
+            DestroyBullet();
         }
+    }
+
+    private void OnBecameVisible()
+    {
+        CancelInvoke(nameof(DestroyBullet));
+    }
+
+    void OnBecameInvisible()
+    {
+        // 3초 뒤에 총알을 파괴합니다.
+        Invoke(nameof(DestroyBullet), 3f);
+    }
+    
+    public void SetTargetTags(List<string> targetTags)
+    {
+        TargetTags ??= new List<string>(targetTags);
+    }
+
+    void DestroyBullet()
+    {
         Destroy(gameObject);
     }
 }

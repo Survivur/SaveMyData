@@ -1,52 +1,75 @@
-using System.Collections;
 using System.Collections.Generic;
-using Mono.Cecil;
 using UnityEngine;
- 
-public class CharacterMove : MonoBehaviour
-{
-    public float speed = 5f;
+
+public class Player : Character
+{    
     public float JumpSpeed = 3f;
-    private Rigidbody characterRigidbody;
+    public int JumpCount = 1;
+    public int JumpCountMax = 1;
     private GameObject bullet;
 
-    void Start(){
-        characterRigidbody = GetComponent<Rigidbody>();
-    }
+    public override List<string> TargetTags { get; } = new List<string>();
 
-    void Awake()
+    bool JumpInput = false;
+
+    protected override void Start()
     {
-        bullet = Resources.Load<GameObject>("Prefabs/Bullet");
-        Debug.Log(bullet);
+        base.Start();
+        bullet = Resources.Load<GameObject>("Prefabs/bullet_gun");
+        TargetTags.Add(Tags.Enemy);
     }
 
-    void Update(){ 
-        //float inputX = ;
-        //float inputZ = Input.GetAxis("Vertical");
+    protected void Update()
+    {
         if (Input.GetKeyDown("j"))
         {
             Shoot();
         }
     }
+    
+    public override Vector2 Velocity
+    { 
+        get
+        {
+            float HorizontalMovement = Input.GetAxis("Horizontal") * Speed;
+            return Jump(new Vector2(HorizontalMovement, rigidbody2D.linearVelocityY));
+        }
+    }
 
-    void FixedUpdate()
+    protected override void FixedUpdate()
     {
-        Vector3 velocity = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
-        velocity *= speed;
-        if (Input.GetAxis("Jump") > 0)
+        JumpInput = Input.GetAxis("Jump") > 0;
+        base.FixedUpdate();
+        JumpCounting();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag(Tags.Ground))
         {
-            velocity.y += JumpSpeed;
+            JumpCountReset();
         }
-        else
-        {
-            velocity.y += characterRigidbody.linearVelocity.y;
-        }
-        characterRigidbody.linearVelocity = velocity;
+    }
+
+    Vector2 Jump(Vector2 velocity)
+    {
+        velocity.y.SetIfTrue(JumpInput && JumpCount > 0, JumpSpeed);
+        return velocity;
+    }
+
+    void JumpCounting()
+    {
+        JumpCount.SetIfTrue(JumpInput && JumpCount > 0, JumpCount - 1);
+    }
+
+    void JumpCountReset()
+    {
+        JumpCount = JumpCountMax;
     }
 
     void Shoot()
     {
-        Bullet b = Instantiate(bullet, transform.position, Quaternion.identity).GetComponent<Bullet>();
-        b.targetTags.Add("Enemy");
+        Bullet b = Instantiate(bullet, transform.position, Quaternion.identity, ObjectManager.BulletManager.transform).GetComponent<Bullet>();
+        b.SetTargetTags(TargetTags);
     }
 }
