@@ -2,11 +2,13 @@ using System;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
+
+
 /// <summary>
 /// 객체를 함수의 인수로 전달하여 작업을 수행하고 결과를 반환합니다. <br />
 /// 예: someCoroutine.Let(StartCoroutine) => StartCoroutine(someCoroutine)
 /// </summary>
-public static class Extensions
+public static class CodeExtensions
 {
     /// <summary>
     /// Extension method to perform an action if the object is not null.
