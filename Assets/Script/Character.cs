@@ -24,7 +24,6 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
 
     protected virtual void FixedUpdate()
     {
-        //sprite.flipX.SetIfTrue(Velocity.x != 0f, Velocity.x > 0f);
         IMoveable.UpdateVelocity(rigidbody2D, this);
     }
 

@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour, IAttackable, IMoveable
 
     public float Speed { get; protected set; } = 10f;
 
-    public virtual Vector2 Velocity => new Vector3(Speed * (goRight ? 1f : -1f), 0, 0);
+    public virtual Vector2 Velocity => new Vector3(Speed * goRight.BoolToSign(), 0, 0);
 
     public List<string> TargetTags { get; private set; } = null;
 
@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour, IAttackable, IMoveable
         if (TargetTags.Contains(collision.tag))
         {
             IHittable hitable = collision.GetComponent<IHittable>();
-            hitable?.TakeDamage(Damage, (Vector2)transform.right);
+            hitable?.TakeDamage(Damage, (Vector2)transform.right * new Vector2(goRight.BoolToSign() , 1f));
             DestroyBullet();
         }
     }

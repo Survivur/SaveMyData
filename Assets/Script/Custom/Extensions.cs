@@ -62,6 +62,16 @@ public static class Extensions
     }
 
     /// <summary>
+    /// value가 True일 때 1f을 반환하고, False일 때 -1f을 반환합니다.
+    /// </summary>
+    /// <param name="goRight"></param>
+    /// <returns></returns>
+    public static float BoolToSign(this bool value)
+    {
+        return value ? 1f : -1f;
+    }
+
+    /// <summary>
     /// vector2의 x값을 변경합니다.
     /// </summary>
     /// <param name="target"></param>
