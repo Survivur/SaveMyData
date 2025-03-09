@@ -1,8 +1,6 @@
 using System;
+using System.Linq;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
-
-
 
 /// <summary>
 /// 객체를 함수의 인수로 전달하여 작업을 수행하고 결과를 반환합니다. <br />
@@ -121,5 +119,35 @@ public static class CodeExtensions
     public static void ChangeZ(this ref Vector3 target, float z)
     {
         target = new Vector3(target.x, target.y, z);
+    }
+
+    /// <summary>
+    /// target에 value의 최소값을 대입합니다.
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="value"></param>
+    public static void Min(this ref float target, params float [] value) 
+    {
+        float temp = target;
+        foreach (var v in value)
+        {
+            temp = Mathf.Min(temp, v);
+        }
+        target = temp;
+    }
+
+    /// <summary>
+    /// target에 value의 최대값을 대입합니다.
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="value"></param>
+    public static void Max(this float target, params float[] value)
+    {
+        float temp = target;
+        foreach (var v in value)
+        {
+            temp = Mathf.Max(temp, v);
+        }
+        target = temp;
     }
 }
