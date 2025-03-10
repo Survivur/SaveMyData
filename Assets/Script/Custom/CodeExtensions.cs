@@ -62,6 +62,30 @@ public static class CodeExtensions
     }
 
     /// <summary>
+    ///condition이 true일 때 value를 target대신 value가 반환됩니다.
+    /// </summary>
+    /// <typeparam name="T">입력 객체의 타입</typeparam>
+    /// <param name="target">작업의 대상 객체</param>
+    /// <param name="condition">조건</param>
+    /// <param name="value">바꿀 값</param>
+    public static T ChangeIfTrue<T>(this T target, bool condition, T value) where T : class
+    {
+        return condition ? value : target;
+    }
+
+    /// <summary>
+    ///condition이 true일 때 value를 target대신 value가 반환됩니다.(struct 전용)
+    /// </summary>
+    /// <typeparam name="T">입력 객체의 타입</typeparam>
+    /// <param name="target">작업의 대상 객체</param>
+    /// <param name="condition">조건</param>
+    /// <param name="value">바꿀 값</param>
+    public static T ChangeIfTrue<T>(this ref T target, bool condition, T value) where T : struct
+    {
+        return condition ? value : target;
+    }
+
+    /// <summary>
     /// value가 True일 때 1f을 반환하고, False일 때 -1f을 반환합니다.
     /// </summary>
     /// <param name="goRight"></param>

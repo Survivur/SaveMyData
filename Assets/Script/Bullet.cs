@@ -9,19 +9,13 @@ public class Bullet : MonoBehaviour, IAttackable, IMoveable
 
     public float Speed { get; protected set; } = 10f;
 
-    public virtual Vector2 Velocity => new Vector3(Speed * goRight.BoolToSign(), 0, 0);
+    public virtual Vector2 Velocity => new Vector2(Speed * goRight.BoolToSign(), 0);
 
     public List<string> TargetTags { get; private set; } = null;
 
-    new private Rigidbody2D rigidbody2D;
-
-    void Start(){
-        rigidbody2D = GetComponent<Rigidbody2D>();
-    }
-
     protected void FixedUpdate()
     {
-        IMoveable.UpdateVelocity(rigidbody2D, this);
+        IMoveable.UpdateVelocity(transform, this);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
