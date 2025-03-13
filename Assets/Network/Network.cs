@@ -1,18 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
-using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 
 public class Network : MonoBehaviourPunCallbacks
 {
     public TMP_Text Status;
     public TMP_InputField nicknameInput, roomInput;
 
-    public Button connectButton;
     public Button disconnectButton;
     public Button RobbyButton;
     public Button RoomMakeButton;
@@ -22,57 +19,78 @@ public class Network : MonoBehaviourPunCallbacks
     void Awake() => Screen.SetResolution(960, 540, false);
     void Update() => Status.text = PhotonNetwork.NetworkClientState.ToString();
 
-
-
-
-
     private void Start()
     {
-        // 각 버튼의 OnClick 이벤트에 함수 연결
-        connectButton.onClick.AddListener(Connect);
+        SetButtonsActive(false);
         disconnectButton.onClick.AddListener(Disconnect);
         RobbyButton.onClick.AddListener(Robby);
         RoomMakeButton.onClick.AddListener(RoomMake);
         RoomInButton.onClick.AddListener(RoomIn);
         RoomOutButton.onClick.AddListener(RoomOut);
+        PhotonNetwork.ConnectUsingSettings();
     }
-
-
-    public void Connect() => PhotonNetwork.ConnectUsingSettings();
 
     public override void OnConnectedToMaster()
     {
         print("서버접속 완료");
         PhotonNetwork.LocalPlayer.NickName = nicknameInput.text;
+        SetButtonsActive(true);
     }
 
-    public void Disconnect() => PhotonNetwork.Disconnect();
+    public void Disconnect()
+    {
+        PhotonNetwork.Disconnect();
+        print("서버연결 끊김");
+        SceneManager.LoadScene("StartScene"); // StartScene으로 이동
+    }
 
-    public override void OnDisconnected(DisconnectCause cause)
+    /*public override void OnDisconnected(DisconnectCause cause)
     {
         print("서버연결 끊김");
-    }
+    }*/
 
     public void Robby() => PhotonNetwork.JoinLobby();
-
-    public override void OnJoinedLobby()
-    {
-        print("로비 접속 완료");
-    }
+    public override void OnJoinedLobby() => print("로비 접속 완료");
 
     public void RoomMake() => PhotonNetwork.CreateRoom(roomInput.text, new RoomOptions { MaxPlayers = 2 });
-    public override void OnCreatedRoom()
-    {
-        print("방 만들기 완료");
-    }
+    public override void OnCreatedRoom() => print("방 만들기 완료");
+    public override void OnCreateRoomFailed(short returnCode, string message) => print("방 만들기 실패");
+
     public void RoomIn() => PhotonNetwork.JoinRoom(roomInput.text);
-    public override void OnJoinedRoom()
-    {
-        print("방 참가 완료");
-    }
+    public override void OnJoinedRoom() => print("방 참가 완료");
+    public override void OnJoinRandomFailed(short returnCode, string message) => print("방 참가 실패");
+
     public void RoomOut() => PhotonNetwork.LeaveRoom();
-    public override void OnLeftRoom()
+    public override void OnLeftRoom() => print("방 떠남");
+
+    [ContextMenu("정보")]
+    void Info()
     {
-        print("방 떠남");
+        if (PhotonNetwork.InRoom)
+        {
+            print("현재 방 이름 : " + PhotonNetwork.CurrentRoom.Name);
+            print("현재 방 인원수 : " + PhotonNetwork.CurrentRoom.PlayerCount);
+            print("현재 방 최대인원수 : " + PhotonNetwork.CurrentRoom.MaxPlayers);
+            string playerStr = "방에 있는 플레이어 목록 : ";
+            foreach (var player in PhotonNetwork.PlayerList) playerStr += player.NickName + ", ";
+            print(playerStr);
+        }
+        else
+        {
+            print("접속한 인원 수 : " + PhotonNetwork.CountOfPlayers);
+            print("방 개수 : " + PhotonNetwork.CountOfRooms);
+            print("모든 방에 있는 인원 수 : " + PhotonNetwork.CountOfPlayersInRooms);
+            print("로비에 있는지? : " + PhotonNetwork.InLobby);
+            print("연결됐는지? : " + PhotonNetwork.IsConnected);
+        }
+    }
+
+    void SetButtonsActive(bool isActive)
+    {
+        disconnectButton.gameObject.SetActive(isActive);
+        RobbyButton.gameObject.SetActive(isActive);
+        RoomMakeButton.gameObject.SetActive(isActive);
+        RoomInButton.gameObject.SetActive(isActive);
+        RoomOutButton.gameObject.SetActive(isActive);
     }
 }
