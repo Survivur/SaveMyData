@@ -3,7 +3,11 @@ using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
+using Photon.Chat;
+using ExitGames.Client.Photon;
 using UnityEngine.SceneManagement;
+using System.Diagnostics;
+
 
 public class Network : MonoBehaviourPunCallbacks
 {
@@ -15,9 +19,13 @@ public class Network : MonoBehaviourPunCallbacks
     public Button RoomMakeButton;
     public Button RoomInButton;
     public Button RoomOutButton;
+    public Button sendChatButton;
 
     void Awake() => Screen.SetResolution(960, 540, false);
-    void Update() => Status.text = PhotonNetwork.NetworkClientState.ToString();
+    void Update()
+    {
+        Status.text = PhotonNetwork.NetworkClientState.ToString();
+    }
 
     private void Start()
     {
@@ -37,6 +45,33 @@ public class Network : MonoBehaviourPunCallbacks
         SetButtonsActive(true);
     }
 
+    /*public void OnDisconnected() => print("채팅 서버 연결 끊김");
+    public void OnChatStateChange(ChatState state) { }
+    public new void OnConnected() => chatClient.Subscribe(new string[] { "Lobby" });
+    public void OnSubscribed(string[] channels, bool[] results) => print("채팅방 입장 완료");
+    public void OnUnsubscribed(string[] channels) { }
+    public void OnStatusUpdate(string user, int status, bool gotMessage, object message) { }
+    public void OnUserSubscribed(string channel, string user) { }
+    public void OnUserUnsubscribed(string channel, string user) { }
+
+    public void OnPrivateMessage(string sender, object message, string channeName)
+    {
+        print($"[개인 메시지]{sender}:{message}");
+    }
+
+    public void OnGetMessages(string channelName, string[] senders, object[] messages)
+    {
+        for (int i = 0; i < senders.Length; i++)
+        {
+            chatDisplay.text += $"{senders[i]}: {messages[i]}\n";
+        }
+    }
+
+    public void DebugReturn(DebugLevel level, string message)
+    {
+        UnityEngine.Debug.Log($"[Photon Chat Debug] {level}: {message}");
+    }*/
+
     public void Disconnect()
     {
         PhotonNetwork.Disconnect();
@@ -50,7 +85,11 @@ public class Network : MonoBehaviourPunCallbacks
     }*/
 
     public void Robby() => PhotonNetwork.JoinLobby();
-    public override void OnJoinedLobby() => print("로비 접속 완료");
+    public override void OnJoinedLobby()
+    {
+        print("로비 접속 완료");
+        SceneManager.LoadScene("LobbyScene");
+    }
 
     public void RoomMake() => PhotonNetwork.CreateRoom(roomInput.text, new RoomOptions { MaxPlayers = 2 });
     public override void OnCreatedRoom() => print("방 만들기 완료");
