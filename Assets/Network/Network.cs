@@ -21,11 +21,15 @@ public class Network : MonoBehaviourPunCallbacks
     public Button RoomOutButton;
     public Button sendChatButton;
 
-    void Awake() => Screen.SetResolution(960, 540, false);
-    void Update()
+    void Awake()
+    {
+        Screen.SetResolution(960, 540, false);
+        DontDestroyOnLoad(gameObject);
+    }
+    /*void Update()
     {
         Status.text = PhotonNetwork.NetworkClientState.ToString();
-    }
+    }*/
 
     private void Start()
     {
