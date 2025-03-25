@@ -1,10 +1,10 @@
-using System.Collections.Generic;
+ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : Character
 {
     public bool seeright => sprite.flipX;
-
+    
     [SerializeField, ReadOnly(true)] private float DashSpeed = 2.0f;
     [SerializeField, ReadOnly(true)] private float DashVelocity = 1f;
     [SerializeField, ReadOnly] private int DashCount = 1;
@@ -31,7 +31,7 @@ public class Player : Character
             HorizontalMovement(ref velocity);
             Dash(ref velocity);
             Jump(ref velocity);
-
+                
             return velocity;
         }
     }

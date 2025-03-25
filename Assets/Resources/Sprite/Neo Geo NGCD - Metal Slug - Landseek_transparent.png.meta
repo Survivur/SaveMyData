@@ -1,0 +1,1053 @@
+fileFormatVersion: 2
+guid: 73d55f904a04f44fabe363e903d28c1b
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 578
+        width: 101
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5db0d0d2b93c848c0bdce54ea7f8a95c
+      internalID: -2107438544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_1
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 578
+        width: 101
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66e602d55531a4355989aafba058d3a1
+      internalID: -639341784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_2
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 578
+        width: 101
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f04054ba5ca44464aca5d672e100dbe
+      internalID: -1641806583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_3
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 578
+        width: 101
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40d62992fd85c44138cb76451334b85a
+      internalID: -428695603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_4
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 525
+        width: 101
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13442b7d4202a443a8c826dd8b44fc38
+      internalID: 1377664763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_5
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 525
+        width: 101
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e514e2a1fc1548b68a13135cf80bd22
+      internalID: 1287902971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_6
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 525
+        width: 101
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93474efcaddef49dab542290ec90bc15
+      internalID: -1311646277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_7
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 525
+        width: 101
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfd2ce101dbd245b88e43f70068b9178
+      internalID: -1148310179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_8
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 525
+        width: 103
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dab0e06693434990ac0b3c56a277d2a
+      internalID: -183030620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_9
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 475
+        width: 101
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12a3e08bd0bc44755ac2132621b3cf83
+      internalID: -140128813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_10
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 475
+        width: 101
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfc725a32ad2346a49053a1a8c693462
+      internalID: -1166834623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_11
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 475
+        width: 101
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e9b030c6b38847a586ae57627d3b7a2
+      internalID: -1304355420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_12
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 475
+        width: 101
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba3276928750f4642a13d6bd7a9d05f6
+      internalID: 2006861458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_13
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 425
+        width: 101
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e04d0f4d07efc414c84a51b915b40ef0
+      internalID: 1586757835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_14
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 425
+        width: 101
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 006be09279501437596da77c6aa30f64
+      internalID: -1444912384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_15
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 425
+        width: 101
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d215027bc43cb40358f1f3f9701c2afd
+      internalID: 328860403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_16
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 425
+        width: 101
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fd4174aee7174b83aa8400a4655ccee
+      internalID: -495217128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_17
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 326
+        width: 101
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caf12dc344d6f4152a8941fe606498a3
+      internalID: 150382580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_18
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 326
+        width: 101
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c566b1dda03fd49baa5bb6596b842476
+      internalID: -1668324286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_19
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 326
+        width: 101
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 835c859cb1ba64eee9350eb1ea1bc710
+      internalID: 92907147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_20
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 326
+        width: 101
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e66c9df48a6bf4fef91e55cc803eb2a6
+      internalID: 1431292653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_21
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 326
+        width: 101
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a72b5a9eb78c74aabba39e1a01f31cf8
+      internalID: -1429983962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_22
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 227
+        width: 101
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a87308b016c447c4ba054183e50596f
+      internalID: 780743753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_23
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 227
+        width: 101
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dec27996ddd94cdd965716c14109cb6
+      internalID: 1783446838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_24
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 227
+        width: 101
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bd81bbe93fa3403ca4cd0aa46571d96
+      internalID: -1233666332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_25
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 227
+        width: 101
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4ee1e01690b94b74b686ef1dfc58f5e
+      internalID: -606003965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_26
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 126
+        width: 101
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e17278bdfefdb4e2b87fee2cf1b4e3ba
+      internalID: 848181209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_27
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 126
+        width: 101
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01d245a7b12914da78c57024975be535
+      internalID: 1748299217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_28
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 126
+        width: 101
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dc8b92a9edf04d049c5dbf8ce11c31e
+      internalID: 1441031002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_29
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 126
+        width: 101
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3578bc9e815ab4302bda02aea802c5b4
+      internalID: 530259095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_30
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 69
+        width: 103
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab953e3249fa84cffaac1c646c39cd26
+      internalID: -389140917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_31
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 64
+        width: 107
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbaba9e5def424b5dbd6e9e29a53a231
+      internalID: 1110940994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_32
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 93
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cf065e4c47524d01b29f88faad52cf2
+      internalID: -160638133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_33
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 93
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbd981dfba61046008d5e5d4e8968d82
+      internalID: 1005544881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_34
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 93
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2286685d284684b5f88afcbb9fc23edd
+      internalID: 549279762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_35
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 93
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 751ad34ed249b4776bbbf064321d2c6b
+      internalID: -864157829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_37
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 79
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7705a37e9121d41b5b86074083df137d
+      internalID: 2054797547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_38
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 79
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8628573fb05942b7bfb33db86eac8ae
+      internalID: 1411211186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_39
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 79
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd8f3486fd27d4367996f6e05b77e584
+      internalID: 1577577950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Landseek_transparent_40
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 79
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed7c22ef0b017434eb226b1c953a3912
+      internalID: 29766809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1ae3e460c41214449887d89aaa9cd35b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_0: -2107438544
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_1: -639341784
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_10: -1166834623
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_11: -1304355420
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_12: 2006861458
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_13: 1586757835
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_14: -1444912384
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_15: 328860403
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_16: -495217128
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_17: 150382580
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_18: -1668324286
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_19: 92907147
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_2: -1641806583
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_20: 1431292653
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_21: -1429983962
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_22: 780743753
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_23: 1783446838
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_24: -1233666332
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_25: -606003965
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_26: 848181209
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_27: 1748299217
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_28: 1441031002
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_29: 530259095
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_3: -428695603
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_30: -389140917
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_31: 1110940994
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_32: -160638133
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_33: 1005544881
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_34: 549279762
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_35: -864157829
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_36: 237730381
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_37: 2054797547
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_38: 1411211186
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_39: 1577577950
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_4: 1377664763
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_40: 29766809
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_41: -288504146
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_42: -214179899
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_5: 1287902971
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_6: -1311646277
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_7: -1148310179
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_8: -183030620
+      Neo Geo NGCD - Metal Slug - Landseek_transparent_9: -140128813
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
