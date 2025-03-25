@@ -1,8 +1,6 @@
 using System;
+using System.Linq;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
-
-
 
 /// <summary>
 /// 객체를 함수의 인수로 전달하여 작업을 수행하고 결과를 반환합니다. <br />
@@ -64,6 +62,30 @@ public static class CodeExtensions
     }
 
     /// <summary>
+    ///condition이 true일 때 value를 target대신 value가 반환됩니다.
+    /// </summary>
+    /// <typeparam name="T">입력 객체의 타입</typeparam>
+    /// <param name="target">작업의 대상 객체</param>
+    /// <param name="condition">조건</param>
+    /// <param name="value">바꿀 값</param>
+    public static T ChangeIfTrue<T>(this T target, bool condition, T value) where T : class
+    {
+        return condition ? value : target;
+    }
+
+    /// <summary>
+    ///condition이 true일 때 value를 target대신 value가 반환됩니다.(struct 전용)
+    /// </summary>
+    /// <typeparam name="T">입력 객체의 타입</typeparam>
+    /// <param name="target">작업의 대상 객체</param>
+    /// <param name="condition">조건</param>
+    /// <param name="value">바꿀 값</param>
+    public static T ChangeIfTrue<T>(this ref T target, bool condition, T value) where T : struct
+    {
+        return condition ? value : target;
+    }
+
+    /// <summary>
     /// value가 True일 때 1f을 반환하고, False일 때 -1f을 반환합니다.
     /// </summary>
     /// <param name="goRight"></param>
@@ -121,5 +143,35 @@ public static class CodeExtensions
     public static void ChangeZ(this ref Vector3 target, float z)
     {
         target = new Vector3(target.x, target.y, z);
+    }
+
+    /// <summary>
+    /// target에 value의 최소값을 대입합니다.
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="value"></param>
+    public static void Min(this ref float target, params float [] value) 
+    {
+        float temp = target;
+        foreach (var v in value)
+        {
+            temp = Mathf.Min(temp, v);
+        }
+        target = temp;
+    }
+
+    /// <summary>
+    /// target에 value의 최대값을 대입합니다.
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="value"></param>
+    public static void Max(this float target, params float[] value)
+    {
+        float temp = target;
+        foreach (var v in value)
+        {
+            temp = Mathf.Max(temp, v);
+        }
+        target = temp;
     }
 }

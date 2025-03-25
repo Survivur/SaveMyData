@@ -7,7 +7,8 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
 
     public float Damage { get; protected set; } = 1f;
 
-    public float Health { get; protected set; } = 100f;
+    public float MaxHealth { get; protected set; } = 10f;
+    public float Health { get; protected set; } = 10f;
 
     public virtual List<string> TargetTags { get; } = new List<string>();
 
@@ -30,5 +31,12 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
     public virtual void TakeDamage(float dmg, Vector2 dir)
     {
         IHittable.ApplyKnockback(rigidbody2D, dmg, dir);
+        Debug.Log($"{name} takes {dmg} damage. now hp is {Health}.");
+        // 데미지를 최대 체력만큼만 받을 수 있게합니다.
+        Health -= Mathf.Min(dmg, Health);
+        if (IHittable.CheckDead(this))
+        {
+            Destroy(gameObject);
+        }
     }
 }
