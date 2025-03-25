@@ -5,6 +5,6 @@ public class SceneController : MonoBehaviour
 {
     public void LoadSecondScene()
     {
-        SceneManager.LoadScene("SecondScene"); // SecondSceneÀ¸·Î ÀÌµ¿
+        SceneManager.LoadScene("SecondScene"); // SecondSceneìœ¼ë¡œ ì´ë™
     }
 }

@@ -12,11 +12,11 @@ using System.Diagnostics;
 
 public class LobbyManager : MonoBehaviour, IChatClientListener
 {
-    //public TMP_Text chatDisplay; // Ã¤ÆÃ ¸Ş½ÃÁö Ãâ·Â
+    //public TMP_Text chatDisplay; // ì±„íŒ… ë©”ì‹œì§€ ì¶œë ¥
     public ScrollRect chatScrollRect;
-    public TMP_InputField chatInput; // Ã¤ÆÃ ÀÔ·ÂÃ¢
-    public Button sendChatButton; // Ã¤ÆÃ Àü¼Û ¹öÆ°
-    public Button leaveLobbyButton; // ·Îºñ ³ª°¡±â ¹öÆ°
+    public TMP_InputField chatInput; // ì±„íŒ… ì…ë ¥ì°½
+    public Button sendChatButton; // ì±„íŒ… ì „ì†¡ ë²„íŠ¼
+    public Button leaveLobbyButton; // ë¡œë¹„ ë‚˜ê°€ê¸° ë²„íŠ¼
 
     private ChatClient chatClient;
     private string userId;
@@ -33,17 +33,17 @@ public class LobbyManager : MonoBehaviour, IChatClientListener
                 chatClient.UseBackgroundWorkerForSending = true;
                 chatClient.Connect(appIdChat, "1.0", new Photon.Chat.AuthenticationValues(userId));
 
-                DebugReturn(DebugLevel.INFO,"[LobbyManager] Ã¤ÆÃ ¼­¹ö¿¡ ´Ù½Ã ¿¬°á ½Ãµµ");
+                DebugReturn(DebugLevel.INFO,"[LobbyManager] ì±„íŒ… ì„œë²„ì— ë‹¤ì‹œ ì—°ê²° ì‹œë„");
                 
             }
 
-            DebugReturn(DebugLevel.INFO, "[Start] chatClient.Connect() È£Ãâ ¿Ï·á");
+            DebugReturn(DebugLevel.INFO, "[Start] chatClient.Connect() í˜¸ì¶œ ì™„ë£Œ");
 
         }
         else
         {
-            DebugReturn(DebugLevel.WARNING, "[LobbyManager] Photon ¼­¹ö ¿¬°áÀÌ ²÷¾îÁ³½À´Ï´Ù. ´Ù½Ã ¿¬°áÀ» ½ÃµµÇÕ´Ï´Ù.");
-            PhotonNetwork.ConnectUsingSettings(); // Photon ¼­¹ö Àç¿¬°á
+            DebugReturn(DebugLevel.WARNING, "[LobbyManager] Photon ì„œë²„ ì—°ê²°ì´ ëŠì–´ì¡ŒìŠµë‹ˆë‹¤. ë‹¤ì‹œ ì—°ê²°ì„ ì‹œë„í•©ë‹ˆë‹¤.");
+            PhotonNetwork.ConnectUsingSettings(); // Photon ì„œë²„ ì¬ì—°ê²°
         }
         sendChatButton.onClick.AddListener(SendChatMessage);
         leaveLobbyButton.onClick.AddListener(LeaveLobby);
@@ -53,7 +53,7 @@ public class LobbyManager : MonoBehaviour, IChatClientListener
     {
         if (chatClient != null)
         {
-            chatClient.Service(); // Ã¤ÆÃ ¸Ş½ÃÁö ¼ö½Å
+            chatClient.Service(); // ì±„íŒ… ë©”ì‹œì§€ ìˆ˜ì‹ 
         }
     }
 
@@ -70,48 +70,48 @@ public class LobbyManager : MonoBehaviour, IChatClientListener
     {
         PhotonNetwork.LeaveLobby();
         PhotonNetwork.Disconnect();
-        SceneManager.LoadScene("StartScene"); // ½ÃÀÛ ¾ÀÀ¸·Î ÀÌµ¿
+        SceneManager.LoadScene("StartScene"); // ì‹œì‘ ì”¬ìœ¼ë¡œ ì´ë™
     }
 
-    // IChatClientListener ÀÎÅÍÆäÀÌ½º ±¸Çö
+    // IChatClientListener ì¸í„°í˜ì´ìŠ¤ êµ¬í˜„
     public void OnConnected()
     {
         if(chatClient == null)
         {
-            DebugReturn(DebugLevel.ERROR, "[OnConnected] chatClient°¡ nullÀÔ´Ï´Ù. Ã¤ÆÃ ¿¬°áÀÌ Á¤»óÀûÀ¸·Î ÀÌ·ç¾îÁöÁö ¾Ê¾Ò½À´Ï´Ù.");
+            DebugReturn(DebugLevel.ERROR, "[OnConnected] chatClientê°€ nullì…ë‹ˆë‹¤. ì±„íŒ… ì—°ê²°ì´ ì •ìƒì ìœ¼ë¡œ ì´ë£¨ì–´ì§€ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
             return;
         }
 
-        DebugReturn(DebugLevel.INFO, "[OnConnected] Ã¤ÆÃ ¼­¹ö ¿¬°á ¼º°ø!");
+        DebugReturn(DebugLevel.INFO, "[OnConnected] ì±„íŒ… ì„œë²„ ì—°ê²° ì„±ê³µ!");
         chatClient.Subscribe(new string[] { "Lobby" });
     }
 
     public void OnDisconnected()
     {
-        DebugReturn(DebugLevel.WARNING, "[OnDisconnected] Ã¤ÆÃ ¼­¹ö ¿¬°áÀÌ ²÷¾îÁ³½À´Ï´Ù!!!");
+        DebugReturn(DebugLevel.WARNING, "[OnDisconnected] ì±„íŒ… ì„œë²„ ì—°ê²°ì´ ëŠì–´ì¡ŒìŠµë‹ˆë‹¤!!!");
 
         if(chatClient != null)
         {
             string userId = PhotonNetwork.NickName;
             chatClient.Connect(PhotonNetwork.PhotonServerSettings.AppSettings.AppIdChat, "1.0", new Photon.Chat.AuthenticationValues(userId));
-            DebugReturn(DebugLevel.INFO, "[OnDisconnected] Ã¤ÆÃ ¼­¹ö Àç¿¬°á ½Ãµµ Áß...");
+            DebugReturn(DebugLevel.INFO, "[OnDisconnected] ì±„íŒ… ì„œë²„ ì¬ì—°ê²° ì‹œë„ ì¤‘...");
             
         }
     }
 
     public void OnChatStateChange(ChatState state)
     {
-        DebugReturn(DebugLevel.INFO, $"[OnChatStateChange] »óÅÂ º¯°æ: {state}");
+        DebugReturn(DebugLevel.INFO, $"[OnChatStateChange] ìƒíƒœ ë³€ê²½: {state}");
     }
 
     public void OnSubscribed(string[] channels, bool[] results)
     {
-        DebugReturn(DebugLevel.INFO, $"[OnSubscribed] Ã¤ÆÃ¹æ ÀÔÀå");
+        DebugReturn(DebugLevel.INFO, $"[OnSubscribed] ì±„íŒ…ë°© ì…ì¥");
     }
 
     public void OnUnsubscribed(string[] channels)
     {
-        DebugReturn(DebugLevel.INFO, $"[OnUnsubscribed] Ã¤ÆÃ¹æ ÅğÀå");
+        DebugReturn(DebugLevel.INFO, $"[OnUnsubscribed] ì±„íŒ…ë°© í‡´ì¥");
     }
 
     public Transform chatContent;

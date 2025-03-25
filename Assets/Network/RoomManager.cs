@@ -14,24 +14,24 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        // ½ÃÀÛÇÒ ¶§´Â ÇÃ·¹ÀÌ ¹öÆ°¸¸ ºñÈ°¼ºÈ­
+        // ì‹œì‘í•  ë•ŒëŠ” í”Œë ˆì´ ë²„íŠ¼ë§Œ ë¹„í™œì„±í™”
         playButton.gameObject.SetActive(false);
 
-        // ¹æ¿¡ ÀÔÀåÇÑ »óÅÂÀÎÁö ¸ÕÀú È®ÀÎ
+        // ë°©ì— ì…ì¥í•œ ìƒíƒœì¸ì§€ ë¨¼ì € í™•ì¸
         if (PhotonNetwork.InRoom)
         {
             UpdatePlayerList();
         }
         else
         {
-            Debug.Log("¾ÆÁ÷ ¹æ¿¡ ÀÔÀåÇÏÁö ¾Ê¾Ò½À´Ï´Ù. ¹æ ÀÔÀå ½Ã ÇÃ·¹ÀÌ¾î ¸ñ·ÏÀÌ ¾÷µ¥ÀÌÆ®µË´Ï´Ù.");
-            playerListText.text = "¹æ¿¡ ÀÔÀå Áß...";
+            Debug.Log("ì•„ì§ ë°©ì— ì…ì¥í•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤. ë°© ì…ì¥ ì‹œ í”Œë ˆì´ì–´ ëª©ë¡ì´ ì—…ë°ì´íŠ¸ë©ë‹ˆë‹¤.");
+            playerListText.text = "ë°©ì— ì…ì¥ ì¤‘...";
         }
     }
 
     public override void OnJoinedRoom()
     {
-        Debug.Log("¹æ ÀÔÀå ¿Ï·á! ÇÃ·¹ÀÌ¾î ¸ñ·ÏÀ» ¾÷µ¥ÀÌÆ®ÇÕ´Ï´Ù.");
+        Debug.Log("ë°© ì…ì¥ ì™„ë£Œ! í”Œë ˆì´ì–´ ëª©ë¡ì„ ì—…ë°ì´íŠ¸í•©ë‹ˆë‹¤.");
         UpdatePlayerList();
     }
 
@@ -61,7 +61,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
         StringBuilder sb = new StringBuilder();
 
-        sb.AppendLine("ÇöÀç ÀÔÀåÇÑ ÇÃ·¹ÀÌ¾î");
+        sb.AppendLine("í˜„ì¬ ì…ì¥í•œ í”Œë ˆì´ì–´");
         sb.AppendLine("-------------------");
 
         foreach (var player in PhotonNetwork.PlayerList)
@@ -70,7 +70,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         }
         playerListText.text = sb.ToString();
 
-        // ¹æ¿¡ 2¸íÀÌ µÇ¸é ÇÃ·¹ÀÌ ¹öÆ° È°¼ºÈ­
+        // ë°©ì— 2ëª…ì´ ë˜ë©´ í”Œë ˆì´ ë²„íŠ¼ í™œì„±í™”
         playButton.gameObject.SetActive(PhotonNetwork.CurrentRoom.PlayerCount == 2);
     }
 
