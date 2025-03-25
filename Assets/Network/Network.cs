@@ -40,91 +40,71 @@ public class Network : MonoBehaviourPunCallbacks
         RoomInButton.onClick.AddListener(RoomIn);
         RoomOutButton.onClick.AddListener(RoomOut);
         PhotonNetwork.ConnectUsingSettings();
+        nicknameInput.onEndEdit.AddListener(SetNickname);
     }
 
     public override void OnConnectedToMaster()
     {
-        print("¼­¹öÁ¢¼Ó ¿Ï·á");
+        print("ì„œë²„ì ‘ì† ì™„ë£Œ");
         PhotonNetwork.LocalPlayer.NickName = nicknameInput.text;
         SetButtonsActive(true);
     }
 
-    /*public void OnDisconnected() => print("Ã¤ÆÃ ¼­¹ö ¿¬°á ²÷±è");
-    public void OnChatStateChange(ChatState state) { }
-    public new void OnConnected() => chatClient.Subscribe(new string[] { "Lobby" });
-    public void OnSubscribed(string[] channels, bool[] results) => print("Ã¤ÆÃ¹æ ÀÔÀå ¿Ï·á");
-    public void OnUnsubscribed(string[] channels) { }
-    public void OnStatusUpdate(string user, int status, bool gotMessage, object message) { }
-    public void OnUserSubscribed(string channel, string user) { }
-    public void OnUserUnsubscribed(string channel, string user) { }
-
-    public void OnPrivateMessage(string sender, object message, string channeName)
+    void SetNickname(string nickname)
     {
-        print($"[°³ÀÎ ¸Ş½ÃÁö]{sender}:{message}");
+        PhotonNetwork.NickName = nickname;
     }
 
-    public void OnGetMessages(string channelName, string[] senders, object[] messages)
-    {
-        for (int i = 0; i < senders.Length; i++)
-        {
-            chatDisplay.text += $"{senders[i]}: {messages[i]}\n";
-        }
-    }
-
-    public void DebugReturn(DebugLevel level, string message)
-    {
-        UnityEngine.Debug.Log($"[Photon Chat Debug] {level}: {message}");
-    }*/
 
     public void Disconnect()
     {
         PhotonNetwork.Disconnect();
-        print("¼­¹ö¿¬°á ²÷±è");
-        SceneManager.LoadScene("StartScene"); // StartSceneÀ¸·Î ÀÌµ¿
+        print("ì„œë²„ì—°ê²° ëŠê¹€");
+        SceneManager.LoadScene("StartScene"); // StartSceneìœ¼ë¡œ ì´ë™
     }
 
     /*public override void OnDisconnected(DisconnectCause cause)
     {
-        print("¼­¹ö¿¬°á ²÷±è");
+        print("ì„œë²„ì—°ê²° ëŠê¹€");
     }*/
 
     public void Robby() => PhotonNetwork.JoinLobby();
     public override void OnJoinedLobby()
     {
-        print("·Îºñ Á¢¼Ó ¿Ï·á");
+        print("ë¡œë¹„ ì ‘ì† ì™„ë£Œ");
         SceneManager.LoadScene("LobbyScene");
     }
 
     public void RoomMake() => PhotonNetwork.CreateRoom(roomInput.text, new RoomOptions { MaxPlayers = 2 });
-    public override void OnCreatedRoom() => print("¹æ ¸¸µé±â ¿Ï·á");
-    public override void OnCreateRoomFailed(short returnCode, string message) => print("¹æ ¸¸µé±â ½ÇÆĞ");
+    public override void OnCreatedRoom() => print("ë°© ë§Œë“¤ê¸° ì™„ë£Œ");
+    public override void OnCreateRoomFailed(short returnCode, string message) => print("ë°© ë§Œë“¤ê¸° ì‹¤íŒ¨");
 
     public void RoomIn() => PhotonNetwork.JoinRoom(roomInput.text);
-    public override void OnJoinedRoom() => print("¹æ Âü°¡ ¿Ï·á");
-    public override void OnJoinRandomFailed(short returnCode, string message) => print("¹æ Âü°¡ ½ÇÆĞ");
+    public override void OnJoinedRoom() => print("ë°© ì°¸ê°€ ì™„ë£Œ");
+    public override void OnJoinRandomFailed(short returnCode, string message) => print("ë°© ì°¸ê°€ ì‹¤íŒ¨");
 
     public void RoomOut() => PhotonNetwork.LeaveRoom();
-    public override void OnLeftRoom() => print("¹æ ¶°³²");
+    public override void OnLeftRoom() => print("ë°© ë– ë‚¨");
 
-    [ContextMenu("Á¤º¸")]
+    [ContextMenu("ì •ë³´")]
     void Info()
     {
         if (PhotonNetwork.InRoom)
         {
-            print("ÇöÀç ¹æ ÀÌ¸§ : " + PhotonNetwork.CurrentRoom.Name);
-            print("ÇöÀç ¹æ ÀÎ¿ø¼ö : " + PhotonNetwork.CurrentRoom.PlayerCount);
-            print("ÇöÀç ¹æ ÃÖ´ëÀÎ¿ø¼ö : " + PhotonNetwork.CurrentRoom.MaxPlayers);
-            string playerStr = "¹æ¿¡ ÀÖ´Â ÇÃ·¹ÀÌ¾î ¸ñ·Ï : ";
+            print("í˜„ì¬ ë°© ì´ë¦„ : " + PhotonNetwork.CurrentRoom.Name);
+            print("í˜„ì¬ ë°© ì¸ì›ìˆ˜ : " + PhotonNetwork.CurrentRoom.PlayerCount);
+            print("í˜„ì¬ ë°© ìµœëŒ€ì¸ì›ìˆ˜ : " + PhotonNetwork.CurrentRoom.MaxPlayers);
+            string playerStr = "ë°©ì— ìˆëŠ” í”Œë ˆì´ì–´ ëª©ë¡ : ";
             foreach (var player in PhotonNetwork.PlayerList) playerStr += player.NickName + ", ";
             print(playerStr);
         }
         else
         {
-            print("Á¢¼ÓÇÑ ÀÎ¿ø ¼ö : " + PhotonNetwork.CountOfPlayers);
-            print("¹æ °³¼ö : " + PhotonNetwork.CountOfRooms);
-            print("¸ğµç ¹æ¿¡ ÀÖ´Â ÀÎ¿ø ¼ö : " + PhotonNetwork.CountOfPlayersInRooms);
-            print("·Îºñ¿¡ ÀÖ´ÂÁö? : " + PhotonNetwork.InLobby);
-            print("¿¬°áµÆ´ÂÁö? : " + PhotonNetwork.IsConnected);
+            print("ì ‘ì†í•œ ì¸ì› ìˆ˜ : " + PhotonNetwork.CountOfPlayers);
+            print("ë°© ê°œìˆ˜ : " + PhotonNetwork.CountOfRooms);
+            print("ëª¨ë“  ë°©ì— ìˆëŠ” ì¸ì› ìˆ˜ : " + PhotonNetwork.CountOfPlayersInRooms);
+            print("ë¡œë¹„ì— ìˆëŠ”ì§€? : " + PhotonNetwork.InLobby);
+            print("ì—°ê²°ëëŠ”ì§€? : " + PhotonNetwork.IsConnected);
         }
     }
 
