@@ -22,7 +22,11 @@ AssetImportWorker0
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
+<<<<<<< Updated upstream
 51747
+=======
+49492
+>>>>>>> Stashed changes
 -job-worker-count
 3
 -background-job-worker-count
@@ -66,12 +70,21 @@ Successfully changed project path to: /Users/baggang-gyu/Unity/SaveMyData
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
+<<<<<<< Updated upstream
 Player connection [8514881600]  Target information:
 
 Player connection [8514881600]  * "[IP] 10.10.10.218 [Port] 0 [Flags] 2 [Guid] 232238027 [EditorId] 232238027 [Version] 1048832 [Id] OSXEditor(0,baggang-gyuui-MacBookAir-2.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" 
 
 Player connection [8514881600] Host joined multi-casting on [225.0.0.222:54997]...
 Player connection [8514881600] Host joined alternative multi-casting on [225.0.0.222:34997]...
+=======
+Player connection [8680360000]  Target information:
+
+Player connection [8680360000]  * "[IP] 192.168.118.153 [Port] 0 [Flags] 2 [Guid] 3493727957 [EditorId] 3493727957 [Version] 1048832 [Id] OSXEditor(0,baggang-gyuui-MacBookAir-2.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" 
+
+Player connection [8680360000] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [8680360000] Host joined alternative multi-casting on [225.0.0.222:34997]...
+>>>>>>> Stashed changes
 JobSystem: Creating JobQueue using job-worker-count value 3
 [Physics::Module] Initialized fallback backend.
 [Physics::Module] Id: 0xdecafbad
@@ -82,7 +95,11 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
+<<<<<<< Updated upstream
 Refreshing native plugins compatible for Editor in 3.29 ms, found 2 plugins.
+=======
+Refreshing native plugins compatible for Editor in 1.83 ms, found 2 plugins.
+>>>>>>> Stashed changes
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.0.25f1 (4859ab7b5a49)
 [Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/6000.0.25f1/Unity.app/Contents/Resources/UnitySubsystems
@@ -97,11 +114,16 @@ Initialize mono
 Mono path[0] = '/Applications/Unity/Hub/Editor/6000.0.25f1/Unity.app/Contents/Managed'
 Mono path[1] = '/Applications/Unity/Hub/Editor/6000.0.25f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit-macos'
 Mono config path = '/Applications/Unity/Hub/Editor/6000.0.25f1/Unity.app/Contents/MonoBleedingEdge/etc'
+<<<<<<< Updated upstream
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56158
+=======
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56558
+>>>>>>> Stashed changes
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: /Applications/Unity/Hub/Editor/6000.0.25f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
 Register platform support module: /Applications/Unity/Hub/Editor/6000.0.25f1/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+<<<<<<< Updated upstream
 Registered in 0.003414 seconds.
 - Loaded All Assemblies, in  0.346 seconds
 Native extension for Android target not found
@@ -111,11 +133,23 @@ Mono: successfully reloaded assembly
 - Finished resetting the current domain, in  0.491 seconds
 Domain Reload Profiling: 838ms
 	BeginReloadAssembly (121ms)
+=======
+Registered in 0.002839 seconds.
+- Loaded All Assemblies, in  0.343 seconds
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 243 ms
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.679 seconds
+Domain Reload Profiling: 1023ms
+	BeginReloadAssembly (115ms)
+>>>>>>> Stashed changes
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
+<<<<<<< Updated upstream
 	RebuildCommonClasses (32ms)
 	RebuildNativeTypeToScriptingClass (10ms)
 	initialDomainReloadingComplete (38ms)
@@ -138,6 +172,30 @@ Domain Reload Profiling: 838ms
 			ProcessInitializeOnLoadAttributes (186ms)
 			ProcessInitializeOnLoadMethodAttributes (98ms)
 			AfterProcessingInitializeOnLoad (2ms)
+=======
+	RebuildCommonClasses (33ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (38ms)
+	LoadAllAssembliesAndSetupDomain (146ms)
+		LoadAssemblies (117ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (141ms)
+			TypeCache.Refresh (140ms)
+				TypeCache.ScanAssembly (125ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (680ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (630ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (312ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (4ms)
+			ProcessInitializeOnLoadAttributes (183ms)
+			ProcessInitializeOnLoadMethodAttributes (109ms)
+			AfterProcessingInitializeOnLoad (19ms)
+>>>>>>> Stashed changes
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (0ms)
@@ -145,6 +203,7 @@ Domain Reload Profiling: 838ms
 Worker process is ready to serve import requests
 Import Worker Mode flag is 0x00
 Begin MonoManager ReloadAssembly
+<<<<<<< Updated upstream
 - Loaded All Assemblies, in  1.340 seconds
 Refreshing native plugins compatible for Editor in 0.25 ms, found 2 plugins.
 Native extension for Android target not found
@@ -153,10 +212,21 @@ Mono: successfully reloaded assembly
 - Finished resetting the current domain, in  0.780 seconds
 Domain Reload Profiling: 2118ms
 	BeginReloadAssembly (788ms)
+=======
+- Loaded All Assemblies, in  1.286 seconds
+Refreshing native plugins compatible for Editor in 0.33 ms, found 2 plugins.
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.794 seconds
+Domain Reload Profiling: 2075ms
+	BeginReloadAssembly (721ms)
+>>>>>>> Stashed changes
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (4ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
+<<<<<<< Updated upstream
 		CreateAndSetChildDomain (40ms)
 	RebuildCommonClasses (29ms)
 	RebuildNativeTypeToScriptingClass (10ms)
@@ -179,11 +249,36 @@ Domain Reload Profiling: 2118ms
 			BeforeProcessingInitializeOnLoad (46ms)
 			ProcessInitializeOnLoadAttributes (461ms)
 			ProcessInitializeOnLoadMethodAttributes (62ms)
+=======
+		CreateAndSetChildDomain (37ms)
+	RebuildCommonClasses (30ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (27ms)
+	LoadAllAssembliesAndSetupDomain (492ms)
+		LoadAssemblies (314ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (220ms)
+			TypeCache.Refresh (164ms)
+				TypeCache.ScanAssembly (146ms)
+			BuildScriptInfoCaches (45ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (795ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (579ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (7ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (48ms)
+			ProcessInitializeOnLoadAttributes (454ms)
+			ProcessInitializeOnLoadMethodAttributes (64ms)
+>>>>>>> Stashed changes
 			AfterProcessingInitializeOnLoad (2ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (2ms)
 Launching external process: /Applications/Unity/Hub/Editor/6000.0.25f1/Unity.app/Contents/Tools/UnityShaderCompiler
+<<<<<<< Updated upstream
 Launched and connected shader compiler UnityShaderCompiler after 0.07 seconds
 Refreshing native plugins compatible for Editor in 0.99 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
@@ -191,6 +286,15 @@ Unloading 214 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 6252 unused Assets / (2.4 MB). Loaded Objects now: 7053.
 Memory consumption went from 185.2 MB to 182.8 MB.
 Total: 11.658916 ms (FindLiveObjects: 2.399375 ms CreateObjectMapping: 0.244167 ms MarkObjects: 6.969208 ms  DeleteObjects: 2.045625 ms)
+=======
+Launched and connected shader compiler UnityShaderCompiler after 0.06 seconds
+Refreshing native plugins compatible for Editor in 0.32 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 214 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6252 unused Assets / (4.1 MB). Loaded Objects now: 7053.
+Memory consumption went from 185.3 MB to 181.2 MB.
+Total: 7.430750 ms (FindLiveObjects: 0.470542 ms CreateObjectMapping: 0.279084 ms MarkObjects: 4.793416 ms  DeleteObjects: 1.887084 ms)
+>>>>>>> Stashed changes
 
 ========================================================================
 Received Prepare
@@ -244,15 +348,439 @@ Total: 9.229625 ms (FindLiveObjects: 0.720208 ms CreateObjectMapping: 0.259292 m
 Prepare: number of updated asset objects reloaded= 0
 ========================================================================
 Received Import Request.
+<<<<<<< Updated upstream
   Time since last request: 118846.727563 seconds.
   path: Assets/Scenes/RoomScene.unity
   artifactKey: Guid(7d22e12bef852e2498932383783a50ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Scenes/RoomScene.unity using Guid(7d22e12bef852e2498932383783a50ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c9af9bf8cf083c5030e700d6f413102f') in 0.0039975 seconds
+=======
+  Time since last request: 6453.079471 seconds.
+  path: Assets/Resources/Sprite/Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent.png
+  artifactKey: Guid(48905e23c4547482f9a5015db9e79184) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent.png using Guid(48905e23c4547482f9a5015db9e79184) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '14e196cd136bfa642d13ae42419369cf') in 0.05161025 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.005223 seconds.
+  path: Assets/Resources/Sprite/Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent.png
+  artifactKey: Guid(48905e23c4547482f9a5015db9e79184) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent.png using Guid(48905e23c4547482f9a5015db9e79184) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '59dc0a7854badea5be02ef34dfdc9973') in 0.01455775 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 302.929532 seconds.
+  path: Assets/Resources/Sprite/Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent.png
+  artifactKey: Guid(48905e23c4547482f9a5015db9e79184) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent.png using Guid(48905e23c4547482f9a5015db9e79184) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'cca52986bc5609fcdb07d22adae89d99') in 0.386875167 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 128
+
+========================================================================
+Received Import Request.
+  Time since last request: 25.625616 seconds.
+  path: Packages/com.unity.2d.sprite/Editor/ObjectMenuCreation/DefaultAssets/Textures/v2/Capsule.png
+  artifactKey: Guid(207ee8102dd4143d288186ef0be518ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.sprite/Editor/ObjectMenuCreation/DefaultAssets/Textures/v2/Capsule.png using Guid(207ee8102dd4143d288186ef0be518ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '24b2b28ced4095872a8a5a55ff528db7') in 0.007445042 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Packages/com.unity.2d.sprite/Editor/ObjectMenuCreation/DefaultAssets/Textures/Capsule.png
+  artifactKey: Guid(bd3cb4af8406d4436a2ae8c2aafe1f8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.sprite/Editor/ObjectMenuCreation/DefaultAssets/Textures/Capsule.png using Guid(bd3cb4af8406d4436a2ae8c2aafe1f8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f7076d21b5e52a2a6fd1c86a12315be0') in 0.006394291 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Packages/com.unity.2d.sprite/Editor/ObjectMenuCreation/DefaultAssets/Textures/CircleWithBorder.png
+  artifactKey: Guid(4adeaf2d2b1c7417e89f026626d8264f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.sprite/Editor/ObjectMenuCreation/DefaultAssets/Textures/CircleWithBorder.png using Guid(4adeaf2d2b1c7417e89f026626d8264f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8de4c0617a1281ed4eccc4fe52de3a84') in 0.009532292 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.226439 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/Assets/Images/buttonssosigninunity@2x.png
+  artifactKey: Guid(ee8ce5cd9c0883f4182b5cfd43cfd7fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/Assets/Images/buttonssosigninunity@2x.png using Guid(ee8ce5cd9c0883f4182b5cfd43cfd7fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ea25d8551c3f864d15b03bb51b09e49c') in 0.011182375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/COPY SPRIGHT/Comic Battle Royale/2D Character - Astronaut/Variant C/Sprites/Tilemap/Block_01.png
+  artifactKey: Guid(19b6eed4b17a4b65886b7d5550712d38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/COPY SPRIGHT/Comic Battle Royale/2D Character - Astronaut/Variant C/Sprites/Tilemap/Block_01.png using Guid(19b6eed4b17a4b65886b7d5550712d38) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '50c469b2aaa48b8e942f06280f54500d') in 0.010450333 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Packages/com.unity.render-pipelines.core/Editor/LookDev/Icons/Add.png
+  artifactKey: Guid(cbaeed03e5416aa4bae23110b63a0c7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.core/Editor/LookDev/Icons/Add.png using Guid(cbaeed03e5416aa4bae23110b63a0c7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fb9b4909e16c44fca8194ba350c5e5d7') in 0.009055125 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/COPY SPRIGHT/Comic Battle Royale/2D Character - Astronaut/Variant E/Sprites/Character/vanish/32.png
+  artifactKey: Guid(918a5e105e2e4a18933e32269fa4eb29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/COPY SPRIGHT/Comic Battle Royale/2D Character - Astronaut/Variant E/Sprites/Character/vanish/32.png using Guid(918a5e105e2e4a18933e32269fa4eb29) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4a2ee5da8e414515b897a3223a427495') in 0.006457667 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Packages/com.unity.render-pipelines.core/Editor/LookDev/Icons/Add@2x.png
+  artifactKey: Guid(79aba0b290c471c4ba3d3f818d4e9b15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.core/Editor/LookDev/Icons/Add@2x.png using Guid(79aba0b290c471c4ba3d3f818d4e9b15) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '55328606870c86e3cbe29c9672f80038') in 0.0052605 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/COPY SPRIGHT/Comic Battle Royale/2D Character - Astronaut/Variant A/Sprites/Tilemap/Block_01.png
+  artifactKey: Guid(65745db1a4584b5c80590eba821edd5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/COPY SPRIGHT/Comic Battle Royale/2D Character - Astronaut/Variant A/Sprites/Tilemap/Block_01.png using Guid(65745db1a4584b5c80590eba821edd5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e6334a62cbb788df1853b4c60ea4f52c') in 0.008258958 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.280362 seconds.
+  path: Assets/COPY SPRIGHT/Comic Battle Royale/2D Character - Astronaut/Variant C/Sprites/Character/vanish/31.png
+  artifactKey: Guid(9c2aa7fc5de641e8a82f4fb1aae01aed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/COPY SPRIGHT/Comic Battle Royale/2D Character - Astronaut/Variant C/Sprites/Character/vanish/31.png using Guid(9c2aa7fc5de641e8a82f4fb1aae01aed) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8e99fcb5ff26f73dfdb79756aa4d564f') in 0.005584375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/COPY SPRIGHT/Comic Battle Royale/2D Character - Astronaut/Variant C/Sprites/Character/vanish/30.png
+  artifactKey: Guid(4fe3ce35785c4a5bae4858197f588f27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/COPY SPRIGHT/Comic Battle Royale/2D Character - Astronaut/Variant C/Sprites/Character/vanish/30.png using Guid(4fe3ce35785c4a5bae4858197f588f27) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '30acd44b5fd73bf9856030bc5dc37d83') in 0.007113125 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000070 seconds.
+  path: Assets/COPY SPRIGHT/Comic Battle Royale/2D Character - Astronaut/Variant A/Sprites/Character/vanish/31.png
+  artifactKey: Guid(3cc04abb43a94544899f6f78ff75f0b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/COPY SPRIGHT/Comic Battle Royale/2D Character - Astronaut/Variant A/Sprites/Character/vanish/31.png using Guid(3cc04abb43a94544899f6f78ff75f0b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '317712408e0be1a717d540433df24935') in 0.007625417 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000073 seconds.
+  path: Assets/COPY SPRIGHT/Comic Battle Royale/2D Character - Astronaut/Variant A/Sprites/Character/vanish/30.png
+  artifactKey: Guid(5b423499d80645bc8542456588a2a0eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/COPY SPRIGHT/Comic Battle Royale/2D Character - Astronaut/Variant A/Sprites/Character/vanish/30.png using Guid(5b423499d80645bc8542456588a2a0eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ff364b64c9497df37fd52b386e0f9b0a') in 0.007157625 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000062 seconds.
+  path: Assets/COPY SPRIGHT/Comic Battle Royale/2D Character - Astronaut/Variant A/Sprites/Character/vanish/29.png
+  artifactKey: Guid(968d43b8f19a49b38e222f0e58bdfdc0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/COPY SPRIGHT/Comic Battle Royale/2D Character - Astronaut/Variant A/Sprites/Character/vanish/29.png using Guid(968d43b8f19a49b38e222f0e58bdfdc0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5dd27358e817c3cc33ff93fc1c93d0f8') in 0.010190708 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/COPY SPRIGHT/Comic Battle Royale/2D Character - Astronaut/Variant E/Sprites/Character/vanish/30.png
+  artifactKey: Guid(2bc26771672a4c7f822c2818841bb1e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/COPY SPRIGHT/Comic Battle Royale/2D Character - Astronaut/Variant E/Sprites/Character/vanish/30.png using Guid(2bc26771672a4c7f822c2818841bb1e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f35000b2b5112ae9c74ff53340c06405') in 0.007781916 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/COPY SPRIGHT/Comic Battle Royale/2D Character - Astronaut/Variant D/Sprites/Character/vanish/31.png
+  artifactKey: Guid(d85bd31be0e74800b0658dfd7d0fa434) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/COPY SPRIGHT/Comic Battle Royale/2D Character - Astronaut/Variant D/Sprites/Character/vanish/31.png using Guid(d85bd31be0e74800b0658dfd7d0fa434) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '06672f0aa9a6a821a778cc5b9ac12c78') in 0.00668425 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.450266 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones.png
+  artifactKey: Guid(48905e23c4547482f9a5015db9e79184) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones.png using Guid(48905e23c4547482f9a5015db9e79184) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '00c0b39c9ed04071520fa598ddfb72d7') in 0.340916291 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 128
+
+========================================================================
+Received Import Request.
+  Time since last request: 26.673133 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/Assets/Images/iconbranch@2x.png
+  artifactKey: Guid(425970578f3342a43b40545d1ac8a25d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/Assets/Images/iconbranch@2x.png using Guid(425970578f3342a43b40545d1ac8a25d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '09a10f00c72131914ec212ed046eec68') in 0.009808292 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000063 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/Assets/Images/d_iconbranch@2x.png
+  artifactKey: Guid(267a89f787a621e4290fbff7a5442750) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/Assets/Images/d_iconbranch@2x.png using Guid(267a89f787a621e4290fbff7a5442750) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7d5c97f489f5abb66267aae55f2c4349') in 0.005370333 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.285309 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones
+  artifactKey: Guid(2dcf242170445428d853d75315c483a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones using Guid(2dcf242170445428d853d75315c483a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4211ce479d063056ac19caf1ee3251ff') in 0.0004045 seconds
+>>>>>>> Stashed changes
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.474097 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jones SpriteSheet.png
+  artifactKey: Guid(48905e23c4547482f9a5015db9e79184) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jones SpriteSheet.png using Guid(48905e23c4547482f9a5015db9e79184) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '80f342be90ca4f7d8d0a8a4a23527ae1') in 0.402797125 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 128
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.595472 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/New Animator Controller.controller
+  artifactKey: Guid(26414e30b5a99403bac58f807729a198) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/New Animator Controller.controller using Guid(26414e30b5a99403bac58f807729a198) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0c356243b4d1881d377e6e3b3abee5f4') in 0.004692167 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 36.379543 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf_Idle.anim
+  artifactKey: Guid(54389f96227aa4b4cadd657d845ee395) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf_Idle.anim using Guid(54389f96227aa4b4cadd657d845ee395) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8e9f38b133ba0bd30b58f9775d62e2fe') in 0.005805458 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 182.522856 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jone_Idle.anim
+  artifactKey: Guid(54389f96227aa4b4cadd657d845ee395) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jone_Idle.anim using Guid(54389f96227aa4b4cadd657d845ee395) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4d24ab60e76942d59084c2c34c87f8eb') in 0.018817 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.167007 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent..anim
+  artifactKey: Guid(0e91bdc864f184444b4d87897e7317db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent..anim using Guid(0e91bdc864f184444b4d87897e7317db) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8bc3ca7c6afaab60a0f510a3d3ba3c52') in 0.002514625 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.837218 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jones_Idle.anim
+  artifactKey: Guid(54389f96227aa4b4cadd657d845ee395) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jones_Idle.anim using Guid(54389f96227aa4b4cadd657d845ee395) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e932e4c6f97dbe6c0e184f2f051f135e') in 0.001069334 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.996564 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jone_Run.anim
+  artifactKey: Guid(0e91bdc864f184444b4d87897e7317db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jone_Run.anim using Guid(0e91bdc864f184444b4d87897e7317db) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dd1c8af74667b21942c7e8f1c329433e') in 0.00194925 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 36.607393 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jone_Punched.anim
+  artifactKey: Guid(d2d3364fd28fd4db0915dadb87ba7930) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jone_Punched.anim using Guid(d2d3364fd28fd4db0915dadb87ba7930) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ab09fba757dcc66ca7e30fb475512c92') in 0.000972084 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 31.761080 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jone_KnifeAttack.anim
+  artifactKey: Guid(27f50e601935d41dfb8db7d1188d9ff1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jone_KnifeAttack.anim using Guid(27f50e601935d41dfb8db7d1188d9ff1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '356781642621dc30d07f9998737371e3') in 0.00150475 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.407946 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jone_Punch.anim
+  artifactKey: Guid(d2d3364fd28fd4db0915dadb87ba7930) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jone_Punch.anim using Guid(d2d3364fd28fd4db0915dadb87ba7930) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2dca810dab37dac2c8d63d5458e5a4de') in 0.001925042 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 32.230915 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jones SpriteSheet.png
+  artifactKey: Guid(48905e23c4547482f9a5015db9e79184) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jones SpriteSheet.png using Guid(48905e23c4547482f9a5015db9e79184) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '58368fac40220fd364b994d3a08128a6') in 0.358638875 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 127
+
+========================================================================
+Received Import Request.
+  Time since last request: 39.505567 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jone_BalkanPunch.anim
+  artifactKey: Guid(315fdaa64b90d4492ab4de7eecff614d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jone_BalkanPunch.anim using Guid(315fdaa64b90d4492ab4de7eecff614d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dc23a4e098d9ed512eaae34f9072d68b') in 0.003132542 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 101.207790 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jone_VulkanPunch.anim
+  artifactKey: Guid(315fdaa64b90d4492ab4de7eecff614d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jone_VulkanPunch.anim using Guid(315fdaa64b90d4492ab4de7eecff614d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b9827dc3410efa7b8ef09183045064a6') in 0.011029708 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.542157 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jone_VulcanPunch.anim
+  artifactKey: Guid(315fdaa64b90d4492ab4de7eecff614d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jone_VulcanPunch.anim using Guid(315fdaa64b90d4492ab4de7eecff614d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '630f17e5009fa972d1c7492248212be0') in 0.000988917 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 64.503229 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jone_MachineGun.anim
+  artifactKey: Guid(1bcfec07a5e8140e789820fc57376e41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jone_MachineGun.anim using Guid(1bcfec07a5e8140e789820fc57376e41) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'caaf395f7d022453f929786eb520f2c4') in 0.004265292 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 20.728416 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jone_MachineGuns.anim
+  artifactKey: Guid(fe8edde75c328417ba08cc4fe5604df5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jone_MachineGuns.anim using Guid(fe8edde75c328417ba08cc4fe5604df5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c7564efbc64f005db5cd29d31547dc66') in 0.000932417 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.083790 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jone_MachineGunWithVFX.anim
+  artifactKey: Guid(1bcfec07a5e8140e789820fc57376e41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jone_MachineGunWithVFX.anim using Guid(1bcfec07a5e8140e789820fc57376e41) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6a0e65d3d264c94c45a9da7950f58c1a') in 0.001217458 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.434541 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jone_MachineGun.anim
+  artifactKey: Guid(fe8edde75c328417ba08cc4fe5604df5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jone_MachineGun.anim using Guid(fe8edde75c328417ba08cc4fe5604df5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '92ba699e2f7174a2f9e96e1868eaa243') in 0.00087725 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 33.011418 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jone_Die.anim
+  artifactKey: Guid(bda626ea611e741cc96321f439fea940) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jone_Die.anim using Guid(bda626ea611e741cc96321f439fea940) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4541ff1e7836ff5529f438a2afef3881') in 0.002029208 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 52.873636 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jones SpriteSheet.png
+  artifactKey: Guid(48905e23c4547482f9a5015db9e79184) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jones SpriteSheet.png using Guid(48905e23c4547482f9a5015db9e79184) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a168183cf5544f6b56bc8e6ff60fab1c') in 0.326633542 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 116
+
+========================================================================
+Received Import Request.
+  Time since last request: 40.931462 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jones SpriteSheet.png
+  artifactKey: Guid(48905e23c4547482f9a5015db9e79184) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jones SpriteSheet.png using Guid(48905e23c4547482f9a5015db9e79184) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b7c07c2023f5ad253597d23c91f699f1') in 0.409223542 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 113
+
+========================================================================
+Received Import Request.
+  Time since last request: 19.051021 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jones SpriteSheet.png
+  artifactKey: Guid(48905e23c4547482f9a5015db9e79184) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jones SpriteSheet.png using Guid(48905e23c4547482f9a5015db9e79184) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dad5df4f5c878ad052cdd467e09597a8') in 0.2898225 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 112
+
+========================================================================
+Received Import Request.
+  Time since last request: 31.972521 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jone_DieForBurn.anim
+  artifactKey: Guid(0cc6eb83884b44351a32f8157b931648) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jone_DieForBurn.anim using Guid(0cc6eb83884b44351a32f8157b931648) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6a75157ce771db94b14d8a350a444180') in 0.001062125 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.721284 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jone_DieWithFire.anim
+  artifactKey: Guid(0cc6eb83884b44351a32f8157b931648) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jone_DieWithFire.anim using Guid(0cc6eb83884b44351a32f8157b931648) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '43f3de9e4e0898e9f04e3df01954a70a') in 0.011107125 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.457030 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jone_WinPose.anim
+  artifactKey: Guid(315b7e6b670b84ab48d1a7990547a80f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jone_WinPose.anim using Guid(315b7e6b670b84ab48d1a7990547a80f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a8a31ef08d720f3968ff94d8254fdde3') in 0.000877 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.505446 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/New Animator Controller.controller
+  artifactKey: Guid(26414e30b5a99403bac58f807729a198) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/New Animator Controller.controller using Guid(26414e30b5a99403bac58f807729a198) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd325ecbe016b7950e958593c5f94d945') in 0.001832541 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 40.547551 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jone.controller
+  artifactKey: Guid(26414e30b5a99403bac58f807729a198) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jone.controller using Guid(26414e30b5a99403bac58f807729a198) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ed1d29b70b1abccabae4b4200797bd03') in 0.00402575 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.030281 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jones.controller
+  artifactKey: Guid(26414e30b5a99403bac58f807729a198) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jones.controller using Guid(26414e30b5a99403bac58f807729a198) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'aefb0362111e01f0f0ffb2aad1a1da0a') in 0.001100125 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.785444 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jones_VulcanPunch.anim
+  artifactKey: Guid(315fdaa64b90d4492ab4de7eecff614d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jones_VulcanPunch.anim using Guid(315fdaa64b90d4492ab4de7eecff614d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fc9f768ed3667554958aafc23be5456d') in 0.001296916 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.711469 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/s.anim
+  artifactKey: Guid(315b7e6b670b84ab48d1a7990547a80f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/s.anim using Guid(315b7e6b670b84ab48d1a7990547a80f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'da8a6a63e2962425af90ea96755d7e95') in 0.000929541 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
 
 ========================================================================
 Received Prepare
 Begin MonoManager ReloadAssembly
+<<<<<<< Updated upstream
 Thread 0x31d507000 may have been prematurely finalized
 - Loaded All Assemblies, in  0.703 seconds
 Refreshing native plugins compatible for Editor in 0.26 ms, found 2 plugins.
@@ -288,21 +816,142 @@ Domain Reload Profiling: 1494ms
 			BeforeProcessingInitializeOnLoad (44ms)
 			ProcessInitializeOnLoadAttributes (464ms)
 			ProcessInitializeOnLoadMethodAttributes (44ms)
+=======
+Thread 0x32298b000 may have been prematurely finalized
+- Loaded All Assemblies, in  0.729 seconds
+Refreshing native plugins compatible for Editor in 0.25 ms, found 2 plugins.
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.875 seconds
+Domain Reload Profiling: 1607ms
+	BeginReloadAssembly (208ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (14ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (1ms)
+		CreateAndSetChildDomain (86ms)
+	RebuildCommonClasses (30ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (20ms)
+	LoadAllAssembliesAndSetupDomain (464ms)
+		LoadAssemblies (297ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (218ms)
+			TypeCache.Refresh (32ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (168ms)
+			ResolveRequiredComponents (13ms)
+	FinalizeReload (876ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (618ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (8ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (64ms)
+			ProcessInitializeOnLoadAttributes (494ms)
+			ProcessInitializeOnLoadMethodAttributes (44ms)
+			AfterProcessingInitializeOnLoad (4ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Refreshing native plugins compatible for Editor in 0.30 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 24 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6250 unused Assets / (2.8 MB). Loaded Objects now: 7299.
+Memory consumption went from 174.9 MB to 172.1 MB.
+Total: 11.715000 ms (FindLiveObjects: 0.623125 ms CreateObjectMapping: 0.312375 ms MarkObjects: 6.900917 ms  DeleteObjects: 3.877583 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 60.903040 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jones_WinPose.anim
+  artifactKey: Guid(315b7e6b670b84ab48d1a7990547a80f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jones_WinPose.anim using Guid(315b7e6b670b84ab48d1a7990547a80f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd3aaedd5c7cf6cc843eb5fa460802eae') in 0.024189834 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.663972 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jones_Run.anim
+  artifactKey: Guid(0e91bdc864f184444b4d87897e7317db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jones_Run.anim using Guid(0e91bdc864f184444b4d87897e7317db) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '43057a2f477ca62b42945f39146e0f5c') in 0.001295583 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Thread 0x332b6b000 may have been prematurely finalized
+- Loaded All Assemblies, in  0.631 seconds
+Refreshing native plugins compatible for Editor in 0.27 ms, found 2 plugins.
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.793 seconds
+Domain Reload Profiling: 1427ms
+	BeginReloadAssembly (188ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (10ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (81ms)
+	RebuildCommonClasses (28ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (16ms)
+	LoadAllAssembliesAndSetupDomain (391ms)
+		LoadAssemblies (250ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (179ms)
+			TypeCache.Refresh (13ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (150ms)
+			ResolveRequiredComponents (13ms)
+	FinalizeReload (794ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (574ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (7ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (56ms)
+			ProcessInitializeOnLoadAttributes (462ms)
+			ProcessInitializeOnLoadMethodAttributes (42ms)
+>>>>>>> Stashed changes
 			AfterProcessingInitializeOnLoad (3ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (7ms)
+<<<<<<< Updated upstream
 Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 14 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 6250 unused Assets / (3.0 MB). Loaded Objects now: 7072.
 Memory consumption went from 169.0 MB to 166.0 MB.
 Total: 7.236834 ms (FindLiveObjects: 0.495875 ms CreateObjectMapping: 0.228708 ms MarkObjects: 4.862834 ms  DeleteObjects: 1.648459 ms)
+=======
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 14 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6250 unused Assets / (3.2 MB). Loaded Objects now: 7301.
+Memory consumption went from 170.8 MB to 167.5 MB.
+Total: 11.254375 ms (FindLiveObjects: 1.670583 ms CreateObjectMapping: 1.064042 ms MarkObjects: 6.592833 ms  DeleteObjects: 1.926250 ms)
 
 Prepare: number of updated asset objects reloaded= 0
 ========================================================================
+Received Import Request.
+  Time since last request: 112.889616 seconds.
+  path: Assets/Resources/Sprite/Ralf Jones/Ralf Jones_Walk.anim
+  artifactKey: Guid(0e91bdc864f184444b4d87897e7317db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/Ralf Jones/Ralf Jones_Walk.anim using Guid(0e91bdc864f184444b4d87897e7317db) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '28af0ef9be54afb8f246a109f8626ba3') in 0.039995458 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+>>>>>>> Stashed changes
+
+========================================================================
 Received Prepare
 Begin MonoManager ReloadAssembly
+<<<<<<< Updated upstream
 Thread 0x17cbd7000 may have been prematurely finalized
 - Loaded All Assemblies, in  0.782 seconds
 Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
@@ -840,10 +1489,22 @@ Mono: successfully reloaded assembly
 - Finished resetting the current domain, in  0.826 seconds
 Domain Reload Profiling: 1445ms
 	BeginReloadAssembly (171ms)
+=======
+Thread 0x3328c3000 may have been prematurely finalized
+- Loaded All Assemblies, in  0.625 seconds
+Refreshing native plugins compatible for Editor in 0.25 ms, found 2 plugins.
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.736 seconds
+Domain Reload Profiling: 1363ms
+	BeginReloadAssembly (178ms)
+>>>>>>> Stashed changes
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (9ms)
+		DisableScriptedObjects (11ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
+<<<<<<< Updated upstream
 		CreateAndSetChildDomain (80ms)
 	RebuildCommonClasses (30ms)
 	RebuildNativeTypeToScriptingClass (10ms)
@@ -860,10 +1521,79 @@ Domain Reload Profiling: 1445ms
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
 		SetupLoadedEditorAssemblies (591ms)
+=======
+		CreateAndSetChildDomain (78ms)
+	RebuildCommonClasses (29ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (18ms)
+	LoadAllAssembliesAndSetupDomain (391ms)
+		LoadAssemblies (234ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (196ms)
+			TypeCache.Refresh (29ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (150ms)
+			ResolveRequiredComponents (15ms)
+	FinalizeReload (736ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (523ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (7ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (56ms)
+			ProcessInitializeOnLoadAttributes (409ms)
+			ProcessInitializeOnLoadMethodAttributes (44ms)
+			AfterProcessingInitializeOnLoad (3ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 0.28 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 14 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6250 unused Assets / (2.2 MB). Loaded Objects now: 7303.
+Memory consumption went from 170.7 MB to 168.5 MB.
+Total: 12.419666 ms (FindLiveObjects: 0.770334 ms CreateObjectMapping: 0.381166 ms MarkObjects: 9.551333 ms  DeleteObjects: 1.716417 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Thread 0x32294b000 may have been prematurely finalized
+- Loaded All Assemblies, in  0.607 seconds
+Refreshing native plugins compatible for Editor in 0.25 ms, found 2 plugins.
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.838 seconds
+Domain Reload Profiling: 1448ms
+	BeginReloadAssembly (164ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (10ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (74ms)
+	RebuildCommonClasses (28ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (16ms)
+	LoadAllAssembliesAndSetupDomain (391ms)
+		LoadAssemblies (242ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (183ms)
+			TypeCache.Refresh (10ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (156ms)
+			ResolveRequiredComponents (14ms)
+	FinalizeReload (838ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (609ms)
+>>>>>>> Stashed changes
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (7ms)
 			SetLoadedEditorAssemblies (4ms)
 			BeforeProcessingInitializeOnLoad (52ms)
+<<<<<<< Updated upstream
 			ProcessInitializeOnLoadAttributes (472ms)
 			ProcessInitializeOnLoadMethodAttributes (54ms)
 			AfterProcessingInitializeOnLoad (3ms)
@@ -984,5 +1714,19 @@ Unloading 14 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 6250 unused Assets / (4.0 MB). Loaded Objects now: 7180.
 Memory consumption went from 178.1 MB to 174.1 MB.
 Total: 6.290292 ms (FindLiveObjects: 0.337500 ms CreateObjectMapping: 0.177125 ms MarkObjects: 4.363750 ms  DeleteObjects: 1.409666 ms)
+=======
+			ProcessInitializeOnLoadAttributes (496ms)
+			ProcessInitializeOnLoadMethodAttributes (44ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (1ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 14 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6250 unused Assets / (3.8 MB). Loaded Objects now: 7305.
+Memory consumption went from 170.5 MB to 166.7 MB.
+Total: 7.663542 ms (FindLiveObjects: 0.557917 ms CreateObjectMapping: 0.327666 ms MarkObjects: 4.960000 ms  DeleteObjects: 1.817209 ms)
+>>>>>>> Stashed changes
 
 Prepare: number of updated asset objects reloaded= 0

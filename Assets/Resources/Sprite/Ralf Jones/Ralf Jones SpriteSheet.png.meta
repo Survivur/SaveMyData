@@ -1,0 +1,2774 @@
+fileFormatVersion: 2
+guid: 48905e23c4547482f9a5015db9e79184
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 754
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e98e29a76a2d448f3a650aa5bebf1d3e
+      internalID: -1758015540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_5
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 754
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc7a10f4c3127401fa946a38b52670db
+      internalID: -168502312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_6
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 754
+        width: 39
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42c83fe7744004ae9b3b24a1fc75e33c
+      internalID: 1821181497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_7
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 754
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0afc7e38d90742b6a61b2558a100637
+      internalID: 938719234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_15
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 681
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1f2fa9f9744e48bfb8ad5fcba31fcd7
+      internalID: -1103160579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_16
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 681
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da7a80832de7a4e50aa4bba8fa59b926
+      internalID: 1763953628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_17
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 681
+        width: 42
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c2d42bb9f921434a98e1c2622a22878
+      internalID: 89071492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_18
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 681
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6898043b6f01469c8cc11f087734c5f
+      internalID: -954952020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_19
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 681
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b61630adb0d9d4e30bc50a333c0362db
+      internalID: 360611607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_20
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 681
+        width: 44
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 262b7d2e1973344dc9241dc83608af60
+      internalID: 1043119924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_21
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 681
+        width: 44
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59071c82c85674e6ea2cd09cb0a760d7
+      internalID: 1200077408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_22
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 681
+        width: 45
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2619bc22df644df9911b93829afdf60
+      internalID: 266977926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_23
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 681
+        width: 48
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20d98cd4d211845de9b408877723dc0e
+      internalID: -1119033050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_24
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 681
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e88f49b352e941cc97de8ef41c30f0d
+      internalID: 196799678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_25
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 681
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b821f35b23e2f41be9e72a3cf0a960b8
+      internalID: 1824429396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_26
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 681
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe10e1c550167426587555f67d11bdbe
+      internalID: 1659006392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_32
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 604
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fdb4a0224cb549f2b504e39ec0ab438
+      internalID: 425266441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_33
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 607
+        width: 36
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 952a27605bb564ce59c5093764bfea53
+      internalID: 2020406503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_34
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 605
+        width: 37
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0888c3cd5c5d466ea0068d54bf32867
+      internalID: -1026879300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_35
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 607
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db9d5d71aa16b4565bcc3228032e5fee
+      internalID: -232726902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_36
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 604
+        width: 49
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22f07af98c3384d0ea1d1cd455f0d5fd
+      internalID: -2075622591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_37
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 604
+        width: 44
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bbe185e67a724bdfaf88e61b8574bd5
+      internalID: 1582282698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_38
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 604
+        width: 34
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51ccae3a612cb4e6d8caaa54565bfd83
+      internalID: 547446715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_39
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 604
+        width: 37
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3cd9a7cb855f48449dd19df7c65cdcb
+      internalID: -1787709500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_40
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 604
+        width: 37
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f139f0976be044ab7baf44eb8013a88c
+      internalID: -984077738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_52
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 530
+        width: 24
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59294fa30798344389abe7af943bb18f
+      internalID: -21975880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_53
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 530
+        width: 26
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71712576fa5304331b627d7f1517e69f
+      internalID: -330226672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_54
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 530
+        width: 27
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7bc608e6b52149f6a19303308a0bf6c
+      internalID: 1595063863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_55
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 530
+        width: 42
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96ab893b54fd74dd880f9981a7d46983
+      internalID: -1692575358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_56
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 530
+        width: 48
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b721e2553751b4e5281b8a8189d5aca9
+      internalID: 811839966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_57
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 530
+        width: 47
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 348de5d7b5a8d44e1b63021ebb9b5167
+      internalID: -965213918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_73
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 455
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da00202a9e47943ac81a9ba129e9fd27
+      internalID: 1348475182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_74
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 455
+        width: 24
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 669648e55c104432ea848853b0d8d632
+      internalID: 1511791686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_75
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 455
+        width: 26
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d97b9633e77c746cc8ad25c52e646f03
+      internalID: -887967479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_76
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 455
+        width: 34
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fdd8df3a2acb4092aef6083c7770fe3
+      internalID: -585637132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_77
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 455
+        width: 31
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c4f3dbc456104d50a99ac1bc849ac8b
+      internalID: 1074526832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_78
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 455
+        width: 27
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4604ae757fb8341f8af423e6e7cad67c
+      internalID: 602566173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_79
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 455
+        width: 25
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e7afe1933fd440babc4661c9599422e
+      internalID: 1360224368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_80
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 455
+        width: 33
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68276b01d2b97447298c19194de8dd03
+      internalID: -1110409275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_91
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 386
+        width: 60
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f08dd32fc7136436299e40bcecaa2670
+      internalID: -1437178909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_92
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 386
+        width: 55
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f9007c20fe49455191a851cea618346
+      internalID: -1666846782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_94
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 386
+        width: 58
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dec5361324c845159c1020a7dfb8aa7
+      internalID: -1944872896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_95
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 386
+        width: 60
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b415730f036d4ee6a060b29f5ab73d2
+      internalID: 867650870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_117
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 311
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5696e63151fa247c395b0a2324b4ac66
+      internalID: 856336521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_118
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 311
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a4058b7833f048a098936bbb694251b
+      internalID: -897784181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_119
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 311
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51d791e88a92043a08989a02577ab1ff
+      internalID: -1951959212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_120
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 311
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61760d753dcfe4da683438483ced769f
+      internalID: 1620942816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_126
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 239
+        width: 26
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 109e5453cb3fa4f5d8f3782b8d3ab937
+      internalID: -1862105240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_127
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 239
+        width: 31
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c07d858c1a5654a47937a6f17aaed3df
+      internalID: 1767627793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_128
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 239
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53b21b33bcaea4d8989fec0f9ee10f15
+      internalID: -917605226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_129
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 239
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc667a174132e44e4981a418b0a2300a
+      internalID: -1859031070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_130
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 239
+        width: 47
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cab7393a70c754c3bbace1fe9dfeac59
+      internalID: 1441877677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_131
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 239
+        width: 47
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 214bd7b800a1e467a96099b17174435f
+      internalID: -606608369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_132
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 239
+        width: 46
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d350efc0ff3343ea8f242529e414640
+      internalID: 205606085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_133
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 239
+        width: 47
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5832f8d3b41b4e499f8ec058178793f
+      internalID: 1072919504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_134
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 239
+        width: 40
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f41958b101454ceca57884d9748026d
+      internalID: 1429263402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_135
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 239
+        width: 30
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f1cb76d32b374d2aab80f857c1df457
+      internalID: -222823737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_136
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 239
+        width: 31
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7596730430c364770bc053542b43ece4
+      internalID: 1400513706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_137
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 239
+        width: 38
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e341fe5cd1ed14f00a991680dee98789
+      internalID: 319357758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_138
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 239
+        width: 48
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a8bcb3daab0447c1ad50a840003b6ee
+      internalID: 26522591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_139
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 239
+        width: 45
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 490b012dc26d84cbf80ab3823c18ff37
+      internalID: 599889944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_140
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 239
+        width: 47
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46831a3234c2e405aacc6e8fd30e17f1
+      internalID: 46536176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_141
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 239
+        width: 45
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c62bf3123bd1c4beb8cc68e08b60d2df
+      internalID: 1486211408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_142
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 239
+        width: 45
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d73319975485f4f7298bced539e656ae
+      internalID: -1676208395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_143
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 239
+        width: 48
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f9ff9c27aeef4371b031dba7ce3a75e
+      internalID: -1134585014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_144
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 239
+        width: 49
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e7b38101ed8044d6a177c6d8f471e07
+      internalID: 1854046959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_154
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 145
+        width: 44
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 735b152f258694cf1bd1b47fdb1d0122
+      internalID: 55095641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_155
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 145
+        width: 47
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6e746a26c754415e94eb5e39e5b688e
+      internalID: 2059831007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_156
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 145
+        width: 54
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 949b754cfeb344d7ead7208ff190e04c
+      internalID: 628627603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_158
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 145
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a5700342cc194945a0b2c7ef2b20d71
+      internalID: -1893411857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_159
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 145
+        width: 50
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a92424c2727084143a3fef2e23c4518f
+      internalID: -2099256296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_160
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 145
+        width: 49
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c13e9443c3cd429cbc289fe81896951
+      internalID: 2040120265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_161
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 145
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2888f34f8180749ac9564067581f418e
+      internalID: -275371573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_162
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 145
+        width: 53
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e14105a537a3b462c8c702807c47dba8
+      internalID: -1153884130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_163
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 145
+        width: 57
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23806f09174ca411088fc7fae9e7a509
+      internalID: -1481808723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_164
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 145
+        width: 57
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cca33a4a16ca449af9bdeb6f31cafa97
+      internalID: 1220869213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_165
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 145
+        width: 55
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b0df33c741d64e80938911b9ad0a912
+      internalID: -1274753867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_166
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 145
+        width: 57
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: addad16f92c4540dca9448c0b3df0fa6
+      internalID: -1673529588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_167
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 145
+        width: 58
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19c49a8f98e6a420bb61f64358859f4b
+      internalID: 2011047414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_168
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 145
+        width: 54
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c88ba931cecf0434ca9e7b5898c400b0
+      internalID: 1641044325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_169
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 145
+        width: 54
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beb38a67880ec437f91972ab1dbdc25f
+      internalID: -1873327739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_170
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 78
+        width: 57
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01401d6ba5e7442c28a52ad05fc48941
+      internalID: -2045643659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_171
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 78
+        width: 57
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1a2f57c61f7542ba8da3f7e60676f6c
+      internalID: -1682660640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_172
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 78
+        width: 59
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 988fbf252ce5d46ce858ff942de75895
+      internalID: -1340115501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_173
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 78
+        width: 56
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c900bdab3ddf846bc98cca5051f423e0
+      internalID: -10668298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_174
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 78
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44eada060393642f69e0f02b03b82943
+      internalID: 40355914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_175
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 78
+        width: 60
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d13a2d2e72eb5423c91773c2429701e6
+      internalID: 1353333558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_176
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 78
+        width: 57
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91dd70307166e4b73aa6a8412699ad49
+      internalID: 192074903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_178
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 78
+        width: 60
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b028cfa2c64c41fb9eeeaeb624eea6f
+      internalID: 1580027825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_180
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 78
+        width: 62
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b305db603c3048b59627d5ecb5ba7ed
+      internalID: 1074739568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_181
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 78
+        width: 62
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39a1ee8b3837e4d2583398f35fdbb2de
+      internalID: 1876155800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_183
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 78
+        width: 58
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f344d1143c3c44108a2dff2d1e7d9d11
+      internalID: -351257127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_189
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 78
+        width: 59
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2208b07e253a5455281db2e08be3e52b
+      internalID: -2035619974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_194
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 78
+        width: 60
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4758e6bce3e13475cb752e104d4eb2a8
+      internalID: 1768976386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_197
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 78
+        width: 49
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d90a3301505cd4e709b8b40d39240842
+      internalID: -1105746753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_209
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 5
+        width: 23
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0209f8a889ac4eb88b60cfb0b19f2e9
+      internalID: -1502634138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_210
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 5
+        width: 36
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0e788bdb631a4869badf5e91f51947b
+      internalID: -2010621706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_211
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 5
+        width: 26
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 268ae9aa5adb44e91b4b8d085b7c4b66
+      internalID: 1369425103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_212
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 5
+        width: 23
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73217061c631449378780133b426b9cf
+      internalID: -171926649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_213
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 5
+        width: 23
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccd65d524b3824b44abfedbbead143e3
+      internalID: -1975271214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_214
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 5
+        width: 26
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 525dd314b2e4f41dfa0bf4263de61d38
+      internalID: -809309734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_215
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 5
+        width: 24
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e8dc08289b744281b6d58ea67417925
+      internalID: -809247182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_216
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 5
+        width: 24
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3ac58a5f746b4f9ebd443ea7b489c3b
+      internalID: 867628616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_217
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 5
+        width: 25
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30f46b1d7bb324e228eb9ba6fc71b24d
+      internalID: 982501093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_218
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 5
+        width: 25
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ef3f41feffa84227860da19bfe58a73
+      internalID: 737488030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_219
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 5
+        width: 31
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6895e08ba3265417da5d8f5f5feffd74
+      internalID: 161594944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_220
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 5
+        width: 32
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 710d7ca555aa3439ba56e3e40233348d
+      internalID: 2085623113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_221
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 5
+        width: 33
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 861eb4da478ef468b8f2641be937ab20
+      internalID: -725854523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_222
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 5
+        width: 33
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c2dbe06e2a6c4e3ab258066b5853fae
+      internalID: -377264409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_223
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 5
+        width: 33
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c767457900c7749f78e63be529c6b011
+      internalID: -591473011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d642cf1b27033491a8752d2ae740a250
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_0: 320263353
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_1: 1345364804
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_10: -1800732269
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_100: 102034074
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_101: -1047305326
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_102: -749325284
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_103: 1863842070
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_104: 2145090769
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_105: 1382746584
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_106: -1061152424
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_107: 981340006
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_108: -1209048159
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_109: -704036124
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_11: 600609082
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_110: 928153240
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_111: 1432018501
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_112: 2077446126
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_113: -1088425967
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_114: 1121501980
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_115: 680237544
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_116: -1404887022
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_117: 856336521
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_118: -897784181
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_119: -1951959212
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_12: 2008144428
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_120: 1620942816
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_121: 1508514954
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_122: -1329765954
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_123: 354376811
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_124: -2059286527
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_125: 2089647807
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_126: -1862105240
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_127: 1767627793
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_128: -917605226
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_129: -1859031070
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_13: -1514490090
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_130: 1441877677
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_131: -606608369
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_132: 205606085
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_133: 1072919504
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_134: 1429263402
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_135: -222823737
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_136: 1400513706
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_137: 319357758
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_138: 26522591
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_139: 599889944
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_14: 531751910
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_140: 46536176
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_141: 1486211408
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_142: -1676208395
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_143: -1134585014
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_144: 1854046959
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_145: -480718406
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_146: 1105051911
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_147: -581467869
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_148: -827923738
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_149: 1729886423
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_15: -1103160579
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_150: 1265224777
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_151: 138043466
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_152: -1000377908
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_153: -1367265014
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_154: 55095641
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_155: 2059831007
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_156: 628627603
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_157: 1366489492
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_158: -1893411857
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_159: -2099256296
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_16: 1763953628
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_160: 2040120265
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_161: -275371573
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_162: -1153884130
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_163: -1481808723
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_164: 1220869213
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_165: -1274753867
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_166: -1673529588
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_167: 2011047414
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_168: 1641044325
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_169: -1873327739
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_17: 89071492
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_170: -2045643659
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_171: -1682660640
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_172: -1340115501
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_173: -10668298
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_174: 40355914
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_175: 1353333558
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_176: 192074903
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_177: -1381132943
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_178: 1580027825
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_179: 675185493
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_18: -954952020
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_180: 1074739568
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_181: 1876155800
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_182: 146364485
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_183: -351257127
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_184: -605538066
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_185: 236878038
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_186: -1412116609
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_187: 1074560016
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_188: 636017081
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_189: -2035619974
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_19: 360611607
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_190: 1050762192
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_191: -2132314585
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_192: 224210999
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_193: -1249496450
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_194: 1768976386
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_195: 306930762
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_196: 1060642057
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_197: -1105746753
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_198: 1400119852
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_199: -539558734
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_2: -1668644874
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_20: 1043119924
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_200: -1046573499
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_201: 1771272405
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_202: 1097189364
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_203: -668866569
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_204: -1964636827
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_205: 691688256
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_206: 1643409970
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_207: 2132922689
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_208: 1024912568
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_209: -1502634138
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_21: 1200077408
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_210: -2010621706
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_211: 1369425103
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_212: -171926649
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_213: -1975271214
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_214: -809309734
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_215: -809247182
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_216: 867628616
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_217: 982501093
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_218: 737488030
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_219: 161594944
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_22: 266977926
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_220: 2085623113
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_221: -725854523
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_222: -377264409
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_223: -591473011
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_23: -1119033050
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_24: 196799678
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_25: 1824429396
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_26: 1659006392
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_27: 1985830953
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_28: -417011810
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_29: -272570377
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_3: 168548271
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_30: 2015987059
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_31: -1133727795
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_32: 425266441
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_33: 2020406503
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_34: -1026879300
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_35: -232726902
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_36: -2075622591
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_37: 1582282698
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_38: 547446715
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_39: -1787709500
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_4: -1758015540
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_40: -984077738
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_41: -1883720728
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_42: 218825504
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_43: -120445995
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_44: -891215349
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_45: 618184999
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_46: 295780011
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_47: 1515909468
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_48: 623297322
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_49: -1164317120
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_5: -168502312
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_50: -618756637
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_51: 323937496
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_52: -21975880
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_53: -330226672
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_54: 1595063863
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_55: -1692575358
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_56: 811839966
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_57: -965213918
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_58: -264674929
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_59: 1474217908
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_6: 1821181497
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_60: -547224390
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_61: 1053345716
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_62: -390552691
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_63: -1215419048
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_64: -1175052775
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_65: -383899190
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_66: 1008388324
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_67: -105184872
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_68: -199113407
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_69: -1218561529
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_7: 938719234
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_70: -951749461
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_71: 1536194889
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_72: 1996618919
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_73: 1348475182
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_74: 1511791686
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_75: -887967479
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_76: -585637132
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_77: 1074526832
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_78: 602566173
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_79: 1360224368
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_8: -1607868356
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_80: -1110409275
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_81: -895763858
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_82: -2133895548
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_83: 441001754
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_84: -817071248
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_85: 460839332
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_86: -1203855399
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_87: -1774011412
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_88: -1792816496
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_89: -317700806
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_9: -987054221
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_90: -190727334
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_91: -1437178909
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_92: -1666846782
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_93: -458785388
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_94: -1944872896
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_95: 867650870
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_96: -752137933
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_97: 848485572
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_98: 384346297
+      Mobile - Metal Slug Defense - Ralf Jones_transparent_transparent_99: 1708015699
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
