@@ -1,8 +1,10 @@
- using System.Collections.Generic;
+using Photon.Pun;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : Character
 {
+    private PhotonView photonView; // 포톤 서버 관련 추가
     public bool seeright => sprite.flipX;
     
     [SerializeField, ReadOnly(true)] private float DashSpeed = 2.0f;
@@ -39,8 +41,15 @@ public class Player : Character
     protected override void Start()
     {
         base.Start();
+        photonView = GetComponent<PhotonView>();
         bullet = Resources.Load<GameObject>("Prefabs/bullet_gun");
         TargetTags.Add(Tags.Enemy);
+
+        if (!photonView.IsMine)  // 자기 플레이어가 아니면 입력 받니 않음
+        {
+            enabled = false;  // 스크립트 비활성화
+            return;
+        }
     }
 
     protected void Update()
@@ -151,6 +160,11 @@ public class Player : Character
 
     void Shoot()
     {
+        //네트워크를 통해 총알 생성
+        GameObject bulletObj = PhotonNetwork.Instantiate(
+            "bullet_gun",
+            transform.position,
+            Quaternion.identity);
         Bullet b = Instantiate(bullet, transform.position, Quaternion.identity, ObjectManager.BulletManager.transform).GetComponent<Bullet>();
         b.SetTargetTags(TargetTags);
         b.goRight = seeright;
