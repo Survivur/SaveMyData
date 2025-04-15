@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour, IAttackable, IMoveable
 
     public float Damage { get; private set; } = 1f;
 
-    public float Speed { get; protected set; } = 10f;
+    public float Speed { get; set; } = 10f;
 
     public virtual Vector2 Velocity => new Vector2(Speed * goRight.BoolToSign(), 0);
 
@@ -17,6 +17,8 @@ public class Bullet : MonoBehaviour, IAttackable, IMoveable
     {
         if (transform == null) return;
         transform.position += (Vector3)Velocity * Time.fixedDeltaTime;
+
+        Debug.Log($"{Speed}, {Velocity}, {Time.fixedDeltaTime}");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

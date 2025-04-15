@@ -78,7 +78,6 @@
     <Compile Include="Assets/Script/DeathZone.cs" />
     <Compile Include="Assets/Network/Network.cs" />
     <Compile Include="Assets/Script/Player.cs" />
-    <Compile Include="Assets/CameraMove.cs" />
     <Compile Include="Assets/Photon/PhotonRealtime/Demos/DemoLoadBalancing/ConnectAndJoinRandomLb.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_ExampleScript_01.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMPro_InstructionOverlay.cs" />
@@ -96,6 +95,7 @@
     <Compile Include="Assets/Script/Custom/ReadOnlyDrawer.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ShaderPropAnimator.cs" />
     <Compile Include="Assets/Script/PrefabManager.cs" />
+    <Compile Include="Assets/Script/CameraMove.cs" />
     <Compile Include="Assets/Photon/PhotonChat/Demos/DemoChat/NamePickGui.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeA.cs" />
@@ -112,6 +112,7 @@
     <Compile Include="Assets/Script/Interface/IHittable.cs" />
     <Compile Include="Assets/TutorialInfo/Scripts/Readme.cs" />
     <Compile Include="Assets/Script/Custom/ReadOnlyAttribute.cs" />
+    <Compile Include="Assets/Script/GameManager.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark01.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextMeshSpawner.cs" />
     <Compile Include="Assets/Script/Custom/ReadOnlyEditor.cs" />

@@ -19,7 +19,7 @@ public class CameraMove : MonoBehaviour, IMoveable
         int maxCount = GameObjectResource.Instance.CameraFocusObjects.Count;
 
         if (maxCount == 0)
-            throw new ArgumentException("점이 존재하지 않습니다.");
+            return transform.position;
 
         float sumX = 0f;
         float sumY = 0f;

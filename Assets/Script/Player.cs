@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : Character
 {
     private PhotonView photonView; // 포톤 서버 관련 추가
-    public bool seeRight => sprite.flipX;
+    public bool seeRight => !sprite.flipX;
     
     [SerializeField, ReadOnly(true)] private Vector3 shootGap = Vector3.zero;
 
@@ -26,6 +26,7 @@ public class Player : Character
     [SerializeField, ReadOnly] private bool JumpInput = false;
 
     [SerializeField, ReadOnly] private GameObject bullet;
+    [SerializeField, ReadOnly] private float bulletSpeed = 10f;
 
     [SerializeField, ReadOnly] private Animator animator;
 
@@ -181,6 +182,7 @@ public class Player : Character
         Bullet b = Instantiate(bullet, transform.position + shootGap, Quaternion.identity, ObjectManager.BulletManager.transform).GetComponent<Bullet>();
         b.SetTargetTags(TargetTags);
         b.goRight = seeRight;
+        b.Speed = bulletSpeed;
     }
 
     void SpawnGhost()
