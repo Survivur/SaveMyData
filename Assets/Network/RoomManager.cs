@@ -75,7 +75,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         playerListText.text = sb.ToString();
 
         // 방에 2명이 되면 플레이 버튼 활성화
-        playButton.gameObject.SetActive(PhotonNetwork.CurrentRoom.PlayerCount == 2);
+        playButton.gameObject.SetActive(PhotonNetwork.CurrentRoom.PlayerCount >= 1);
     }
 
     public void OnClickPlayButton()

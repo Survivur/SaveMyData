@@ -4,24 +4,24 @@ using Photon.Realtime;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
-    public Transform[] spawnPoints;
+    private Transform[] spawnPoints;
 
     void Start()
     {
-        if (PhotonNetwork.IsConnected)
+        GameObject spawnParent = GameObject.Find("spawnPoints");
+        spawnPoints = new Transform[spawnParent.transform.childCount];
+        for (int i = 0; i < spawnPoints.Length; i++)
         {
-            SpawnPlayer();
+            spawnPoints[i] = spawnParent.transform.GetChild(i);
+        }
+
+        if (PhotonNetwork.IsConnectedAndReady)
+        {
+            int index = Random.Range(0, spawnPoints.Length);
+            Transform spawnPoint = spawnPoints[index];
+
+            PhotonNetwork.Instantiate("Prefabs/Player", spawnPoint.position, spawnPoint.rotation);
         }
     }
-
-    void SpawnPlayer()
-    {
-        int playerNumber = PhotonNetwork.IsMasterClient ? 0 : 1;
-        Vector3 spawnPosition = spawnPoints[playerNumber].position;
-
-        PhotonNetwork.Instantiate(
-            "Player",
-            spawnPosition,
-            Quaternion.identity);
-    }
 }
+

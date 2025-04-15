@@ -176,7 +176,7 @@ public class Player : Character
     {
         //네트워크를 통해 총알 생성
         GameObject bulletObj = PhotonNetwork.Instantiate(
-            "bullet_gun",
+            "Prefabs/bullet_gun",
             transform.position,
             Quaternion.identity);
         Bullet b = Instantiate(bullet, transform.position + shootGap, Quaternion.identity, ObjectManager.BulletManager.transform).GetComponent<Bullet>();
