@@ -1459,6 +1459,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 90035566}
   slider: {fileID: 0}
+--- !u!1 &1081824192
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1081824193}
+  m_Layer: 0
+  m_Name: SpawnPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1081824193
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081824192}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 275.8063, y: 128.8754, z: -1.1490526}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1771615970}
+  - {fileID: 1473649877}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1125512571
 GameObject:
   m_ObjectHideFlags: 0
@@ -2290,6 +2323,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8228976892640454491, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
       propertyPath: JumpCountMax
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9084416146243665906, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
+      propertyPath: sceneViewId
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9204588806768455344, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}

@@ -1,11 +1,12 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
-using ExitGames.Client.Photon.StructWrapping;
 using UnityEngine;
 
 public class Player : Character
 {
-    public bool seeRight => !sprite.flipX;
+    private PhotonView photonView; // 포톤 서버 관련 추가
+    public bool seeRight => sprite.flipX;
     
     [SerializeField, ReadOnly(true)] private Vector3 shootGap = Vector3.zero;
 
@@ -35,11 +36,18 @@ public class Player : Character
     protected override void Start()
     {
         base.Start();
+        photonView = GetComponent<PhotonView>();
         bullet = Resources.Load<GameObject>("Prefabs/bullet_gun");
         animator = GetComponent<Animator>();
 
         shootGap = new Vector3(seeRight.BoolToSign(), 0);
         TargetTags.Add(Tags.Enemy);
+
+        if (!photonView.IsMine)  // 자기 플레이어가 아니면 입력 받니 않음
+        {
+            enabled = false;  // 스크립트 비활성화
+            return;
+        }
     }
 
     protected void Update()
@@ -165,6 +173,11 @@ public class Player : Character
 
     void Shoot()
     {
+        //네트워크를 통해 총알 생성
+        GameObject bulletObj = PhotonNetwork.Instantiate(
+            "bullet_gun",
+            transform.position,
+            Quaternion.identity);
         Bullet b = Instantiate(bullet, transform.position + shootGap, Quaternion.identity, ObjectManager.BulletManager.transform).GetComponent<Bullet>();
         b.SetTargetTags(TargetTags);
         b.goRight = seeRight;
@@ -181,7 +194,7 @@ public class Player : Character
         spriteRenderer.sprite = sprite.sprite;
         spriteRenderer.flipX = sprite.flipX;
         spriteRenderer.color = new Color(1, 1, 1, 0.2f);
-        
+
     }
 
     IEnumerator SpawnGhostCoroutine(float delay)

@@ -4,6 +4,8 @@ using Photon.Pun;
 using Photon.Realtime;
 using System.Text;
 using TMPro;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 
 
@@ -11,11 +13,13 @@ public class RoomManager : MonoBehaviourPunCallbacks
 {
     public TMP_Text playerListText;
     public Button playButton;
+    public Button RoomOutButton;
 
     void Start()
     {
         // 시작할 때는 플레이 버튼만 비활성화
         playButton.gameObject.SetActive(false);
+        RoomOutButton.gameObject.SetActive(true);
 
         // 방에 입장한 상태인지 먼저 확인
         if (PhotonNetwork.InRoom)
@@ -78,7 +82,33 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
+            PhotonNetwork.AutomaticallySyncScene = true;
             PhotonNetwork.LoadLevel("SampleScene");
         }
+    }
+
+    public void OnClickRoomOut()
+    {
+        // 방을 나가기 전에 씬 전환을 예약
+        StartCoroutine(LeaveRoomAndLoadScene());
+    }
+
+    private IEnumerator LeaveRoomAndLoadScene()
+    {
+        // 방을 떠나기
+        PhotonNetwork.LeaveRoom();
+
+        // 방을 완전히 나갈 때까지 대기
+        while (PhotonNetwork.InRoom)
+            yield return null;
+
+        // 씬 전환 (PhotonNetwork.LoadLevel 대신 사용)
+        SceneManager.LoadScene("SecondScene");
+    }
+
+    // 방을 나갔을 때 호출되는 콜백
+    public override void OnLeftRoom()
+    {
+        Debug.Log("방에서 나왔습니다.");
     }
 }

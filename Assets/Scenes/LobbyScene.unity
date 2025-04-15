@@ -535,7 +535,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 203289842}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1468142926}
+        m_TargetAssemblyTypeName: LobbyManager, Assembly-CSharp
+        m_MethodName: LeaveLobby
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &203289842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1779,6 +1791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5317641bfea0f3d4282a1b9a93d066e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chatDisplay: {fileID: 0}
   chatScrollRect: {fileID: 1771990092}
   chatInput: {fileID: 567425522}
   sendChatButton: {fileID: 1523165192}

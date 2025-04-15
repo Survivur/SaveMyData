@@ -12,7 +12,7 @@ using System.Diagnostics;
 
 public class LobbyManager : MonoBehaviour, IChatClientListener
 {
-    //public TMP_Text chatDisplay; // 채팅 메시지 출력
+    public TMP_Text chatDisplay; // 채팅 메시지 출력
     public ScrollRect chatScrollRect;
     public TMP_InputField chatInput; // 채팅 입력창
     public Button sendChatButton; // 채팅 전송 버튼
@@ -69,8 +69,8 @@ public class LobbyManager : MonoBehaviour, IChatClientListener
     public void LeaveLobby()
     {
         PhotonNetwork.LeaveLobby();
-        PhotonNetwork.Disconnect();
-        SceneManager.LoadScene("StartScene"); // 시작 씬으로 이동
+        //PhotonNetwork.Disconnect();
+        SceneManager.LoadScene("SecondScene"); // 두번째 씬으로 이동
     }
 
     // IChatClientListener 인터페이스 구현
