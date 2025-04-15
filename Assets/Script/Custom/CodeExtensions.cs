@@ -68,7 +68,7 @@ public static class CodeExtensions
     /// <param name="target">작업의 대상 객체</param>
     /// <param name="condition">조건</param>
     /// <param name="value">바꿀 값</param>
-    public static T ChangeIfTrue<T>(this T target, bool condition, T value) where T : class
+    public static T ChangeIfTrue<T>(this T target, bool condition, T value) where T : UnityEngine.Object
     {
         return condition ? value : target;
     }
@@ -83,6 +83,12 @@ public static class CodeExtensions
     public static T ChangeIfTrue<T>(this ref T target, bool condition, T value) where T : struct
     {
         return condition ? value : target;
+    }
+
+    public static float floatToSign(this float value)
+    {
+
+        return value == 0 ? 0 : (value > 0 ? 1f : -1f);
     }
 
     /// <summary>
@@ -103,6 +109,8 @@ public static class CodeExtensions
     public static void ChangeX(this ref Vector2 target, float x)
     {
         target = new Vector2(x, target.y);
+        Vector2 vec2 = Vector2.zero;
+        
     }
 
     /// <summary>

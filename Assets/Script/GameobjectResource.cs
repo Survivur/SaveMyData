@@ -1,16 +1,18 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class GameObjectManager : MonoBehaviour
+public class GameObjectResource : Singleton<GameObjectResource>
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField, ReadOnly(true)] public GameObject GhostManager;
+    [SerializeField, ReadOnly] public List<GameObject> CameraFocusObjects;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        GhostManager = GameObject.Find("GhostManager");
+        if (GhostManager == null)
+        {
+            Debug.LogWarning("GhostManager not found");
+            GhostManager = new GameObject("GhostManager");
+        }
     }
 }

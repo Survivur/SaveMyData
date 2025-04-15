@@ -15,7 +15,8 @@ public class Bullet : MonoBehaviour, IAttackable, IMoveable
 
     protected void FixedUpdate()
     {
-        IMoveable.UpdateVelocity(transform, this);
+        if (transform == null) return;
+        transform.position += (Vector3)Velocity * Time.fixedDeltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

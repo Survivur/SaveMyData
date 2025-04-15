@@ -1,12 +1,18 @@
- using System.Collections.Generic;
+using System.Collections;
+using System.Collections.Generic;
+using ExitGames.Client.Photon.StructWrapping;
 using UnityEngine;
 
 public class Player : Character
 {
-    public bool seeright => sprite.flipX;
+    public bool seeRight => !sprite.flipX;
     
+    [SerializeField, ReadOnly(true)] private Vector3 shootGap = Vector3.zero;
+
+    [SerializeField, ReadOnly(true)] private float moveSpeed = 1.0f;
     [SerializeField, ReadOnly(true)] private float DashSpeed = 2.0f;
     [SerializeField, ReadOnly(true)] private float DashVelocity = 1f;
+    [SerializeField, ReadOnly] private float DashVelocityNormal = 1f;
     [SerializeField, ReadOnly] private int DashCount = 1;
     [SerializeField, ReadOnly(true)] private int DashCountMax = 1;
     [SerializeField, ReadOnly(true)] private float DashCoolDown = 1f;
@@ -20,36 +26,32 @@ public class Player : Character
 
     [SerializeField, ReadOnly] private GameObject bullet;
 
+    [SerializeField, ReadOnly] private Animator animator;
+
+    [SerializeField, ReadOnly] string ShootKeyCode = "j";
+
     public override List<string> TargetTags { get; } = new List<string>();
-
-    public override Vector2 Velocity
-    {
-        get
-        {
-            Vector2 velocity = rigidbody2D.linearVelocity;
-
-            HorizontalMovement(ref velocity);
-            Dash(ref velocity);
-            Jump(ref velocity);
-                
-            return velocity;
-        }
-    }
 
     protected override void Start()
     {
         base.Start();
         bullet = Resources.Load<GameObject>("Prefabs/bullet_gun");
+        animator = GetComponent<Animator>();
+
+        shootGap = new Vector3(seeRight.BoolToSign(), 0);
         TargetTags.Add(Tags.Enemy);
     }
 
     protected void Update()
     {
-        if (Input.GetKeyDown("j"))
+        if (Input.GetKeyDown(ShootKeyCode))
         {
             Shoot();
         }
-        DashInput.SetIfTrue(Input.GetKeyDown(KeyCode.LeftShift), true);
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            DashInput = true;
+        }
     }
 
     protected override void FixedUpdate()
@@ -58,7 +60,6 @@ public class Player : Character
         base.FixedUpdate();
         JumpCounting(JumpInput && JumpCount > 0);
         DashCounting(DashInput && DashCount > 0);
-        DashInput = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -69,6 +70,15 @@ public class Player : Character
         }
     }
 
+    protected override Vector2 UpdateVelocity(Vector2 velocity)
+    {
+        HorizontalMovement(ref velocity);
+        Dash(ref velocity);
+        Jump(ref velocity);
+
+        return velocity;
+    }
+
     /// <summary>
     /// 좌, 우 이동
     /// </summary>
@@ -76,20 +86,18 @@ public class Player : Character
     /// <returns>이동 햇는지</returns>
     bool HorizontalMovement(ref Vector2 velocity)
     {
-        float HorizontalInput = Input.GetAxis("Horizontal");
+        float HorizontalInput = Input.GetAxisRaw("Horizontal") * moveSpeed;
+        // 움직이면
+        if (HorizontalInput != 0)
+        {   
+            sprite.flipX = HorizontalInput < 0f;
 
-        FlipSpriteBasedOnInput(HorizontalInput);
-
-        velocity.x = HorizontalInput * Speed;
-        return velocity.x != 0;
-    }
-
-    private void FlipSpriteBasedOnInput(float horizontal)
-    {
-        if (horizontal != 0f)
-        {
-            sprite.flipX = horizontal > 0f;
+            animator.SetBool("isWalk", true);
         }
+        
+        velocity.x = HorizontalInput * Speed;
+
+        return velocity.x != 0;
     }
 
     /// <summary>
@@ -101,14 +109,19 @@ public class Player : Character
     {
         DashVelocity.SetIfTrue(DashInput && DashCount > 0, DashSpeed);
 
-        if (DashVelocity > 1f)
+        if (DashVelocity > DashVelocityNormal)
         {
-            velocity.x = seeright.BoolToSign() * Speed * DashVelocity;
+            velocity.x = seeRight.BoolToSign() * Speed * DashVelocity;
             DashVelocity -= Time.fixedDeltaTime * Mathf.Abs(DashSpeed - 1f) / DashDuration;
+
+            if (!IsInvoking(nameof(SpawnGhostCoroutine)))
+            {
+                StartCoroutine(SpawnGhostCoroutine(0.1f));
+            }
         }
         else
         {
-            DashVelocity = 1f;
+            DashVelocity = DashVelocityNormal;
         }
         return velocity.x != 0;
     }
@@ -120,6 +133,7 @@ public class Player : Character
         {
             Invoke(nameof(DashCountReset), DashCoolDown);
         }
+        DashInput = false;
     }
 
     void DashCountReset()
@@ -151,8 +165,28 @@ public class Player : Character
 
     void Shoot()
     {
-        Bullet b = Instantiate(bullet, transform.position, Quaternion.identity, ObjectManager.BulletManager.transform).GetComponent<Bullet>();
+        Bullet b = Instantiate(bullet, transform.position + shootGap, Quaternion.identity, ObjectManager.BulletManager.transform).GetComponent<Bullet>();
         b.SetTargetTags(TargetTags);
-        b.goRight = seeright;
+        b.goRight = seeRight;
+    }
+
+    void SpawnGhost()
+    {
+        GameObject ghost = Instantiate(PrefabManager.Instance.Ghost, 
+            transform.position - new Vector3(0, 0, 1f), 
+            Quaternion.identity, 
+            GameObjectResource.Instance.GhostManager.transform);
+
+        SpriteRenderer spriteRenderer = ghost.GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = sprite.sprite;
+        spriteRenderer.flipX = sprite.flipX;
+        spriteRenderer.color = new Color(1, 1, 1, 0.2f);
+        
+    }
+
+    IEnumerator SpawnGhostCoroutine(float delay)
+    {
+        SpawnGhost();
+        yield return new WaitForSeconds(delay);
     }
 }

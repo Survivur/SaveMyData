@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveable
@@ -15,17 +16,40 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
     new protected Rigidbody2D rigidbody2D;
     protected SpriteRenderer sprite;
 
-    public virtual Vector2 Velocity => IMoveable.VelocityDefault(rigidbody2D, this);
+    public virtual Vector2 Velocity => this.VelocityDefault(rigidbody2D);
 
     protected virtual void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+
+        GameObjectResource.Instance.CameraFocusObjects.Add(gameObject);
     }
+
 
     protected virtual void FixedUpdate()
     {
-        IMoveable.UpdateVelocity(rigidbody2D, this);
+        rigidbody2D.linearVelocity = UpdateVelocity(rigidbody2D.linearVelocity);
+    }
+
+    protected void OnDestroy()
+    {
+        bool retval = GameObjectResource.Instance.CameraFocusObjects.Remove(gameObject);
+        if (!retval)
+        {
+            Debug.Log("Remove Failed");
+        }
+        Debug.Log("Remove Called");
+    }
+
+    /// <summary>
+    /// FixedUpdate에서 실행된다.
+    /// </summary>
+    /// <param name="velocity"></param>
+    /// <returns></returns>
+    protected virtual Vector2 UpdateVelocity(Vector2 velocity)
+    {
+        return velocity;
     }
 
     public virtual void TakeDamage(float dmg, Vector2 dir)
