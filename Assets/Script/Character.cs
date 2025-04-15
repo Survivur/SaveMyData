@@ -34,12 +34,7 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
 
     protected void OnDestroy()
     {
-        bool retval = GameObjectResource.Instance.CameraFocusObjects.Remove(gameObject);
-        if (!retval)
-        {
-            Debug.Log("Remove Failed");
-        }
-        Debug.Log("Remove Called");
+        GameObjectResource.Instance?.CameraFocusObjects.Remove(gameObject);
     }
 
     /// <summary>
