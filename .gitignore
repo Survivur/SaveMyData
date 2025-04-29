@@ -1,24 +1,24 @@
 # Visual Studio 관련 파일
-/.vs/
+.vs/
 
 # Unity에서 생성하는 캐시 및 빌드 관련 파일
-/Temp/
-/Library/
+Temp/
+Library/
 
 # Unity 빌드 결과 (플랫폼별 생성됨)
-/Build/
-/Builds/
-/obj/
-/bin/
+Build/
+Builds/
+obj/
+bin/
 
 # User-specific 설정 파일
-/UserSettings/
-/Logs/
-/MemoryCaptures/
+UserSettings/
+Logs/
+MemoryCaptures/
 
 # IDE 관련 설정 파일 (JetBrains Rider, VSCode 등)
 .idea/
-/.vscode/
+.vscode/
 
 # Unity의 자동으로 생성되는 `.meta` 제외
 # *.meta를 무시하면 프로젝트가 손상될 수 있으므로 **무시하면 안됨**

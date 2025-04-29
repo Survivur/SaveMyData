@@ -28,6 +28,9 @@ public class Player : Character
     [SerializeField, ReadOnly] private GameObject bullet;
     [SerializeField, ReadOnly] private float bulletSpeed = 10f;
 
+    [SerializeField, ReadOnly] private float ghostDuration = 0.3f;
+
+
     [SerializeField, ReadOnly] private Animator animator;
 
     [SerializeField, ReadOnly] string ShootKeyCode = "j";
@@ -125,7 +128,7 @@ public class Player : Character
 
             if (!IsInvoking(nameof(SpawnGhostCoroutine)))
             {
-                StartCoroutine(SpawnGhostCoroutine(0.1f));
+                StartCoroutine(SpawnGhostCoroutine(ghostDuration));
             }
         }
         else
@@ -172,14 +175,35 @@ public class Player : Character
         JumpCount = JumpCountMax;
     }
 
+    GameObject CreateBullet(string bulletPath, Vector3 position, Quaternion rotation)
+    {
+        GameObject prefab = Resources.Load<GameObject>(bulletPath);
+        if (prefab == null)
+        {
+            Debug.LogError($"Resources.Load 실패: 경로 {bulletPath}");
+            return null;
+        }
+
+        if (PhotonNetwork.IsConnected)
+        {
+            return PhotonNetwork.Instantiate(bulletPath, position, rotation);
+        }
+        else
+        {
+            return Instantiate(prefab, position, rotation);
+        }
+    }
+
     void Shoot()
     {
         //네트워크를 통해 총알 생성
-        GameObject bulletObj = PhotonNetwork.Instantiate(
+        GameObject bulletObj = CreateBullet(
             "Prefabs/bullet_gun",
-            transform.position,
+            transform.position + shootGap * seeRight.BoolToSign(),
             Quaternion.identity);
-        Bullet b = Instantiate(bullet, transform.position + shootGap, Quaternion.identity, ObjectManager.BulletManager.transform).GetComponent<Bullet>();
+        bulletObj.transform.parent = GameObject.Find("BulletManager").transform;
+
+        Bullet b = bulletObj.GetComponent<Bullet>();
         b.SetTargetTags(TargetTags);
         b.goRight = seeRight;
         b.Speed = bulletSpeed;
