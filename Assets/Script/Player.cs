@@ -55,6 +55,8 @@ public class Player : Character
         animator = GetComponent<Animator>();
         bulletText = GameObject.Find("Canvas").transform.Find("PlayerBulletCount").GetComponent<TextMeshProUGUI>();
         nameText = GameObject.Find("Canvas").transform.Find(nameText_name).GetComponent<TextMeshProUGUI>();
+
+        playerName = (PhotonNetwork.NickName != "") ? PhotonNetwork.NickName : playerName;
         nameText.text = playerName;
 
         shootGap = new Vector3(seeRight.BoolToSign(), 0);
@@ -219,7 +221,6 @@ public class Player : Character
     private void BulletUpdate()
     {
         bulletCount = bulletCountMax;
-        Debug.Log("BulletUpdate");
     }
 
     void Shoot()
