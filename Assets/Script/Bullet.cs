@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour, IAttackable, IMoveable
         if (transform == null) return;
         transform.position += (Vector3)Velocity * Time.fixedDeltaTime;
 
-        Debug.Log($"{Speed}, {Velocity}, {Time.fixedDeltaTime}");
+        //Debug.Log($"{Speed}, {Velocity}, {Time.fixedDeltaTime}");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -15,8 +16,11 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
 
     new protected Rigidbody2D rigidbody2D;
     protected SpriteRenderer sprite;
+    protected TextMeshProUGUI nameText = null;
 
     public virtual Vector2 Velocity => this.VelocityDefault(rigidbody2D);
+
+    [SerializeField] private Vector3 namePosGap = new Vector3(0, 2f, 0);
 
     protected virtual void Start()
     {
@@ -26,6 +30,10 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
         GameObjectResource.Instance.CameraFocusObjects.Add(gameObject);
     }
 
+    protected virtual void Update()
+    {
+        nameText.transform.position = Camera.main.WorldToScreenPoint(transform.position + namePosGap);
+    }
 
     protected virtual void FixedUpdate()
     {
@@ -35,6 +43,7 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
     protected void OnDestroy()
     {
         GameObjectResource.Instance?.CameraFocusObjects.Remove(gameObject);
+        Destroy(nameText);
     }
 
     /// <summary>
