@@ -68,7 +68,7 @@ public static class CodeExtensions
     /// <param name="target">작업의 대상 객체</param>
     /// <param name="condition">조건</param>
     /// <param name="value">바꿀 값</param>
-    public static T ChangeIfTrue<T>(this T target, bool condition, T value) where T : UnityEngine.Object
+    public static T GetIfTrue<T>(this T target, bool condition, T value) where T : UnityEngine.Object
     {
         return condition ? value : target;
     }

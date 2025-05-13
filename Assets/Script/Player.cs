@@ -1,12 +1,16 @@
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Player : Character
 {
     private PhotonView photonView; // 포톤 서버 관련 추가
     public bool seeRight => !sprite.flipX;
+
+    [SerializeField, ReadOnly(true)] private string playerName = "John Wick";
+    [SerializeField, ReadOnly(true)] private string nameText_name = "PlayerName";
     
     [SerializeField, ReadOnly(true)] private Vector3 shootGap = Vector3.zero;
 
@@ -20,17 +24,27 @@ public class Player : Character
     [SerializeField, ReadOnly(true)] private float DashDuration = 0.2f;
     [SerializeField, ReadOnly] private bool DashInput = false;
 
-    [SerializeField, ReadOnly(true)] private float JumpSpeed = 7f;
+    [SerializeField] private float JumpSpeed = 7f;
     [SerializeField, ReadOnly] private int JumpCount = 1;
     [SerializeField, ReadOnly(true)] private int JumpCountMax = 1;
     [SerializeField, ReadOnly] private bool JumpInput = false;
 
-    [SerializeField, ReadOnly] private GameObject bullet;
-    [SerializeField, ReadOnly] private float bulletSpeed = 10f;
+    [SerializeField, ReadOnly] private string bulletPath = "Prefabs/bullet_gun";
+    [SerializeField, ReadOnly(true)] private int bulletCountMax = 10;
+    [SerializeField, ReadOnly(true)] private int bulletCount = 0;
+    [SerializeField, ReadOnly(true)] private float reloadSpeed = 1.5f;
+    [SerializeField, ReadOnly(true)] private float bulletSpeed = 10f;
+    [SerializeField, ReadOnly(true)] private float bulletDelay = 0.3f;
+    
+    [SerializeField, ReadOnly(true)] private TextMeshProUGUI bulletText = null;
+
+    [SerializeField, ReadOnly] private float ghostDuration = 0.3f;
 
     [SerializeField, ReadOnly] private Animator animator;
 
     [SerializeField, ReadOnly] string ShootKeyCode = "j";
+
+    private bool ReloadCoroutineFlag = false;
 
     public override List<string> TargetTags { get; } = new List<string>();
 
@@ -38,21 +52,29 @@ public class Player : Character
     {
         base.Start();
         photonView = GetComponent<PhotonView>();
-        bullet = Resources.Load<GameObject>("Prefabs/bullet_gun");
         animator = GetComponent<Animator>();
+        bulletText = GameObject.Find("Canvas").transform.Find("PlayerBulletCount").GetComponent<TextMeshProUGUI>();
+        nameText = GameObject.Find("Canvas").transform.Find(nameText_name).GetComponent<TextMeshProUGUI>();
+
+        playerName = (PhotonNetwork.NickName != "") ? PhotonNetwork.NickName : playerName;
+        nameText.text = playerName;
 
         shootGap = new Vector3(seeRight.BoolToSign(), 0);
         TargetTags.Add(Tags.Enemy);
 
-        if (!photonView.IsMine)  // 자기 플레이어가 아니면 입력 받니 않음
+        if (!photonView.IsMine)  // 자기 플레이어가 아니면 입력 받지 않음
         {
             enabled = false;  // 스크립트 비활성화
             return;
         }
+
+        BulletUpdate();
+        BulletTextUpdate();
     }
 
-    protected void Update()
+    protected override void Update()
     {
+        base.Update();
         if (Input.GetKeyDown(ShootKeyCode))
         {
             Shoot();
@@ -71,11 +93,12 @@ public class Player : Character
         DashCounting(DashInput && DashCount > 0);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag(Tags.Ground))
         {
-            JumpCountReset();
+            if (collision.transform.position.y < transform.position.y)
+                JumpCountReset();
         }
     }
 
@@ -125,7 +148,7 @@ public class Player : Character
 
             if (!IsInvoking(nameof(SpawnGhostCoroutine)))
             {
-                StartCoroutine(SpawnGhostCoroutine(0.1f));
+                StartCoroutine(SpawnGhostCoroutine(ghostDuration));
             }
         }
         else
@@ -158,7 +181,6 @@ public class Player : Character
     bool Jump(ref Vector2 velocity)
     {
         velocity.y.SetIfTrue(JumpInput && JumpCount > 0, JumpSpeed);
-
         return velocity.y != 0;
     }
 
@@ -172,17 +194,67 @@ public class Player : Character
         JumpCount = JumpCountMax;
     }
 
+    GameObject CreateBullet(string bulletPath, Vector3 position, Quaternion rotation)
+    {
+        GameObject prefab = Resources.Load<GameObject>(bulletPath);
+        if (prefab == null)
+        {
+            Debug.LogError($"Resources.Load 실패: 경로 {bulletPath}");
+            return null;
+        }
+
+        if (PhotonNetwork.IsConnected)
+        {
+            return PhotonNetwork.Instantiate(bulletPath, position, rotation);
+        }
+        else
+        {
+            return Instantiate(prefab, position, rotation);
+        }
+    }
+
+    private void BulletTextUpdate()
+    {
+        bulletText.text = $"{bulletCount} / {bulletCountMax}";
+    }
+
+    private void BulletUpdate()
+    {
+        bulletCount = bulletCountMax;
+    }
+
     void Shoot()
     {
-        //네트워크를 통해 총알 생성
-        GameObject bulletObj = PhotonNetwork.Instantiate(
-            "Prefabs/bullet_gun",
-            transform.position,
-            Quaternion.identity);
-        Bullet b = Instantiate(bullet, transform.position + shootGap, Quaternion.identity, ObjectManager.BulletManager.transform).GetComponent<Bullet>();
-        b.SetTargetTags(TargetTags);
-        b.goRight = seeRight;
-        b.Speed = bulletSpeed;
+        // bullet count 부분
+        if (bulletCount != 0)
+        {
+            //네트워크를 통해 총알 생성
+            GameObject bulletObj = CreateBullet(
+                bulletPath,
+                transform.position + shootGap * seeRight.BoolToSign(),
+                Quaternion.identity);
+            bulletObj.transform.parent = GameObject.Find("BulletManager").transform;
+
+            Bullet b = bulletObj.GetComponent<Bullet>();
+            b.SetTargetTags(TargetTags);
+            b.goRight = seeRight;
+            b.Speed = bulletSpeed;
+
+            bulletCount--;
+
+            if (bulletCount == 0 && !ReloadCoroutineFlag)
+                StartCoroutine(Reload());
+        }
+        BulletTextUpdate();
+    }
+
+    private IEnumerator Reload()
+    {
+        ReloadCoroutineFlag = true;
+        yield return new WaitForSeconds(reloadSpeed);
+        BulletUpdate();
+        BulletTextUpdate();
+        ReloadCoroutineFlag = false;
     }
 
     void SpawnGhost()
