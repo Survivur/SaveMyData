@@ -1882,7 +1882,7 @@ GameObject:
   - component: {fileID: 1038196271}
   - component: {fileID: 1038196272}
   m_Layer: 0
-  m_Name: Test
+  m_Name: GameFontTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1917,7 +1917,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
   MS_Fonts: []
-  TestString: MISSON COMPLATE!
+  TestString: M!?3
   charSpace: 1.3
   charCount: 0
 --- !u!1 &1081824192
