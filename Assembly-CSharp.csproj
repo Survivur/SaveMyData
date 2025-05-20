@@ -80,6 +80,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\Script\TestAnimationPlay.cs" />
+    <Compile Include="Assets\Script\BannerChecker.cs" />
     <Compile Include="Assets\Script\BackGroundScroll.cs" />
     <Compile Include="Assets\Script\Interface\IMoveable.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatGui.cs" />

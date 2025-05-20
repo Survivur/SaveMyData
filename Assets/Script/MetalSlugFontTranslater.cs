@@ -10,7 +10,7 @@ public class MetalSlugFontTranslater : MonoBehaviour
     [HideInInspector] public Sprite[] MS_Fonts;
     public string TestString = "Status";
 
-    public float charSpace = 2f;
+    public float charSpace = 2f;    
     [ReadOnly] public int charCount = 0;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created

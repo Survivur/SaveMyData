@@ -94,7 +94,7 @@ public class Player : Character
     }
 
     protected override void OnDestroy() {
-        GameObject.Find("Canvas").transform.Find("LoseText").gameObject.SetActive(true);
+        
         base.OnDestroy();
     }
 
