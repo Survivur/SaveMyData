@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 90035570}
   - component: {fileID: 90035569}
   - component: {fileID: 90035568}
-  - component: {fileID: 90035567}
+  - component: {fileID: 90035572}
   - component: {fileID: 90035566}
   m_Layer: 7
   m_Name: Enemy
@@ -230,43 +230,6 @@ MonoBehaviour:
   namePosGap: {x: 0, y: 2, z: 0}
   nameText_name: EnemyName
   enemyName: abs
---- !u!70 &90035567
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 90035565}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.35}
-  m_Size: {x: 1.2, y: 1.75}
-  m_Direction: 0
 --- !u!50 &90035568
 Rigidbody2D:
   serializedVersion: 5
@@ -304,7 +267,7 @@ Animator:
   m_GameObject: {fileID: 90035565}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 01ea2adb78a6431ea9b76ad9eb2cf421, type: 2}
+  m_Controller: {fileID: 9100000, guid: 24934cfe65b164f99849113a7ae42440, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -360,7 +323,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f9cdc9420d784e58bfd021946386f9a1, type: 3}
+  m_Sprite: {fileID: 1134065759, guid: 8818b008414cc48a19e1629451c488de, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -386,6 +349,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &90035572
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90035565}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.5333333, y: 3.133801}
+    newSize: {x: 3.6, y: 3}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 5.5333333, y: 3.133801}
+  m_EdgeRadius: 0
 --- !u!1 &234735835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1971,7 +1980,7 @@ GameObject:
   - component: {fileID: 1038196271}
   - component: {fileID: 1038196272}
   m_Layer: 0
-  m_Name: Test
+  m_Name: GameFontTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2006,7 +2015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
   MS_Fonts: []
-  TestString: MISSON COMPLATE!
+  TestString: M!?3
   charSpace: 1.3
   charCount: 0
 --- !u!1 &1081824192
@@ -3123,7 +3132,7 @@ GameObject:
   - component: {fileID: 1935306786}
   - component: {fileID: 1935306785}
   m_Layer: 5
-  m_Name: WinText (1)
+  m_Name: LoseText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3168,7 +3177,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You Win!!
+  m_text: You Lose!!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3297,6 +3306,10 @@ PrefabInstance:
     - target: {fileID: 8228976892640454491, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
       propertyPath: bulletSpeed
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8228976892640454491, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
+      propertyPath: JumpCountMax
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9084416146243665906, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
       propertyPath: sceneViewId

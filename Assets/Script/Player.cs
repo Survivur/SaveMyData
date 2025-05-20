@@ -93,6 +93,11 @@ public class Player : Character
         DashCounting(DashInput && DashCount > 0);
     }
 
+    protected override void OnDestroy() {
+        GameObject.Find("Canvas").transform.Find("LoseText").gameObject.SetActive(true);
+        base.OnDestroy();
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag(Tags.Ground))

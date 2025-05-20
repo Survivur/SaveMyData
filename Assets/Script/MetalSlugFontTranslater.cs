@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class MetalSlugFontTranslater : MonoBehaviour
 {
-    public SpriteRenderer spriteRenderer;
+    [ReadOnly]public SpriteRenderer spriteRenderer;
     private GameObject spriteDefault;
 
-    public Sprite[] MS_Fonts;
+    [HideInInspector] public Sprite[] MS_Fonts;
     public string TestString = "MISSON COMPLATE";
 
     public float charSpace = 1f;
-    public int charCount = 0;
+    [ReadOnly] public int charCount = 0;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,7 +38,22 @@ public class MetalSlugFontTranslater : MonoBehaviour
 
         if (ch == Char.ToLower(ch) && ch == Char.ToUpper(ch))
         {
-            charObject.GetComponent<SpriteRenderer>().sprite = null;
+            if (ch >= '0' && ch <= '9')
+            {
+                charObject.GetComponent<SpriteRenderer>().sprite = MS_Fonts[41 + ch - '0'];
+            }
+            else if (ch == '!')
+            {
+                charObject.GetComponent<SpriteRenderer>().sprite = MS_Fonts[51];
+            }
+            else if (ch == '?')
+            {
+                charObject.GetComponent<SpriteRenderer>().sprite = MS_Fonts[52];
+            }
+            else
+            {
+                charObject.GetComponent<SpriteRenderer>().sprite = null;
+            }
         }
         else
         {

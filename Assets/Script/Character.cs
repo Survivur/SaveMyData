@@ -40,7 +40,7 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
         rigidbody2D.linearVelocity = UpdateVelocity(rigidbody2D.linearVelocity);
     }
 
-    protected void OnDestroy()
+    protected virtual void OnDestroy()
     {
         GameObjectResource.Instance?.CameraFocusObjects.Remove(gameObject);
         Destroy(nameText);

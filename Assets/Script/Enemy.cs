@@ -14,7 +14,11 @@ public class Enemy : Character
         base.Start();
         nameText = GameObject.Find("Canvas").transform.Find(nameText_name).GetComponent<TextMeshProUGUI>();
         nameText.text = enemyName;
+    }
 
+    protected override void OnDestroy() {
+        base.OnDestroy();
+        GameObject.Find("Canvas").transform.Find("WinText").gameObject.SetActive(true);
     }
 
     void OnTriggerEnter2D(Collider2D other)
