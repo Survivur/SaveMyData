@@ -28,6 +28,7 @@ public class Player : Character
     [SerializeField, ReadOnly] private int JumpCount = 1;
     [SerializeField, ReadOnly(true)] private int JumpCountMax = 1;
     [SerializeField, ReadOnly] private bool JumpInput = false;
+    [SerializeField, ReadOnly] private bool isJumping = false;
 
     [SerializeField, ReadOnly] private string bulletPath = "Prefabs/bullet_gun";
     [SerializeField, ReadOnly(true)] private int bulletCountMax = 10;
@@ -89,8 +90,12 @@ public class Player : Character
     {
         JumpInput = Input.GetAxis("Jump") > 0;
         base.FixedUpdate();
-        JumpCounting(JumpInput && JumpCount > 0);
         DashCounting(DashInput && DashCount > 0);
+
+        if (!JumpInput)
+        {
+            isJumping = false;
+        }
     }
 
     protected override void OnDestroy() {
@@ -111,7 +116,7 @@ public class Player : Character
     {
         HorizontalMovement(ref velocity);
         Dash(ref velocity);
-        Jump(ref velocity);
+        JumpCheck(ref velocity, JumpInput && JumpCount > 0);
 
         return velocity;
     }
@@ -178,6 +183,17 @@ public class Player : Character
         DashCount = DashCountMax;
     }
 
+    bool JumpCheck(ref Vector2 velocity, bool condition)
+    {
+        bool retval = false;
+        if (condition && JumpCount > 0)
+        {
+            retval = Jump(ref velocity);
+            JumpCount--;
+        }
+        return retval;
+    }
+
     /// <summary>
     /// มกวม
     /// </summary>
@@ -189,14 +205,10 @@ public class Player : Character
         return velocity.y != 0;
     }
 
-    void JumpCounting(bool condition)
-    {
-        JumpCount.SetIfTrue(condition, JumpCount - 1);
-    }
-
     void JumpCountReset()
     {
         JumpCount = JumpCountMax;
+        isJumping = false;
     }
 
     GameObject CreateBullet(string bulletPath, Vector3 position, Quaternion rotation)

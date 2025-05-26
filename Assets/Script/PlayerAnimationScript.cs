@@ -5,6 +5,7 @@ public class PlayerAnimationScript : MonoBehaviour
     [ReadOnly] public float Angle = 0;
     [ReadOnly] public Animator animatior;
     [ReadOnly] public SpriteRenderer spriteRenderer;
+    [ReadOnly, SerializeField] private float seeAngle = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,16 +20,17 @@ public class PlayerAnimationScript : MonoBehaviour
         Angle = UpdateAngle();
         spriteRenderer.flipX = !(Angle < -90f || Angle > 90f);
 
-        float seeAngle = 0;
-
         if (Angle < -90f || Angle > 90f)
         {
-            seeAngle = 180f - ((Angle + 180f) % 180f);
+            seeAngle = 180f - ((Angle + 270f) % 180f);
         }
         else
         {
-            seeAngle = (Angle + 90f / 8);
+            seeAngle = Angle + 90f;
         }
+
+        seeAngle = seeAngle / 22.5f;
+
         animatior.SetInteger("SeeType", (int)seeAngle);
     }
 

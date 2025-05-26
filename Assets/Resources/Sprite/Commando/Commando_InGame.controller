@@ -75,7 +75,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 386872b6bdf284c708158b98358ec30e, type: 2}
+  m_Motion: {fileID: 7400000, guid: 12a918a5deb4046c1b33948f72388726, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -377,7 +377,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Commando
+  m_Name: Commando_InGame
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: SeeType
