@@ -7,7 +7,8 @@ using UnityEngine;
 public class Player : Character
 {
     private PhotonView photonView; // 포톤 서버 관련 추가
-    public bool seeRight => !sprite.flipX;
+    public bool seeRight => sprite.flipX;
+    public bool isAnimating => animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f;
 
     [SerializeField, ReadOnly(true)] private string playerName = "John Wick";
     [SerializeField, ReadOnly(true)] private string nameText_name = "PlayerName";
@@ -41,9 +42,17 @@ public class Player : Character
 
     [SerializeField, ReadOnly] private float ghostDuration = 0.3f;
 
-    [SerializeField, ReadOnly] private Animator animator;
+    [SerializeField, ReadOnly(true)] private Animator animator = null;
+    [SerializeField, ReadOnly] private bool needCheckingAnimate = true;
 
-    [SerializeField, ReadOnly] string ShootKeyCode = "j";
+    [SerializeField, ReadOnly(true)] private GameObject UpsideChild = null;
+    [SerializeField, ReadOnly(true)] private GameObject DownsideChild = null;
+    [SerializeField, ReadOnly(true)] private GameObject ArmChild = null;
+
+    [SerializeField, ReadOnly] private string ShootKeyCode = "j";
+
+    [Header("Info")]
+    [ReadOnly, SerializeField] private float HorizontalInput;
 
     private bool ReloadCoroutineFlag = false;
 
@@ -52,10 +61,14 @@ public class Player : Character
     protected override void Start()
     {
         base.Start();
-        photonView = GetComponent<PhotonView>();
-        animator = GetComponent<Animator>();
-        bulletText = GameObject.Find("Canvas").transform.Find("PlayerBulletCount").GetComponent<TextMeshProUGUI>();
-        nameText = GameObject.Find("Canvas").transform.Find(nameText_name).GetComponent<TextMeshProUGUI>();
+        if (photonView == null) photonView = GetComponent<PhotonView>();
+        if (animator == null) animator = GetComponent<Animator>();
+        if (bulletText == null) bulletText = GameObject.Find("Canvas").transform.Find("PlayerBulletCount").GetComponent<TextMeshProUGUI>();
+        if (nameText == null) nameText = GameObject.Find("Canvas").transform.Find(nameText_name).GetComponent<TextMeshProUGUI>();
+
+        UpsideChild ??= transform.Find("Upside").gameObject;
+        DownsideChild ??= transform.Find("Downside").gameObject;
+        ArmChild ??= transform.Find("Arm").gameObject;
 
         playerName = (PhotonNetwork.NickName != "") ? PhotonNetwork.NickName : playerName;
         nameText.text = playerName;
@@ -84,7 +97,25 @@ public class Player : Character
         {
             DashInput = true;
         }
+
+        AnimationCheck();
     }
+
+    private void AnimationCheck()
+    {
+        if (needCheckingAnimate && !isAnimating)
+        {
+            animator.enabled = false;
+            sprite.enabled = false;
+
+            UpsideChild.SetActive(true);
+            DownsideChild.SetActive(true);
+            ArmChild.SetActive(true);
+
+            needCheckingAnimate = false;
+        }
+    }
+
 
     protected override void FixedUpdate()
     {
@@ -128,13 +159,15 @@ public class Player : Character
     /// <returns>이동 햇는지</returns>
     bool HorizontalMovement(ref Vector2 velocity)
     {
-        float HorizontalInput = Input.GetAxisRaw("Horizontal") * moveSpeed;
+        HorizontalInput = Input.GetAxisRaw("Horizontal") * moveSpeed;
         // 움직이면
         if (HorizontalInput != 0)
-        {   
+        {
             sprite.flipX = HorizontalInput < 0f;
+            SpriteRenderer legSpriteRenderer = DownsideChild.GetComponent<SpriteRenderer>();
+            legSpriteRenderer.flipX = HorizontalInput > 0f;
 
-            animator.SetBool("isWalk", true);
+            //animator.SetBool("isWalk", true);
         }
         
         velocity.x = HorizontalInput * Speed;
@@ -186,10 +219,11 @@ public class Player : Character
     bool JumpCheck(ref Vector2 velocity, bool condition)
     {
         bool retval = false;
-        if (condition && JumpCount > 0)
+        if (condition && !isJumping && JumpCount > 0)
         {
             retval = Jump(ref velocity);
             JumpCount--;
+            isJumping = true;
         }
         return retval;
     }
