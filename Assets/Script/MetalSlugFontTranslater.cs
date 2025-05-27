@@ -8,14 +8,29 @@ public class MetalSlugFontTranslater : MonoBehaviour
     private GameObject spriteDefault;
 
     [HideInInspector] public Sprite[] MS_Fonts;
-    public string TestString = "MISSON COMPLATE";
+    public string TestString = "Status";
 
-    public float charSpace = 1f;
+    public float charSpace = 2f;    
     [ReadOnly] public int charCount = 0;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteDefault = Resources.Load<GameObject>("Prefabs/SpriteDefault");
+        MS_Fonts = Resources.LoadAll<Sprite>("Sprite/MetalSlugFont");
+        //MakeStringImg(TestString);
+    }
+
+    private void Reset()
+    {
+        Transform parent = transform;
+
+        foreach (Transform child in parent)
+        {
+            Destroy(child);
+        }
+
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteDefault = Resources.Load<GameObject>("Prefabs/SpriteDefault");
         MS_Fonts = Resources.LoadAll<Sprite>("Sprite/MetalSlugFont");

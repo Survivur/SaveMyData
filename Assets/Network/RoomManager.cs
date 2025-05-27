@@ -83,7 +83,19 @@ public class RoomManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.AutomaticallySyncScene = true;
+
+            //이동할 씬 리스트
+            //string[] stageScenes = { "SampleScene", "StageScene1", "StageScene2" };
+
+            // 랜덤으로 씬 선택
+            //int randomIndex = Random.Range(0, stageScenes.Length);
+            //string selectedScene = stageScenes[randomIndex];
+
+            //PhotonNetwork.LoadLevel(selectedScene);
+
+            //테스트용 코드
             PhotonNetwork.LoadLevel("SampleScene");
+
         }
     }
 

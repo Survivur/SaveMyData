@@ -18,12 +18,11 @@ public class Enemy : Character
 
     protected override void OnDestroy() {
         base.OnDestroy();
-        GameObject.Find("Canvas").transform.Find("WinText").gameObject.SetActive(true);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        IHittable hitable = other.GetComponent<IHittable>();
+        IHittable hitable = other.GetComponent<IHittable>();    
         if (hitable != null)
         {
             hitable?.TakeDamage(Damage, (Vector2)transform.right);
