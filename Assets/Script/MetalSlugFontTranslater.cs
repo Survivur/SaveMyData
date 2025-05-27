@@ -19,7 +19,7 @@ public class MetalSlugFontTranslater : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteDefault = Resources.Load<GameObject>("Prefabs/SpriteDefault");
         MS_Fonts = Resources.LoadAll<Sprite>("Sprite/MetalSlugFont");
-        MakeStringImg(TestString);
+        //MakeStringImg(TestString);
     }
 
     private void Reset()
