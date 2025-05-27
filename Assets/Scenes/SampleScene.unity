@@ -2170,16 +2170,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1305834825}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30f73c2abd84d4869ab54fec48e778b8, type: 3}
+  m_Script: {fileID: 11500000, guid: d9e8baf84fb234980a74ef0b0edbb8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needFlip: 1
-  isChangingPosition: 1
-  rotationType: 1
-  FlipPostionGap: {x: 0, y: 0, z: 0}
-  spriteRenderer: {fileID: 0}
-  MouseAimAngle: 0
-  Angle: 0
+  UpsideSpriteController: {fileID: 0}
   StartLocalPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1334017963
 GameObject:
@@ -3303,15 +3297,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 838772744079158668, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.04
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 838772744079158668, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 838772744079158668, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2852622913578958308, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.014
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2852622913578958308, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3339,7 +3337,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5970494689778952023, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6651286694157706537, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
       propertyPath: m_Enabled
@@ -3349,9 +3347,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8228976892640454491, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
+      propertyPath: ArmChild
+      value: 
+      objectReference: {fileID: 597288730}
+    - target: {fileID: 8228976892640454491, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
+      propertyPath: DownsideChild
+      value: 
+      objectReference: {fileID: 1305834825}
     - target: {fileID: 8258239906785856627, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8258239906785856627, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3416,12 +3422,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3467965149873760497, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
       insertIndex: 3
       addedObject: {fileID: 1291112861}
-    - targetCorrespondingSourceObject: {fileID: 7956006988322564083, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1305834829}
     - targetCorrespondingSourceObject: {fileID: 5970494689778952023, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
       insertIndex: 3
       addedObject: {fileID: 597288735}
+    - targetCorrespondingSourceObject: {fileID: 7956006988322564083, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1305834829}
   m_SourcePrefab: {fileID: 100100000, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -23,7 +23,7 @@ public class SpriteController : MonoBehaviour
     [ReadOnly, SerializeField] private float Angle = 0f;
     [ReadOnly, SerializeField] private Vector3 StartLocalPosition = Vector3.zero;
 
-    private bool seeRight => !(Angle < -90f || Angle > 90f);
+    public bool seeRight => !(Angle < -90f || Angle > 90f);
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

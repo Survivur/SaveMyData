@@ -91,6 +91,7 @@
     <Compile Include="Assets/Photon/PhotonChat/Demos/DemoChat/ChatAppIdCheckerUI.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexZoom.cs" />
+    <Compile Include="Assets/Script/PlayerUpsideAnimation.cs" />
     <Compile Include="Assets/Script/Backgroun.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextSelector_B.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/SkewTextExample.cs" />
@@ -101,7 +102,6 @@
     <Compile Include="Assets/Script/CameraMove.cs" />
     <Compile Include="Assets/Photon/PhotonChat/Demos/DemoChat/NamePickGui.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextInfoDebugTool.cs" />
-    <Compile Include="Assets/Script/PlayerAnimationScript.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeA.cs" />
     <Compile Include="Assets/Script/SpriteController.cs" />
     <Compile Include="Assets/Script/Interface/IAttackable.cs" />
@@ -134,6 +134,7 @@
     <Compile Include="Assets/Script/Enemy.cs" />
     <Compile Include="Assets/Script/DestroyTimer.cs" />
     <Compile Include="Assets/Script/Character.cs" />
+    <Compile Include="Assets/Script/PlayerDownsideAnimation.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ObjectSpin.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets/Photon/PhotonChat/Demos/Common/OnStartDelete.cs" />

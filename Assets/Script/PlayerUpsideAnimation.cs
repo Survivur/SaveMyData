@@ -1,12 +1,11 @@
 using UnityEngine;
 
-public class PlayerAnimationScript : MonoBehaviour
+public class PlayerUpsideAnimation : MonoBehaviour
 {
     [Header("Components")]
     [ReadOnly, SerializeField] private Animator animatior;
     [ReadOnly, SerializeField] private SpriteController spriteController;
 
-    
     static int prevSeeAngle = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
