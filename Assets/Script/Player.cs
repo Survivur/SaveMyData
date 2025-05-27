@@ -13,7 +13,7 @@ public class Player : Character
     [SerializeField, ReadOnly(true)] private string playerName = "John Wick";
     [SerializeField, ReadOnly(true)] private string nameText_name = "PlayerName";
     
-    [SerializeField, ReadOnly(true)] private Vector3 shootGap = Vector3.zero;
+    [SerializeField] private Vector3 shootGap = Vector3.zero;
 
     [SerializeField, ReadOnly(true)] private float moveSpeed = 1.0f;
     [SerializeField, ReadOnly(true)] private float DashSpeed = 2.0f;
@@ -34,7 +34,7 @@ public class Player : Character
     [SerializeField, ReadOnly] private string bulletPath = "Prefabs/bullet_gun";
     [SerializeField, ReadOnly(true)] private int bulletCountMax = 10;
     [SerializeField, ReadOnly(true)] private int bulletCount = 0;
-    [SerializeField, ReadOnly(true)] private float reloadSpeed = 1.5f;
+    [SerializeField] private float reloadSpeed = 1.5f;
     [SerializeField, ReadOnly(true)] private float bulletSpeed = 10f;
     [SerializeField, ReadOnly(true)] private float bulletDelay = 0.3f;
     
@@ -89,7 +89,7 @@ public class Player : Character
     protected override void Update()
     {
         base.Update();
-        if (Input.GetKeyDown(ShootKeyCode))
+        if (Input.GetMouseButtonDown(0))
         {
             Shoot();
         }
@@ -274,7 +274,7 @@ public class Player : Character
         bulletCount = bulletCountMax;
     }
 
-    void Shoot()
+    void Shoot(bool isBlockedByBlock = true)
     {
         // bullet count ºÎºÐ
         if (bulletCount != 0)
@@ -287,8 +287,16 @@ public class Player : Character
             bulletObj.transform.parent = GameObject.Find("BulletManager").transform;
 
             Bullet b = bulletObj.GetComponent<Bullet>();
+            if (isBlockedByBlock)
+            {
+                TargetTags.Add(Tags.Box);
+            }
+            else
+            {
+                TargetTags.Remove(Tags.Box);
+            }
             b.SetTargetTags(TargetTags);
-            b.goRight = seeRight;
+            b.dir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
             b.Speed = bulletSpeed;
 
             bulletCount--;

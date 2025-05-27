@@ -79,11 +79,13 @@
     <Compile Include="Assets/Script/DeathZone.cs" />
     <Compile Include="Assets/Network/Network.cs" />
     <Compile Include="Assets/Script/Player.cs" />
+    <Compile Include="Assets/Network/GameExit.cs" />
     <Compile Include="Assets/Photon/PhotonRealtime/Demos/DemoLoadBalancing/ConnectAndJoinRandomLb.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_ExampleScript_01.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeB.cs" />
     <Compile Include="Assets/Script/TestAnimationPlay.cs" />
+    <Compile Include="Assets/Script/BannerChecker.cs" />
     <Compile Include="Assets/Script/BackGroundScroll.cs" />
     <Compile Include="Assets/Script/Interface/IMoveable.cs" />
     <Compile Include="Assets/Photon/PhotonChat/Demos/DemoChat/ChatGui.cs" />
@@ -126,6 +128,7 @@
     <Compile Include="Assets/Network/SceneController.cs" />
     <Compile Include="Assets/Script/abstract/ARIBehaviour.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/CameraController.cs" />
+    <Compile Include="Assets/Script/Box.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark03.cs" />
     <Compile Include="Assets/Photon/PhotonChat/Demos/DemoChat/IgnoreUiRaycastWhenInactive.cs" />
     <Compile Include="Assets/Script/Custom/CodeExtensions.cs" />

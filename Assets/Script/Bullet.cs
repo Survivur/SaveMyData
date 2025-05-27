@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 public class Bullet : MonoBehaviour, IAttackable, IMoveable
 {
-    public bool goRight = true;
+    public Vector2 dir = Vector2.zero;
 
     public float Damage { get; private set; } = 1f;
 
     public float Speed { get; set; } = 10f;
 
-    public virtual Vector2 Velocity => new Vector2(Speed * goRight.BoolToSign(), 0);
+    public virtual Vector2 Velocity => dir * Speed;
 
     public List<string> TargetTags { get; private set; } = null;
 
@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour, IAttackable, IMoveable
         if (TargetTags.Contains(collision.tag))
         {
             IHittable hitable = collision.GetComponent<IHittable>();
-            hitable?.TakeDamage(Damage, (Vector2)transform.right * new Vector2(goRight.BoolToSign() , 1f));
+            hitable?.TakeDamage(Damage, (Vector2)transform.right * new Vector2(dir.x , 1f));
             DestroyBullet();
         }
     }
