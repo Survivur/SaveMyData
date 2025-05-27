@@ -75,6 +75,7 @@
     <Compile Include="Assets\Script\DeathZone.cs" />
     <Compile Include="Assets\Network\Network.cs" />
     <Compile Include="Assets\Script\Player.cs" />
+    <Compile Include="Assets\Network\GameExit.cs" />
     <Compile Include="Assets\Photon\PhotonRealtime\Demos\DemoLoadBalancing\ConnectAndJoinRandomLb.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
