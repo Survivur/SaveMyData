@@ -99,6 +99,7 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/SkewTextExample.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/WarpTextExample.cs" />
     <Compile Include="Assets/Script/Custom/ReadOnlyDrawer.cs" />
+    <Compile Include="Assets/Script/Static/Paths.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ShaderPropAnimator.cs" />
     <Compile Include="Assets/Script/PrefabManager.cs" />
     <Compile Include="Assets/Script/CameraMove.cs" />
@@ -138,6 +139,7 @@
     <Compile Include="Assets/Script/DestroyTimer.cs" />
     <Compile Include="Assets/Script/Character.cs" />
     <Compile Include="Assets/Script/PlayerDownsideAnimation.cs" />
+    <Compile Include="Assets/Script/SpriteShaker.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ObjectSpin.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets/Photon/PhotonChat/Demos/Common/OnStartDelete.cs" />

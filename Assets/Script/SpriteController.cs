@@ -21,7 +21,6 @@ public class SpriteController : MonoBehaviour
     [Header("Info")]
     [ReadOnly] public float MouseAimAngle = 0;
     [ReadOnly, SerializeField] private float Angle = 0f;
-    [ReadOnly, SerializeField] private Vector3 StartLocalPosition = Vector3.zero;
 
     public bool seeRight => !(Angle < -90f || Angle > 90f);
 
@@ -29,8 +28,7 @@ public class SpriteController : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        StartLocalPosition = transform.localPosition;
-        if (FlipPostionGap == Vector3.zero) FlipPostionGap.x = StartLocalPosition.x * 2;
+        if (FlipPostionGap == Vector3.zero) FlipPostionGap.x = transform.localPosition.x * 2;
     }
 
     // Update is called once per frame
@@ -43,7 +41,7 @@ public class SpriteController : MonoBehaviour
         }
         if (isChangingPosition)
         {
-            transform.localPosition = StartLocalPosition + FlipPostionGap * (spriteRenderer.flipX ? -1f : 0f);
+            transform.localPosition += FlipPostionGap * (spriteRenderer.flipX ? -1f : 0f);
         }
 
         switch (rotationType)

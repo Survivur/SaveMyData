@@ -4,54 +4,126 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+[System.Serializable]
+public struct DashData
+{
+    [Header("Options")]
+    [SerializeField, ReadOnly(true)] public float startSpeed;
+    [SerializeField, ReadOnly(true)] public float minSpeed;
+    [SerializeField, ReadOnly(true)] public int maxCount;
+    [SerializeField, ReadOnly(true)] public float coolDown;
+    [SerializeField, ReadOnly(true)] public float delay;
+
+    [Header("Information")]
+    [SerializeField, ReadOnly] public bool goRight;
+    [SerializeField, ReadOnly] public bool isKeyDown;
+    [SerializeField, ReadOnly] public float velocity;
+    [SerializeField, ReadOnly] public int count;
+}
+
+[System.Serializable]
+public struct JumpInfo
+{
+    [SerializeField] public float speed;
+    [SerializeField, ReadOnly(true)] public int countMax;
+    [SerializeField, ReadOnly(true)] public int count;
+    [SerializeField, ReadOnly(true)] public bool input;
+    [SerializeField, ReadOnly(true)] public bool isJumping;
+}
+
+[System.Serializable]
+public struct ShootInfo
+{
+    [SerializeField, ReadOnly(true)] public int bulletCountMax;
+    [SerializeField, ReadOnly(true)] public int bulletCount;
+    [SerializeField] public float reloadSpeed;
+    [SerializeField, ReadOnly(true)] public float bulletSpeed;
+    [SerializeField, ReadOnly(true)] public float bulletDelay;
+    [SerializeField, ReadOnly(true)] public float shootGap;
+}
+
+[System.Serializable]
+public struct AnimationFlags
+{
+    [SerializeField, ReadOnly] public bool needCheckingAnimate;
+}
+
+[System.Serializable]
+public struct ObjectRefs
+{
+    [SerializeField, ReadOnly(true)] public TextMeshProUGUI bulletText;
+    [SerializeField, ReadOnly(true)] public Animator animator;
+    [SerializeField, ReadOnly(true)] public GameObject upsideChild;
+    [SerializeField, ReadOnly(true)] public GameObject downsideChild;
+    [SerializeField, ReadOnly(true)] public GameObject armChild;
+    [SerializeField, ReadOnly(true)] public SpriteRenderer upsideChildSprite;
+}
+
+[System.Serializable]
+public struct PlayerNameUI
+{
+    [SerializeField, ReadOnly(true)] public string playerName;
+    [SerializeField, ReadOnly(true)] public string nameTextName;
+}
+
 public class Player : Character
 {
     private PhotonView photonView; // 포톤 서버 관련 추가
-    public bool seeRight => sprite.flipX;
+    public bool seeRight => UpsideChildSprite.flipX;
     public bool isAnimating => animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f;
+
+    [SerializeField] private DashData dash = new DashData {
+        startSpeed = 2f,
+        minSpeed = 1f,
+        maxCount = 1,
+        coolDown = 1f,
+        delay = 0.2f,
+
+        goRight = false,
+        isKeyDown = false,
+        velocity = 1f,
+        count = 0,
+    };
+
 
     [SerializeField, ReadOnly(true)] private string playerName = "John Wick";
     [SerializeField, ReadOnly(true)] private string nameText_name = "PlayerName";
-    
-    [SerializeField] private Vector3 shootGap = Vector3.zero;
 
     [SerializeField, ReadOnly(true)] private float moveSpeed = 1.0f;
-    [SerializeField, ReadOnly(true)] private float DashSpeed = 2.0f;
-    [SerializeField, ReadOnly(true)] private float DashVelocity = 1f;
-    [SerializeField, ReadOnly] private float DashVelocityNormal = 1f;
-    [SerializeField, ReadOnly] private int DashCount = 1;
-    [SerializeField, ReadOnly(true)] private int DashCountMax = 1;
-    [SerializeField, ReadOnly(true)] private float DashCoolDown = 1f;
-    [SerializeField, ReadOnly(true)] private float DashDuration = 0.2f;
-    [SerializeField, ReadOnly] private bool DashInput = false;
+
+
+
+
+    [Header("Options", order = 0)]
 
     [SerializeField] private float JumpSpeed = 7f;
-    [SerializeField, ReadOnly] private int JumpCount = 1;
     [SerializeField, ReadOnly(true)] private int JumpCountMax = 1;
+    [SerializeField, ReadOnly] private int JumpCount = 1;
     [SerializeField, ReadOnly] private bool JumpInput = false;
     [SerializeField, ReadOnly] private bool isJumping = false;
+    [Header("ghost", order = 1)]
+    [SerializeField, ReadOnly(true)] private float ghostDuration = 0.3f;
 
-    [SerializeField, ReadOnly] private string bulletPath = "Prefabs/bullet_gun";
+    [Header("Shoot", order = 1)]
     [SerializeField, ReadOnly(true)] private int bulletCountMax = 10;
     [SerializeField, ReadOnly(true)] private int bulletCount = 0;
     [SerializeField] private float reloadSpeed = 1.5f;
     [SerializeField, ReadOnly(true)] private float bulletSpeed = 10f;
     [SerializeField, ReadOnly(true)] private float bulletDelay = 0.3f;
-    
-    [SerializeField, ReadOnly(true)] private TextMeshProUGUI bulletText = null;
+    [SerializeField, ReadOnly(true)] private float ShootGap = 1f;
 
-    [SerializeField, ReadOnly] private float ghostDuration = 0.3f;
-
-    [SerializeField, ReadOnly(true)] private Animator animator = null;
+    [Header("Animation", order = 0)]
     [SerializeField, ReadOnly] private bool needCheckingAnimate = true;
 
+    [Header("Object & Components", order = 0)]
+    [SerializeField, ReadOnly(true)] private TextMeshProUGUI bulletText = null;
+    [SerializeField, ReadOnly(true)] private Animator animator = null;
     [SerializeField, ReadOnly(true)] private GameObject UpsideChild = null;
     [SerializeField, ReadOnly(true)] private GameObject DownsideChild = null;
     [SerializeField, ReadOnly(true)] private GameObject ArmChild = null;
+    [SerializeField, ReadOnly(true)] private SpriteRenderer UpsideChildSprite = null;
 
-    [SerializeField, ReadOnly] private string ShootKeyCode = "j";
-
-    [Header("Info")]
+    [Header("Info", order = 0)]
     [ReadOnly, SerializeField] private float HorizontalInput;
 
     private bool ReloadCoroutineFlag = false;
@@ -66,14 +138,14 @@ public class Player : Character
         if (bulletText == null) bulletText = GameObject.Find("Canvas").transform.Find("PlayerBulletCount").GetComponent<TextMeshProUGUI>();
         if (nameText == null) nameText = GameObject.Find("Canvas").transform.Find(nameText_name).GetComponent<TextMeshProUGUI>();
 
-        UpsideChild ??= transform.Find("Upside").gameObject;
-        DownsideChild ??= transform.Find("Downside").gameObject;
-        ArmChild ??= transform.Find("Arm").gameObject;
+        if (UpsideChild == null) UpsideChild = transform.Find("Upside").gameObject;
+        if (UpsideChildSprite == null) UpsideChildSprite = UpsideChild.GetComponent<SpriteRenderer>();
+        if (DownsideChild == null) DownsideChild = transform.Find("Downside").gameObject;
+        if (ArmChild == null) ArmChild = transform.Find("Arm").gameObject;
 
         playerName = (PhotonNetwork.NickName != "") ? PhotonNetwork.NickName : playerName;
         nameText.text = playerName;
 
-        shootGap = new Vector3(seeRight.BoolToSign(), 0);
         TargetTags.Add(Tags.Enemy);
 
         if (!photonView.IsMine)  // 자기 플레이어가 아니면 입력 받지 않음
@@ -95,7 +167,7 @@ public class Player : Character
         }
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            DashInput = true;
+            dash.isKeyDown = true;
         }
 
         AnimationCheck();
@@ -121,7 +193,11 @@ public class Player : Character
     {
         JumpInput = Input.GetAxis("Jump") > 0;
         base.FixedUpdate();
-        DashCounting(DashInput && DashCount > 0);
+        if (dash.isKeyDown && dash.count > 0)
+        {
+            DashCounting();
+            dash.isKeyDown = false;
+        }
 
         if (!JumpInput)
         {
@@ -129,8 +205,9 @@ public class Player : Character
         }
     }
 
-    protected override void OnDestroy() {
-        
+    protected override void OnDestroy()
+    {
+
         base.OnDestroy();
     }
 
@@ -146,7 +223,7 @@ public class Player : Character
     protected override Vector2 UpdateVelocity(Vector2 velocity)
     {
         HorizontalMovement(ref velocity);
-        Dash(ref velocity);
+        velocity = CalcurateDashVelocity();
         JumpCheck(ref velocity, JumpInput && JumpCount > 0);
 
         return velocity;
@@ -169,7 +246,7 @@ public class Player : Character
 
             //animator.SetBool("isWalk", true);
         }
-        
+
         velocity.x = HorizontalInput * Speed;
 
         return velocity.x != 0;
@@ -180,40 +257,51 @@ public class Player : Character
     /// </summary>
     /// <param name="velocity"></param>
     /// <returns>이동 했는지</returns>
-    bool Dash(ref Vector2 velocity)
-    {
-        DashVelocity.SetIfTrue(DashInput && DashCount > 0, DashSpeed);
-
-        if (DashVelocity > DashVelocityNormal)
+        Vector2 CalcurateDashVelocity()
         {
-            velocity.x = seeRight.BoolToSign() * Speed * DashVelocity;
-            DashVelocity -= Time.fixedDeltaTime * Mathf.Abs(DashSpeed - 1f) / DashDuration;
+            bool result = false;
+            return CalcurateDashVelocity(out result);
+        }
 
-            if (!IsInvoking(nameof(SpawnGhostCoroutine)))
+        Vector2 CalcurateDashVelocity(out bool result)
+        {
+            Vector2 velocity = Vector2.zero;
+            if (dash.isKeyDown && dash.count > 0)
             {
-                StartCoroutine(SpawnGhostCoroutine(ghostDuration));
+                dash.velocity = dash.startSpeed;
+                dash.goRight = seeRight;
             }
-        }
-        else
-        {
-            DashVelocity = DashVelocityNormal;
-        }
-        return velocity.x != 0;
-    }
 
-    void DashCounting(bool condition)
-    {
-        DashCount.SetIfTrue(condition, DashCount - 1);
-        if (DashCount == 0 && !IsInvoking(nameof(DashCountReset)))
-        {
-            Invoke(nameof(DashCountReset), DashCoolDown);
+            if (dash.velocity > dash.minSpeed)
+            {
+                velocity.x = dash.goRight.BoolToSign() * Speed * dash.velocity;
+                dash.velocity -= Time.fixedDeltaTime * Mathf.Abs(dash.startSpeed - 1f) / dash.delay;
+
+                if (!IsInvoking(nameof(SpawnGhostCoroutine)))
+                {
+                    StartCoroutine(SpawnGhostCoroutine(ghostDuration));
+                }
+            }
+            else
+            {
+                dash.velocity = dash.minSpeed;
+            }
+            result = velocity.x != 0;
+            return velocity;
         }
-        DashInput = false;
+
+    void DashCounting()
+    {
+        dash.count--;
+        if (dash.count == 0 && !IsInvoking(nameof(DashCountReset)))
+        {
+            Invoke(nameof(DashCountReset), dash.coolDown);
+        }
     }
 
     void DashCountReset()
     {
-        DashCount = DashCountMax;
+        dash.count = dash.maxCount;
     }
 
     bool JumpCheck(ref Vector2 velocity, bool condition)
@@ -244,7 +332,7 @@ public class Player : Character
         JumpCount = JumpCountMax;
         isJumping = false;
     }
-
+ 
     GameObject CreateBullet(string bulletPath, Vector3 position, Quaternion rotation)
     {
         GameObject prefab = Resources.Load<GameObject>(bulletPath);
@@ -279,10 +367,12 @@ public class Player : Character
         // bullet count 부분
         if (bulletCount != 0)
         {
+            Vector2 dir = ((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized;
+
             //네트워크를 통해 총알 생성
             GameObject bulletObj = CreateBullet(
-                bulletPath,
-                transform.position + shootGap * seeRight.BoolToSign(),
+                ObjectPath.Bullet,
+                transform.position + (Vector3)dir,
                 Quaternion.identity);
             bulletObj.transform.parent = GameObject.Find("BulletManager").transform;
 
@@ -296,7 +386,7 @@ public class Player : Character
                 TargetTags.Remove(Tags.Box);
             }
             b.SetTargetTags(TargetTags);
-            b.dir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
+            b.dir = dir;
             b.Speed = bulletSpeed;
 
             bulletCount--;
@@ -318,9 +408,9 @@ public class Player : Character
 
     void SpawnGhost()
     {
-        GameObject ghost = Instantiate(PrefabManager.Instance.Ghost, 
-            transform.position - new Vector3(0, 0, 1f), 
-            Quaternion.identity, 
+        GameObject ghost = Instantiate(PrefabManager.Instance.Ghost,
+            transform.position - new Vector3(0, 0, 1f),
+            Quaternion.identity,
             GameObjectResource.Instance.GhostManager.transform);
 
         SpriteRenderer spriteRenderer = ghost.GetComponent<SpriteRenderer>();

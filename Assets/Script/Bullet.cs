@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour, IAttackable, IMoveable
     {
         if (transform == null) return;
         transform.position += (Vector3)Velocity * Time.fixedDeltaTime;
-
+        transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
         //Debug.Log($"{Speed}, {Velocity}, {Time.fixedDeltaTime}");
     }
 
