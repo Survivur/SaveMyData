@@ -3,8 +3,18 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[System.Serializable]
+public struct NameUI<T>
+{
+    [Header("Options")]
+    [SerializeField, ReadOnly(true)] public T str;
+    [SerializeField, ReadOnly(true)] public TextMeshProUGUI textName;
+    [SerializeField, ReadOnly(true)] public string strTextName;
+}
+
 public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveable
 {
+    [SerializeField, ShowPropertyInInspector]
     public float Speed { get; protected set; } = 5f;
 
     public float Damage { get; protected set; } = 1f;
@@ -12,11 +22,16 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
     public float MaxHealth { get; protected set; } = 10f;
     public float Health { get; protected set; } = 10f;
 
+    [SerializeField] protected NameUI<string> nameUI = new NameUI<string>
+    {
+        str = "Character",
+        strTextName = "Character"
+    };
+
     public virtual List<string> TargetTags { get; } = new List<string>();
 
     new protected Rigidbody2D rigidbody2D;
     protected SpriteRenderer sprite;
-    protected TextMeshProUGUI nameText = null;
 
     public virtual Vector2 Velocity => this.VelocityDefault(rigidbody2D);
 
@@ -26,13 +41,15 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        //if (nameUI.str == null) nameText = GameObject.Find("Canvas").transform.Find(nameText_name).GetComponent<TextMeshProUGUI>();
+
 
         GameObjectResource.Instance.CameraFocusObjects.Add(gameObject);
     }
 
     protected virtual void Update()
     {
-        nameText.transform.position = Camera.main.WorldToScreenPoint(transform.position + namePosGap);
+        //nameText.transform.position = Camera.main.WorldToScreenPoint(transform.position + namePosGap);
     }
 
     protected virtual void FixedUpdate()
@@ -43,7 +60,7 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
     protected virtual void OnDestroy()
     {
         GameObjectResource.Instance?.CameraFocusObjects.Remove(gameObject);
-        Destroy(nameText);
+        //Destroy(nameText);
     }
 
     /// <summary>

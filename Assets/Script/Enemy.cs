@@ -12,8 +12,8 @@ public class Enemy : Character
     protected override void Start()
     {   
         base.Start();
-        nameText = GameObject.Find("Canvas").transform.Find(nameText_name).GetComponent<TextMeshProUGUI>();
-        nameText.text = enemyName;
+        //nameText = GameObject.Find("Canvas").transform.Find(nameText_name).GetComponent<TextMeshProUGUI>();
+        //nameText.text = enemyName;
     }
 
     protected override void OnDestroy() {

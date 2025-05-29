@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -37,7 +35,11 @@ public class ReadOnlyEditor : Editor
         }
 
         serializedObject.ApplyModifiedProperties();
+
+        // [ShowPropertyInInspector] 속성이 붙은 프로퍼티도 렌더링
+        DrawInspectableProperties(target);
     }
+
 
     private void DrawPropertyWithChildren(SerializedProperty property)
     {
@@ -76,7 +78,6 @@ public class ReadOnlyEditor : Editor
             targetType = targetType.BaseType; // 부모 클래스로 이동
         }
 
-
         if (isReadOnly)
         {
             using (new EditorGUI.DisabledScope(!isOnlyRuntime))
@@ -89,6 +90,72 @@ public class ReadOnlyEditor : Editor
         {
             // ReadOnly가 아닌 속성은 기본 처리
             EditorGUILayout.PropertyField(property, true);
+        }
+    }
+
+    // private void DrawInspectableProperties(UnityEngine.Object targetObject)
+    // {
+    //     var type = targetObject.GetType();
+    //     var flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+
+    //     foreach (var prop in type.GetProperties(flags))
+    //     {
+    //         if (Attribute.IsDefined(prop, typeof(ShowPropertyInInspectorAttribute)))
+    //         {
+    //             object value = null;
+    //             try
+    //             {
+    //                 value = prop.GetValue(targetObject, null);
+    //             }
+    //             catch (Exception e)
+    //             {
+    //                 Debug.LogWarning($"[ShowPropertyInInspector] {prop.Name} 접근 중 오류: {e.Message}");
+    //             }
+
+    //             string valueString = value != null ? value.ToString() : "null";
+    //             EditorGUILayout.LabelField(prop.Name, valueString);
+    //         }
+    //     }
+    // }
+
+    private void DrawInspectableProperties(UnityEngine.Object targetObject)
+    {
+        var type = targetObject.GetType();
+        var flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+
+        foreach (var prop in type.GetProperties(flags))
+        {
+            if (Attribute.IsDefined(prop, typeof(ShowPropertyInInspectorAttribute)))
+            {
+                object value = null;
+                try
+                {
+                    value = prop.GetValue(targetObject, null);
+                }
+                catch (Exception e)
+                {
+                    Debug.LogWarning($"[ShowPropertyInInspector] {prop.Name} 접근 중 오류: {e.Message}");
+                }
+
+                string valueString = value != null ? value.ToString() : "null";
+                EditorGUILayout.LabelField(prop.Name + "(Property)", valueString);
+            }
+
+            if (Attribute.IsDefined(prop, typeof(ReadOnlyAttribute)))
+            {
+                object value = null;
+                try
+                {
+                    value = prop.GetValue(targetObject, null);
+                }
+                catch (Exception e)
+                {
+                    Debug.LogWarning($"[ReadOnly] {prop.Name} 접근 중 오류: {e.Message}");
+                }
+
+                string valueString = value != null ? value.ToString() : "null";
+                EditorGUILayout.LabelField(prop.Name, valueString);
+            }
         }
     }
 }

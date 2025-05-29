@@ -59,12 +59,6 @@ public struct ObjectRefs
     [SerializeField, ReadOnly(true)] public SpriteRenderer upsideChildSprite;
 }
 
-[System.Serializable]
-public struct PlayerNameUI
-{
-    [SerializeField, ReadOnly(true)] public string playerName;
-    [SerializeField, ReadOnly(true)] public string nameTextName;
-}
 
 public class Player : Character
 {
@@ -84,7 +78,7 @@ public class Player : Character
         velocity = 1f,
         count = 0,
     };
-
+    //[SerializeField] private NameUI player;
 
     [SerializeField, ReadOnly(true)] private string playerName = "John Wick";
     [SerializeField, ReadOnly(true)] private string nameText_name = "PlayerName";
@@ -136,7 +130,7 @@ public class Player : Character
         if (photonView == null) photonView = GetComponent<PhotonView>();
         if (animator == null) animator = GetComponent<Animator>();
         if (bulletText == null) bulletText = GameObject.Find("Canvas").transform.Find("PlayerBulletCount").GetComponent<TextMeshProUGUI>();
-        if (nameText == null) nameText = GameObject.Find("Canvas").transform.Find(nameText_name).GetComponent<TextMeshProUGUI>();
+        
 
         if (UpsideChild == null) UpsideChild = transform.Find("Upside").gameObject;
         if (UpsideChildSprite == null) UpsideChildSprite = UpsideChild.GetComponent<SpriteRenderer>();
@@ -144,7 +138,7 @@ public class Player : Character
         if (ArmChild == null) ArmChild = transform.Find("Arm").gameObject;
 
         playerName = (PhotonNetwork.NickName != "") ? PhotonNetwork.NickName : playerName;
-        nameText.text = playerName;
+        //nameText.text = playerName;
 
         TargetTags.Add(Tags.Enemy);
 
