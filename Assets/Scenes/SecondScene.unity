@@ -3941,9 +3941,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 875993620}
-        m_TargetAssemblyTypeName: Network, Assembly-CSharp
-        m_MethodName: RoomIn
+      - m_Target: {fileID: 612866730}
+        m_TargetAssemblyTypeName: RoomSceneManager, Assembly-CSharp
+        m_MethodName: LoadRoomScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

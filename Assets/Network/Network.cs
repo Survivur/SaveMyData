@@ -114,7 +114,11 @@ public class Network : MonoBehaviourPunCallbacks
     public override void OnCreateRoomFailed(short returnCode, string message) => print("방 만들기 실패");
 
     public void RoomIn() => PhotonNetwork.JoinRoom(roomInput.text);
-    public override void OnJoinedRoom() => print("방 참가 완료");
+    public override void OnJoinedRoom()
+    {
+        print("방 참가 완료");
+        //SceneManager.LoadScene("RoomScene");
+    }
     public override void OnJoinRandomFailed(short returnCode, string message) => print("방 참가 실패");
 
     //public void RoomOut() => PhotonNetwork.LeaveRoom();
