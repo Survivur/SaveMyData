@@ -38,4 +38,22 @@ public class Box : MonoBehaviour, IHittable
             spriteRenderer.sprite = boxImage[1];
         }
     }
+
+    public void TakeDamage(Bullet bullet, Vector2 direction)
+    {
+        Health -= bullet.Damage;
+
+        if (Health <= 0f)
+        {
+            Destroy(gameObject);
+        }
+        else if (Health <= MaxHealth / 4)
+        {
+            spriteRenderer.sprite = boxImage[2];
+        }
+        else if (Health <= MaxHealth / 2)
+        {
+            spriteRenderer.sprite = boxImage[1];
+        }
+    }
 }

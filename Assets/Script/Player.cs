@@ -1,4 +1,5 @@
 using Photon.Pun;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,27 +9,31 @@ using UnityEngine;
 public struct DashData
 {
     [Header("Options")]
-    [SerializeField, ReadOnly(true)] public float startSpeed;
-    [SerializeField, ReadOnly(true)] public float minSpeed;
-    [SerializeField, ReadOnly(true)] public int maxCount;
-    [SerializeField, ReadOnly(true)] public float coolDown;
-    [SerializeField, ReadOnly(true)] public float delay;
+    [SerializeField] public float startSpeed;
+    [SerializeField] public float minSpeed;
+    [SerializeField] public int maxCount;
+    [SerializeField] public float coolDown;
+    [SerializeField] public float delay;
 
     [Header("Information")]
     [SerializeField, ReadOnly] public bool goRight;
     [SerializeField, ReadOnly] public bool isKeyDown;
-    [SerializeField, ReadOnly] public float velocity;
+    [SerializeField, ReadOnly] public float velocityX;
     [SerializeField, ReadOnly] public int count;
 }
 
 [System.Serializable]
-public struct JumpInfo
+public struct JumpData
 {
+    [Header("Options")]
     [SerializeField] public float speed;
-    [SerializeField, ReadOnly(true)] public int countMax;
-    [SerializeField, ReadOnly(true)] public int count;
-    [SerializeField, ReadOnly(true)] public bool input;
-    [SerializeField, ReadOnly(true)] public bool isJumping;
+    [SerializeField] public int countMax;
+    [SerializeField] public float coolDown;
+
+    [Header("Information")]
+    [SerializeField, ReadOnly] public int count;
+    [SerializeField, ReadOnly] public bool isKeyDown;
+    [SerializeField, ReadOnly] public bool isJumping;
 }
 
 [System.Serializable]
@@ -59,10 +64,8 @@ public struct ObjectRefs
     [SerializeField, ReadOnly(true)] public SpriteRenderer upsideChildSprite;
 }
 
-
 public class Player : Character
 {
-    private PhotonView photonView; // 포톤 서버 관련 추가
     public bool seeRight => UpsideChildSprite.flipX;
     public bool isAnimating => animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f;
 
@@ -75,36 +78,28 @@ public class Player : Character
 
         goRight = false,
         isKeyDown = false,
-        velocity = 1f,
-        count = 0,
+        velocityX = 1f,
+        count = 1,
     };
-    //[SerializeField] private NameUI player;
 
-    [SerializeField, ReadOnly(true)] private string playerName = "John Wick";
-    [SerializeField, ReadOnly(true)] private string nameText_name = "PlayerName";
+    [SerializeField] private JumpData jump = new JumpData
+    {
+        speed = 7f,
+        countMax = 1,
+        count = 1,
+        isKeyDown = false,
+        isJumping = false
+    };
 
-    [SerializeField, ReadOnly(true)] private float moveSpeed = 1.0f;
 
+    [SerializeField, ReadOnly(true)] protected int bulletCountMax = 10;
+    [SerializeField, ReadOnly(true)] protected int bulletCount = 0;
+    [SerializeField, ReadOnly(true)] protected float reloadSpeed = 1.5f;
+    [SerializeField, ReadOnly(true)] protected float bulletDelay = 0.3f;
+    [SerializeField, ReadOnly(true)] protected float ShootGap = 1f;
 
-
-
-    [Header("Options", order = 0)]
-
-    [SerializeField] private float JumpSpeed = 7f;
-    [SerializeField, ReadOnly(true)] private int JumpCountMax = 1;
-    [SerializeField, ReadOnly] private int JumpCount = 1;
-    [SerializeField, ReadOnly] private bool JumpInput = false;
-    [SerializeField, ReadOnly] private bool isJumping = false;
     [Header("ghost", order = 1)]
     [SerializeField, ReadOnly(true)] private float ghostDuration = 0.3f;
-
-    [Header("Shoot", order = 1)]
-    [SerializeField, ReadOnly(true)] private int bulletCountMax = 10;
-    [SerializeField, ReadOnly(true)] private int bulletCount = 0;
-    [SerializeField] private float reloadSpeed = 1.5f;
-    [SerializeField, ReadOnly(true)] private float bulletSpeed = 10f;
-    [SerializeField, ReadOnly(true)] private float bulletDelay = 0.3f;
-    [SerializeField, ReadOnly(true)] private float ShootGap = 1f;
 
     [Header("Animation", order = 0)]
     [SerializeField, ReadOnly] private bool needCheckingAnimate = true;
@@ -118,27 +113,25 @@ public class Player : Character
     [SerializeField, ReadOnly(true)] private SpriteRenderer UpsideChildSprite = null;
 
     [Header("Info", order = 0)]
-    [ReadOnly, SerializeField] private float HorizontalInput;
+    [SerializeField, ReadOnly] private float HorizontalInput;
 
     private bool ReloadCoroutineFlag = false;
 
-    public override List<string> TargetTags { get; } = new List<string>();
+    public override List<string> TargetTags { get; protected set; } = new List<string>();
 
     protected override void Start()
     {
+        if (nameUI.str == "") nameUI.str = "John Wick"; 
+        if (nameUI.strTextName == "") nameUI.strTextName = "PlayerName";
         base.Start();
-        if (photonView == null) photonView = GetComponent<PhotonView>();
+
         if (animator == null) animator = GetComponent<Animator>();
         if (bulletText == null) bulletText = GameObject.Find("Canvas").transform.Find("PlayerBulletCount").GetComponent<TextMeshProUGUI>();
-        
 
         if (UpsideChild == null) UpsideChild = transform.Find("Upside").gameObject;
         if (UpsideChildSprite == null) UpsideChildSprite = UpsideChild.GetComponent<SpriteRenderer>();
         if (DownsideChild == null) DownsideChild = transform.Find("Downside").gameObject;
         if (ArmChild == null) ArmChild = transform.Find("Arm").gameObject;
-
-        playerName = (PhotonNetwork.NickName != "") ? PhotonNetwork.NickName : playerName;
-        //nameText.text = playerName;
 
         TargetTags.Add(Tags.Enemy);
 
@@ -148,6 +141,8 @@ public class Player : Character
             return;
         }
 
+        JumpCountReset();
+        DashCountReset();
         BulletUpdate();
         BulletTextUpdate();
     }
@@ -167,6 +162,40 @@ public class Player : Character
         AnimationCheck();
     }
 
+    protected override void FixedUpdate()
+    {
+        jump.isKeyDown = Input.GetAxis("Jump") > 0;
+        base.FixedUpdate();
+        if (dash.isKeyDown)
+        {
+            DashCounting();
+            dash.isKeyDown = false;
+        }
+
+        if (!jump.isKeyDown)
+        {
+            jump.isJumping = false;
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag(Tags.Ground))
+        {
+            if (collision.transform.position.y < transform.position.y)
+                JumpCountReset();
+        }
+    }
+
+    protected override Vector2 UpdateVelocity(Vector2 velocity)
+    {
+        HorizontalMovement(ref velocity);
+        CalcurateDashVelocity(ref velocity);
+        JumpCheck(ref velocity, jump.isKeyDown && jump.count > 0);
+
+        return velocity;
+    }
+
     private void AnimationCheck()
     {
         if (needCheckingAnimate && !isAnimating)
@@ -182,47 +211,6 @@ public class Player : Character
         }
     }
 
-
-    protected override void FixedUpdate()
-    {
-        JumpInput = Input.GetAxis("Jump") > 0;
-        base.FixedUpdate();
-        if (dash.isKeyDown && dash.count > 0)
-        {
-            DashCounting();
-            dash.isKeyDown = false;
-        }
-
-        if (!JumpInput)
-        {
-            isJumping = false;
-        }
-    }
-
-    protected override void OnDestroy()
-    {
-
-        base.OnDestroy();
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag(Tags.Ground))
-        {
-            if (collision.transform.position.y < transform.position.y)
-                JumpCountReset();
-        }
-    }
-
-    protected override Vector2 UpdateVelocity(Vector2 velocity)
-    {
-        HorizontalMovement(ref velocity);
-        velocity = CalcurateDashVelocity();
-        JumpCheck(ref velocity, JumpInput && JumpCount > 0);
-
-        return velocity;
-    }
-
     /// <summary>
     /// 좌, 우 이동
     /// </summary>
@@ -230,7 +218,7 @@ public class Player : Character
     /// <returns>이동 햇는지</returns>
     bool HorizontalMovement(ref Vector2 velocity)
     {
-        HorizontalInput = Input.GetAxisRaw("Horizontal") * moveSpeed;
+        HorizontalInput = Input.GetAxisRaw("Horizontal");
         // 움직이면
         if (HorizontalInput != 0)
         {
@@ -241,7 +229,7 @@ public class Player : Character
             //animator.SetBool("isWalk", true);
         }
 
-        velocity.x = HorizontalInput * Speed;
+        velocity.x = HorizontalInput * Speed ;
 
         return velocity.x != 0;
     }
@@ -251,38 +239,30 @@ public class Player : Character
     /// </summary>
     /// <param name="velocity"></param>
     /// <returns>이동 했는지</returns>
-        Vector2 CalcurateDashVelocity()
+    bool CalcurateDashVelocity(ref Vector2 velocity)
+    {
+        if (dash.isKeyDown && dash.count > 0)
         {
-            bool result = false;
-            return CalcurateDashVelocity(out result);
+            dash.velocityX = dash.startSpeed;
+            dash.goRight = seeRight;
         }
 
-        Vector2 CalcurateDashVelocity(out bool result)
+        if (dash.velocityX > dash.minSpeed)
         {
-            Vector2 velocity = Vector2.zero;
-            if (dash.isKeyDown && dash.count > 0)
-            {
-                dash.velocity = dash.startSpeed;
-                dash.goRight = seeRight;
-            }
+            velocity.x = dash.goRight.BoolToSign() * Speed * dash.velocityX;
+            dash.velocityX -= Time.fixedDeltaTime * Mathf.Abs(dash.startSpeed - 1f) / dash.delay;
 
-            if (dash.velocity > dash.minSpeed)
+            if (!IsInvoking(nameof(SpawnGhostCoroutine)))
             {
-                velocity.x = dash.goRight.BoolToSign() * Speed * dash.velocity;
-                dash.velocity -= Time.fixedDeltaTime * Mathf.Abs(dash.startSpeed - 1f) / dash.delay;
-
-                if (!IsInvoking(nameof(SpawnGhostCoroutine)))
-                {
-                    StartCoroutine(SpawnGhostCoroutine(ghostDuration));
-                }
+                StartCoroutine(SpawnGhostCoroutine(ghostDuration));
             }
-            else
-            {
-                dash.velocity = dash.minSpeed;
-            }
-            result = velocity.x != 0;
-            return velocity;
         }
+        else
+        {
+            dash.velocityX = dash.minSpeed;
+        }
+        return velocity.x != 0;
+    }
 
     void DashCounting()
     {
@@ -301,49 +281,45 @@ public class Player : Character
     bool JumpCheck(ref Vector2 velocity, bool condition)
     {
         bool retval = false;
-        if (condition && !isJumping && JumpCount > 0)
+        if (condition && !jump.isJumping && jump.count > 0)
         {
-            retval = Jump(ref velocity);
-            JumpCount--;
-            isJumping = true;
+            retval = CalcurateJumpVelocity(ref velocity);
+            jump.count--;
+            jump.isJumping = true;
+            Invoke(nameof(JumpAble), jump.coolDown);
         }
         return retval;
     }
 
-    /// <summary>
-    /// 점프
-    /// </summary>
-    /// <param name="velocity"></param>
-    /// <returns>이동 했는지</returns>
-    bool Jump(ref Vector2 velocity)
+    /*************  ? Windsurf Command ?  *************/
+        /// <summary>
+        /// 점프
+        /// </summary>
+        /// <param name="velocity">점프한 후의 속도</param>
+        /// <returns>점프했는지</returns>
+        /// <remarks>
+        /// 점프 제한이 걸려 있지 않을 경우 점프 속도를 velocity에 저장하고, 제한을 걸어 준다.
+        /// </remarks>
+    /*******  c9744dbd-065d-493a-b0d8-42f446fd130d  *******/    
+    bool CalcurateJumpVelocity(ref Vector2 velocity)
     {
-        velocity.y.SetIfTrue(JumpInput && JumpCount > 0, JumpSpeed);
+        if (!jump.isJumping && jump.isKeyDown && jump.count > 0)
+        {
+            velocity.y = jump.speed;
+        }
+
         return velocity.y != 0;
+    }
+
+    void JumpAble()
+    {
+        jump.isJumping = false;
     }
 
     void JumpCountReset()
     {
-        JumpCount = JumpCountMax;
-        isJumping = false;
-    }
- 
-    GameObject CreateBullet(string bulletPath, Vector3 position, Quaternion rotation)
-    {
-        GameObject prefab = Resources.Load<GameObject>(bulletPath);
-        if (prefab == null)
-        {
-            Debug.LogError($"Resources.Load 실패: 경로 {bulletPath}");
-            return null;
-        }
-
-        if (PhotonNetwork.IsConnected)
-        {
-            return PhotonNetwork.Instantiate(bulletPath, position, rotation);
-        }
-        else
-        {
-            return Instantiate(prefab, position, rotation);
-        }
+        jump.count = jump.countMax;
+        jump.isJumping = false;
     }
 
     private void BulletTextUpdate()
@@ -356,32 +332,12 @@ public class Player : Character
         bulletCount = bulletCountMax;
     }
 
-    void Shoot(bool isBlockedByBlock = true)
+    public override void Shoot(float? damage = null, Vector2? dir = null, bool isBlockedByBlock = true)
     {
         // bullet count 부분
         if (bulletCount != 0)
         {
-            Vector2 dir = ((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized;
-
-            //네트워크를 통해 총알 생성
-            GameObject bulletObj = CreateBullet(
-                ObjectPath.Bullet,
-                transform.position + (Vector3)dir,
-                Quaternion.identity);
-            bulletObj.transform.parent = GameObject.Find("BulletManager").transform;
-
-            Bullet b = bulletObj.GetComponent<Bullet>();
-            if (isBlockedByBlock)
-            {
-                TargetTags.Add(Tags.Box);
-            }
-            else
-            {
-                TargetTags.Remove(Tags.Box);
-            }
-            b.SetTargetTags(TargetTags);
-            b.dir = dir;
-            b.Speed = bulletSpeed;
+            base.Shoot(damage, dir, isBlockedByBlock);
 
             bulletCount--;
 
@@ -406,12 +362,11 @@ public class Player : Character
             transform.position - new Vector3(0, 0, 1f),
             Quaternion.identity,
             GameObjectResource.Instance.GhostManager.transform);
-
+        ghost.transform.localScale = transform.localScale;
         SpriteRenderer spriteRenderer = ghost.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = sprite.sprite;
         spriteRenderer.flipX = sprite.flipX;
         spriteRenderer.color = new Color(1, 1, 1, 0.2f);
-
     }
 
     IEnumerator SpawnGhostCoroutine(float delay)

@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,153 +11,130 @@ public class ReadOnlyEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-        // 기본 인스펙터 UI 유지
-        //DrawDefaultInspector();
+        //SerializedProperty property = serializedObject.GetIterator();
 
-        serializedObject.Update();
-
-        // 모든 필드 순회
-        SerializedProperty property = serializedObject.GetIterator();
-        // 스크립트 파일이면
-        if (property.NextVisible(true))
+        SerializedProperty iterator = serializedObject.GetIterator();
+        if (iterator.NextVisible(true))
         {
             do
             {
-                using (new EditorGUI.DisabledScope(property.name[0] == 'm'))
+                if (iterator.propertyType == SerializedPropertyType.Generic)
                 {
-                    //Debug.Log($"{property.name} value is {property.GetType()}");
-                    if (property is SerializedProperty)
-                    {
-                        DrawPropertyWithChildren(property);
-                    }
+                    DrawPropertyAndChildrenWithFoldout(iterator);
                 }
-                
+                else
+                {
+                    DrawWithReadOnlyCheck(iterator);
+                }
             }
-            while (property.NextVisible(false));
+            while (iterator.NextVisible(false));
         }
 
         serializedObject.ApplyModifiedProperties();
 
-        // [ShowPropertyInInspector] 속성이 붙은 프로퍼티도 렌더링
-        DrawInspectableProperties(target);
+        // // 기본 인스펙터 UI 유지
+        // //DrawDefaultInspector();
+
+        // serializedObject.Update();
+
+        // // 모든 필드 순회
+        // SerializedProperty property = serializedObject.GetIterator();
+        // // 스크립트 파일이면
+        // if (property.NextVisible(true))
+        // {
+        //     do
+        //     {
+        //         using (new EditorGUI.DisabledScope(property.name[0] == 'm'))
+        //         {
+        //             //Debug.Log($"{property.name} value is {property.GetType()}");
+        //             if (property is SerializedProperty)
+        //             {
+        //                 DrawPropertyWithChildren(property);
+        //             }
+        //         }
+
+        //     }
+        //     while (property.NextVisible(false));
+        // }
+
+        // serializedObject.ApplyModifiedProperties();
+    }
+
+    private Dictionary<string, bool> foldoutStates = new Dictionary<string, bool>();
+
+    private void DrawPropertyAndChildrenWithFoldout(SerializedProperty property)
+    {
+        // 고유 키를 위한 경로 사용
+        string key = property.propertyPath;
+        if (!foldoutStates.ContainsKey(key))
+            foldoutStates[key] = false;
+
+        foldoutStates[key] = EditorGUILayout.Foldout(foldoutStates[key], property.displayName, true);
+
+        if (foldoutStates[key])
+        {
+            EditorGUI.indentLevel++;
+
+            SerializedProperty child = property.Copy();
+            SerializedProperty end = child.GetEndProperty();
+
+            bool enterChildren = true;
+
+            while (child.NextVisible(enterChildren))
+            {
+                if (SerializedProperty.EqualContents(child, end))
+                    break;
+
+                if (child.propertyType == SerializedPropertyType.Generic)
+                    DrawPropertyAndChildrenWithFoldout(child); // 재귀
+                else
+                    DrawWithReadOnlyCheck(child);
+
+                enterChildren = false;
+            }
+
+            EditorGUI.indentLevel--;
+        }
     }
 
 
-    private void DrawPropertyWithChildren(SerializedProperty property)
+    public static void DrawWithReadOnlyCheck(SerializedProperty property)
     {
-        // 현재 속성에 ReadOnlyAttribute가 있는지 확인
-        Type targetType = target.GetType();
-        HashSet<Type> excludedTypes = new HashSet<Type> { typeof(MonoBehaviour), typeof(object) };
-        MemberInfo[] memberInfo = null;
-        bool isReadOnly = false;
-        bool isOnlyRuntime = false;
+        object target = property.serializedObject.targetObject;
+        FieldInfo fieldInfo = GetFieldInfoFromPropertyPath(target.GetType(), property.propertyPath);
 
-        // 부모 클래스를 따라가며 탐색
-        while (targetType != null &&
-            !excludedTypes.Contains(targetType))
+        var readOnlyAttr = fieldInfo?.GetCustomAttribute<ReadOnlyAttribute>();
+
+        using (new EditorGUI.DisabledScope(readOnlyAttr != null && (Application.isPlaying || !readOnlyAttr.runtimeOnly)))
         {
-            memberInfo = targetType.GetMember(property.name, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
-            //Debug.Log($"{property.name} in {targetType}");
-
-            foreach (var member in memberInfo)
-            {
-                if (member != null)
-                {
-                    var readOnlyAttribute = member.GetCustomAttribute<ReadOnlyAttribute>();
-                    //Debug.Log($"{member.Name} is {member.DeclaringType} and in the {target.GetType()}!");
-
-                    if (readOnlyAttribute != null)
-                    {
-                        isOnlyRuntime = !Application.isPlaying && readOnlyAttribute.runtimeOnly;
-                        isReadOnly = true;
-                        break; // 원하는 타입 및 속성 발견 시 탐색 종료
-                    }
-                }
-            }
-
-            if (isReadOnly) break; // 탐색 종료
-
-            targetType = targetType.BaseType; // 부모 클래스로 이동
-        }
-
-        if (isReadOnly)
-        {
-            using (new EditorGUI.DisabledScope(!isOnlyRuntime))
-            {
-                // ReadOnly 속성을 가진 멤버만 표시
-                EditorGUILayout.PropertyField(property, true);
-            }
-        }
-        else
-        {
-            // ReadOnly가 아닌 속성은 기본 처리
-            EditorGUILayout.PropertyField(property, true);
+            EditorGUILayout.PropertyField(property, false);
         }
     }
 
-    // private void DrawInspectableProperties(UnityEngine.Object targetObject)
-    // {
-    //     var type = targetObject.GetType();
-    //     var flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
-
-    //     foreach (var prop in type.GetProperties(flags))
-    //     {
-    //         if (Attribute.IsDefined(prop, typeof(ShowPropertyInInspectorAttribute)))
-    //         {
-    //             object value = null;
-    //             try
-    //             {
-    //                 value = prop.GetValue(targetObject, null);
-    //             }
-    //             catch (Exception e)
-    //             {
-    //                 Debug.LogWarning($"[ShowPropertyInInspector] {prop.Name} 접근 중 오류: {e.Message}");
-    //             }
-
-    //             string valueString = value != null ? value.ToString() : "null";
-    //             EditorGUILayout.LabelField(prop.Name, valueString);
-    //         }
-    //     }
-    // }
-
-    private void DrawInspectableProperties(UnityEngine.Object targetObject)
+    private static FieldInfo GetFieldInfoFromPropertyPath(Type rootType, string path)
     {
-        var type = targetObject.GetType();
-        var flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+        string[] elements = path.Split('.');
+        Type currentType = rootType;
+        FieldInfo field = null;
 
-        foreach (var prop in type.GetProperties(flags))
+        for (int i = 0; i < elements.Length; i++)
         {
-            if (Attribute.IsDefined(prop, typeof(ShowPropertyInInspectorAttribute)))
-            {
-                object value = null;
-                try
-                {
-                    value = prop.GetValue(targetObject, null);
-                }
-                catch (Exception e)
-                {
-                    Debug.LogWarning($"[ShowPropertyInInspector] {prop.Name} 접근 중 오류: {e.Message}");
-                }
+            string element = elements[i];
 
-                string valueString = value != null ? value.ToString() : "null";
-                EditorGUILayout.LabelField(prop.Name + "(Property)", valueString);
+            // 배열이나 리스트 처리 (예: myList.Array.data[0].value)
+            if (element == "Array" && i + 2 < elements.Length && elements[i + 1].StartsWith("data["))
+            {
+                i += 2; // Skip "Array" and "data[index]"
+                continue;
             }
 
-            if (Attribute.IsDefined(prop, typeof(ReadOnlyAttribute)))
-            {
-                object value = null;
-                try
-                {
-                    value = prop.GetValue(targetObject, null);
-                }
-                catch (Exception e)
-                {
-                    Debug.LogWarning($"[ReadOnly] {prop.Name} 접근 중 오류: {e.Message}");
-                }
+            field = currentType.GetField(element,
+                BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            if (field == null) return null;
 
-                string valueString = value != null ? value.ToString() : "null";
-                EditorGUILayout.LabelField(prop.Name, valueString);
-            }
+            currentType = field.FieldType;
         }
+
+        return field;
     }
 }

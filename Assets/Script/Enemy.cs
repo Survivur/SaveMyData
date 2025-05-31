@@ -1,23 +1,33 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class Enemy : Character
 {
-    public override List<string> TargetTags { get; } = new List<string> { Tags.Player };
-    [SerializeField, ReadOnly] private string nameText_name = "EnemyName";
-
-    [SerializeField, ReadOnly(true)] private string enemyName = "abs";
+    public override List<string> TargetTags { get; protected set; } = new List<string> { Tags.Player };
+    [SerializeField] float ShootDelay = 1f;
+    [Header("Components")]
+    [SerializeField, ReadOnly] GameObject Player = null;
 
     protected override void Start()
-    {   
+    {
+        if (nameUI.str == "") nameUI.str = "abs";
+        if (nameUI.strTextName == "") nameUI.strTextName = "EnemyName";
         base.Start();
-        //nameText = GameObject.Find("Canvas").transform.Find(nameText_name).GetComponent<TextMeshProUGUI>();
-        //nameText.text = enemyName;
+
+        if (Player == null) Player = GameObject.Find("Player");
+
+        StartCoroutine(ShootForSecond());
     }
 
-    protected override void OnDestroy() {
-        base.OnDestroy();
+    IEnumerator ShootForSecond()
+    {
+        while (true)
+        {
+            Shoot(Damage, Player.transform.position - transform.position);
+            yield return new WaitForSeconds(ShootDelay);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)

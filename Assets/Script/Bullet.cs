@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour, IAttackable, IMoveable
 {
     public Vector2 dir = Vector2.zero;
 
-    public float Damage { get; private set; } = 1f;
+    public float Damage { get; set; } = 1f;
 
     public float Speed { get; set; } = 10f;
 
@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour, IAttackable, IMoveable
         if (TargetTags.Contains(collision.tag))
         {
             IHittable hitable = collision.GetComponent<IHittable>();
-            hitable?.TakeDamage(Damage, (Vector2)transform.right * new Vector2(dir.x , 1f));
+            hitable?.TakeDamage(this, (Vector2)transform.right * new Vector2(dir.x , 1f));
             DestroyBullet();
         }
     }
