@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8228976892640454491}
   - component: {fileID: 9084416146243665906}
   m_Layer: 7
-  m_Name: 'Player '
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,6 +199,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef02a88569a4b4afcb87119dbe095cb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  namePosGap: {x: 0, y: 2, z: 0}
+  playerName: John Wick
+  nameText_name: PlayerName
   shootGap: {x: 0, y: 0, z: 0}
   moveSpeed: 1
   DashSpeed: 2
@@ -213,8 +216,13 @@ MonoBehaviour:
   JumpCount: 1
   JumpCountMax: 1
   JumpInput: 0
-  bullet: {fileID: 0}
+  bulletPath: Prefabs/bullet_gun
+  bulletCountMax: 10
+  bulletCount: 0
+  reloadSpeed: 1.5
   bulletSpeed: 10
+  bulletDelay: 0.3
+  bulletText: {fileID: 0}
   ghostDuration: 0.3
   animator: {fileID: 0}
   ShootKeyCode: j

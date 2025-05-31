@@ -4,23 +4,25 @@ using Photon.Realtime;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
-    private Transform[] spawnPoints;
+    [SerializeField] private Transform[] spawnPoints;
 
     void Start()
     {
-        GameObject spawnParent = GameObject.Find("spawnPoints");
-        spawnPoints = new Transform[spawnParent.transform.childCount];
-        for (int i = 0; i < spawnPoints.Length; i++)
+        if (PhotonNetwork.IsConnected && PhotonNetwork.InRoom)
         {
-            spawnPoints[i] = spawnParent.transform.GetChild(i);
+            if (spawnPoints.Length == 0)
+            {
+                Debug.LogWarning("spawnPoint is Empty!!");
+            }
+
+            int randomIndex = Random.Range(0, spawnPoints.Length);
+            Vector3 spawnPos = spawnPoints[randomIndex].position;
+
+            PhotonNetwork.Instantiate("Prefabs/Player", spawnPos, Quaternion.identity);
         }
-
-        if (PhotonNetwork.IsConnectedAndReady)
+        else
         {
-            int index = Random.Range(0, spawnPoints.Length);
-            Transform spawnPoint = spawnPoints[index];
-
-            PhotonNetwork.Instantiate("Prefabs/Player", spawnPoint.position, spawnPoint.rotation);
+            Debug.LogWarning("룸에 참가하지 않은 상태입니다.");
         }
     }
 }
