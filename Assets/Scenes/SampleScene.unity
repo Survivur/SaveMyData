@@ -208,6 +208,7 @@ GameObject:
   - component: {fileID: 90035568}
   - component: {fileID: 90035572}
   - component: {fileID: 90035566}
+  - component: {fileID: 90035573}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -222,7 +223,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 90035565}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c9a90ec6cc5e4371b4bfdf0f8394fc8, type: 3}
   m_Name: 
@@ -395,6 +396,45 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5.5333333, y: 3.133801}
   m_EdgeRadius: 0
+--- !u!114 &90035573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90035565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76733bb9b36df8a4e9243df978d3cede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  namePosGap: {x: 0, y: 2, z: 0}
+  playerName: John Wick
+  nameText_name: PlayerName
+  shootGap: {x: 0, y: 0, z: 0}
+  moveSpeed: 1
+  DashSpeed: 2
+  DashVelocity: 1
+  DashVelocityNormal: 1
+  DashCount: 1
+  DashCountMax: 1
+  DashCoolDown: 1
+  DashDuration: 0.2
+  DashInput: 0
+  JumpSpeed: 7
+  JumpCount: 1
+  JumpCountMax: 1
+  JumpInput: 0
+  bulletPath: Prefabs/bullet_gun
+  bulletCountMax: 10
+  bulletCount: 0
+  reloadSpeed: 1.5
+  bulletSpeed: 10
+  bulletDelay: 0.3
+  bulletText: {fileID: 0}
+  ghostDuration: 0.3
+  animator: {fileID: 0}
+  ShootKeyCode: j
 --- !u!1 &234735835
 GameObject:
   m_ObjectHideFlags: 0
