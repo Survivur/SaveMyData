@@ -180,7 +180,7 @@ public class Player : Character
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag(Tags.Ground))
+        if (collision.gameObject.CompareTag(Tags.Ground) | collision.gameObject.CompareTag(Tags.Box))
         {
             if (collision.transform.position.y < transform.position.y)
                 JumpCountReset();

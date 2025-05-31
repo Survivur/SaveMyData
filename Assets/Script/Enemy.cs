@@ -21,11 +21,17 @@ public class Enemy : Character
         StartCoroutine(ShootForSecond());
     }
 
+    protected override void Update()
+    {
+        base.Update();
+        AimPosition = ((Vector2)(Player.transform.position - transform.position)).normalized;
+    }
+
     IEnumerator ShootForSecond()
     {
         while (true)
         {
-            Shoot(Damage, Player.transform.position - transform.position);
+            Shoot(Damage, AimPosition);
             yield return new WaitForSeconds(ShootDelay);
         }
     }

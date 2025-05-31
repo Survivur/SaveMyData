@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ParriedHands : MonoBehaviour
 {
-    [SerializeField] private float MaxAlpha = 0.5f;
+    [SerializeField] private float MaxAlpha = 0.2f;
     [SerializeField, ReadOnly] private SpriteRenderer spriteRenderer;
 
     [SerializeField] private float totalLifetime = 1f;

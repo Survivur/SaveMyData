@@ -21,23 +21,26 @@ public class ParryingShield : MonoBehaviour, IHittable
 
     public void TakeDamage(Bullet bullet, Vector2 direction)
     {
-        SpawnHands(direction);
+        SpawnHands(bullet.dir);
         bullet.dir = ParentsCharacter.AimPosition;
         ParentsCharacter.Shoot(bullet);
+        Destroy(bullet);
     }
 
 
     void SpawnHands(Vector3 dir)
     {
         GameObject parriedHand = Instantiate(PrefabManager.Instance.ParriedHand,
-            transform.position - new Vector3(0, 0, 1f),
-            Quaternion.Euler(0, 0,  Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + rotateGap),
+            transform.position,
+            Quaternion.Euler(0, 0, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + rotateGap),
             transform);
 
-        Debug.Log(parriedHand.transform.rotation.z);
+
+        //Debug.Log(parriedHand.transform.rotation.z);
         //ghost.transform.localScale = transform.localScale;
         SpriteRenderer spriteRenderer = parriedHand.GetComponent<SpriteRenderer>();
-        spriteRenderer.flipX = GetComponent<SpriteRenderer>().flipX;
+        spriteRenderer.flipX = Random.Range(0, 2) == 1 ? true : false;
+        //Debug.Log(spriteRenderer.flipX);
         
     }
 

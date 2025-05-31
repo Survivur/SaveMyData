@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dde2756d31124a9cb17c95336e80a3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxAlpha: 0.8
+  MaxAlpha: 0.4
   spriteRenderer: {fileID: 0}
   totalLifetime: 1
   fadeTime: 0.15
