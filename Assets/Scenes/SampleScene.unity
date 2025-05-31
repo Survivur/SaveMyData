@@ -229,8 +229,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Speed>k__BackingField: 5
   <Damage>k__BackingField: 1
-  <MaxHealth>k__BackingField: 10
-  <Health>k__BackingField: 10
+  <MaxHealth>k__BackingField: 2000
+  <Health>k__BackingField: 2000
   <AimPosition>k__BackingField: {x: 0, y: 0}
   nameUI:
     str: 
@@ -358,7 +358,7 @@ Transform:
   m_GameObject: {fileID: 90035565}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 3, z: -1}
+  m_LocalPosition: {x: 0.75, y: 5.81, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1830,7 +1830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Health>k__BackingField: -1
-  rotateGap: 30
+  rotateGap: -50
   ParentsCharacter: {fileID: 0}
 --- !u!212 &859596301
 SpriteRenderer:
@@ -3609,8 +3609,20 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8228976892640454491, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
+      propertyPath: bulletCountMax
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8228976892640454491, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
       propertyPath: dash.isKeyDown
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8228976892640454491, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
+      propertyPath: <Health>k__BackingField
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8228976892640454491, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 8258239906785856627, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
       propertyPath: m_LocalPosition.x

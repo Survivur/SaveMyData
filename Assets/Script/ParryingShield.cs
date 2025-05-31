@@ -3,7 +3,7 @@ using UnityEngine;
 public class ParryingShield : MonoBehaviour, IHittable
 {
     [field: SerializeField, ReadOnly] public float Health { get; protected set; } = -1f;
-    [SerializeField, ReadOnly] float rotateGap = 30f;
+    [SerializeField] private float rotateGap = -50f;
 
     [Header("Components")]
     [SerializeField, ReadOnly] Character ParentsCharacter;
@@ -29,24 +29,24 @@ public class ParryingShield : MonoBehaviour, IHittable
 
     void SpawnHands(Vector3 dir)
     {
-        GameObject ghost = Instantiate(PrefabManager.Instance.ParriedHand,
+        GameObject parriedHand = Instantiate(PrefabManager.Instance.ParriedHand,
             transform.position - new Vector3(0, 0, 1f),
-            Quaternion.Euler(0, 0, 180+ Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + rotateGap),
+            Quaternion.Euler(0, 0, 180+ Mathf.Atan2(-dir.y, -dir.x) * Mathf.Rad2Deg + rotateGap),
             transform);
 
-        Debug.Log(ghost.transform.rotation.z);
-        ghost.transform.localScale = transform.localScale;
-        SpriteRenderer spriteRenderer = ghost.GetComponent<SpriteRenderer>();
+        //Debug.Log(ghost.transform.rotation.z);
+        //ghost.transform.localScale = transform.localScale;
+        SpriteRenderer spriteRenderer = parriedHand.GetComponent<SpriteRenderer>();
         spriteRenderer.flipX = GetComponent<SpriteRenderer>().flipX;
         
     }
 
     void OnEnable()
     {
-        ParentsCharacter.GetComponent<Collider2D>().enabled = false;
+        //ParentsCharacter.GetComponent<Collider2D>().enabled = false;
     }
 
     private void OnDisable() {
-        ParentsCharacter.GetComponent<Collider2D>().enabled = true;
+        //ParentsCharacter.GetComponent<Collider2D>().enabled = true;
     }
 }
