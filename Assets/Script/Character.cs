@@ -97,14 +97,14 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
 
     public virtual void TakeDamage(Bullet bullet, Vector2 dir)
     {
-            IHittable.ApplyKnockback(rigidbody2D, bullet.Damage, dir);
-            Debug.Log($"{name} takes {bullet.Damage} damage. now hp is {Health}.");
-            // 데미지를 최대 체력만큼만 받을 수 있게합니다.
-            Health -= Mathf.Min(bullet.Damage, Health);
-            if (IHittable.CheckDead(this))
-            {
-                Destroy(gameObject);
-            }
+        IHittable.ApplyKnockback(rigidbody2D, bullet.Damage, dir);
+        //Debug.Log($"{name} takes {bullet.Damage} damage. now hp is {Health}.");
+        // 데미지를 최대 체력만큼만 받을 수 있게합니다.
+        Health -= Mathf.Min(bullet.Damage, Health);
+        if (IHittable.CheckDead(this))
+        {
+            Destroy(gameObject);
+        }
     }
 
     public virtual void Shoot(float? damage = null, Vector2? dir = null, bool isBlockedByBlock = true)

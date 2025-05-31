@@ -21,7 +21,7 @@ public class ParryingShield : MonoBehaviour, IHittable
 
     public void TakeDamage(Bullet bullet, Vector2 direction)
     {
-        SpawnHands(-direction);
+        SpawnHands(direction);
         bullet.dir = ParentsCharacter.AimPosition;
         ParentsCharacter.Shoot(bullet);
     }
@@ -31,10 +31,10 @@ public class ParryingShield : MonoBehaviour, IHittable
     {
         GameObject parriedHand = Instantiate(PrefabManager.Instance.ParriedHand,
             transform.position - new Vector3(0, 0, 1f),
-            Quaternion.Euler(0, 0, 180+ Mathf.Atan2(-dir.y, -dir.x) * Mathf.Rad2Deg + rotateGap),
+            Quaternion.Euler(0, 0,  Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + rotateGap),
             transform);
 
-        //Debug.Log(ghost.transform.rotation.z);
+        Debug.Log(parriedHand.transform.rotation.z);
         //ghost.transform.localScale = transform.localScale;
         SpriteRenderer spriteRenderer = parriedHand.GetComponent<SpriteRenderer>();
         spriteRenderer.flipX = GetComponent<SpriteRenderer>().flipX;
