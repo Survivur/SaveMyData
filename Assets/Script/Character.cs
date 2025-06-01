@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Photon.Pun;
 using TMPro;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -47,8 +48,10 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
         rigidbody2D = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
 
-        if (photonView == null) photonView = GetComponent<PhotonView>();
-        if (nameUI.textObject == null) nameUI.textObject = GameObject.Find("Canvas").transform.Find(nameUI.strTextName).GetComponent<TextMeshProUGUI>();
+        if (photonView == null)
+            photonView = GetComponent<PhotonView>();
+        if (nameUI.textObject == null)
+            nameUI.textObject = Instantiate(PrefabManager.Instance.HealthBar, transform.position, quaternion.identity, GameObjectResource.Instance.Canvas.transform).GetComponent<TextMeshProUGUI>();
 
         nameUI.str = (PhotonNetwork.NickName != "") ? PhotonNetwork.NickName : nameUI.str;
         nameUI.textObject.text = nameUI.str;
@@ -59,7 +62,6 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
     protected virtual void Update()
     {
         AimPosition = ((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized;
-        nameUI.textObject.transform.position = Camera.main.WorldToScreenPoint(transform.position + namePosGap);
     }
 
     protected virtual void FixedUpdate()

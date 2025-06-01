@@ -80,6 +80,7 @@
     <Compile Include="Assets/Network/Network.cs" />
     <Compile Include="Assets/Script/Player.cs" />
     <Compile Include="Assets/Network/GameExit.cs" />
+    <Compile Include="Assets/Script/Static/PrefabManager.cs" />
     <Compile Include="Assets/Photon/PhotonRealtime/Demos/DemoLoadBalancing/ConnectAndJoinRandomLb.cs" />
     <Compile Include="Assets/Script/ParryingShield.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_ExampleScript_01.cs" />
@@ -102,7 +103,6 @@
     <Compile Include="Assets/Script/Custom/ReadOnlyDrawer.cs" />
     <Compile Include="Assets/Script/Static/Paths.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ShaderPropAnimator.cs" />
-    <Compile Include="Assets/Script/PrefabManager.cs" />
     <Compile Include="Assets/Script/CameraMove.cs" />
     <Compile Include="Assets/Photon/PhotonChat/Demos/DemoChat/NamePickGui.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextInfoDebugTool.cs" />
@@ -131,8 +131,8 @@
     <Compile Include="Assets/Script/abstract/ARIBehaviour.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/CameraController.cs" />
     <Compile Include="Assets/Script/ParriedHands.cs" />
-    <Compile Include="Assets/Script/Interface/IShootable.cs" />
     <Compile Include="Assets/Script/Box.cs" />
+    <Compile Include="Assets/Script/Interface/IShootable.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark03.cs" />
     <Compile Include="Assets/Photon/PhotonChat/Demos/DemoChat/IgnoreUiRaycastWhenInactive.cs" />
     <Compile Include="Assets/Script/Custom/CodeExtensions.cs" />
@@ -150,6 +150,7 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextConsoleSimulator.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TeleType.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventCheck.cs" />
+    <Compile Include="Assets/Script/ObjectFollowUI.cs" />
     <Compile Include="Assets/Script/MouseAimRotationWithSprite.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextMeshProFloatingText.cs" />
     <Compile Include="Assets/Photon/PhotonChat/Demos/Common/EventSystemSpawner.cs" />
@@ -1347,7 +1348,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="ParrelSync">
-      <HintPath>Library\ScriptAssemblies\ParrelSync.dll</HintPath>
+      <HintPath>Library/ScriptAssemblies/ParrelSync.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Runtime">

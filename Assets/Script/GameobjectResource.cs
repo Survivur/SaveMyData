@@ -4,11 +4,14 @@ using UnityEngine;
 public class GameObjectResource : Singleton<GameObjectResource>
 {
     [SerializeField, ReadOnly(true)] public GameObject GhostManager;
+    [SerializeField, ReadOnly(true)] public GameObject Canvas;
     [SerializeField, ReadOnly] public List<GameObject> CameraFocusObjects;
 
-    private void Start()
+    protected override void Awake()
     {
-        GhostManager = GameObject.Find("GhostManager");
+        base.Awake();
+        if (GhostManager == null) GhostManager = GameObject.Find("GhostManager");
+        if (Canvas == null) Canvas = GameObject.Find("Canvas");
         if (GhostManager == null)
         {
             Debug.LogWarning("GhostManager not found");
