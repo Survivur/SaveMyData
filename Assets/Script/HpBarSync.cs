@@ -18,6 +18,6 @@ public class HpBarSync : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        slider.value = character?.Health ?? -666f;
+        slider.value = (character == null) ? -666f : character.Health;
     }
 }

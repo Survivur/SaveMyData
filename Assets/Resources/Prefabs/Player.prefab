@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4464042404116370419
 Transform:
   m_ObjectHideFlags: 0
@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 5770070590173950152}
   - component: {fileID: 5010202534175201184}
   - component: {fileID: 1574987363596874154}
+  - component: {fileID: 4380359119969864870}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -347,7 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef02a88569a4b4afcb87119dbe095cb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Speed>k__BackingField: 5
+  <Speed>k__BackingField: 10
   <Damage>k__BackingField: 1
   <MaxHealth>k__BackingField: 10
   <Health>k__BackingField: 10
@@ -374,7 +375,7 @@ MonoBehaviour:
     velocityX: 1
     count: 1
   jump:
-    speed: 7
+    speed: 15
     countMax: 1
     coolDown: 0
     count: 1
@@ -382,7 +383,7 @@ MonoBehaviour:
     isJumping: 0
   bulletCountMax: 10
   bulletCount: 0
-  reloadSpeed: 1.5
+  reloadSpeed: 50
   bulletDelay: 0.3
   ShootGap: 1
   ghostDuration: 0.3
@@ -394,6 +395,28 @@ MonoBehaviour:
   ArmChild: {fileID: 0}
   UpsideChildSprite: {fileID: 0}
   HorizontalInput: 0
+--- !u!114 &4380359119969864870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116715825516029912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &4351013150004507843
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,7 +446,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.4}
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4285707427341113435}
@@ -553,7 +576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8216528184651559875
 Transform:
   m_ObjectHideFlags: 0
@@ -698,7 +721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1387116039437119299
 Transform:
   m_ObjectHideFlags: 0

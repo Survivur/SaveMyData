@@ -2,21 +2,21 @@ using UnityEngine;
 
 public class ObjectFollowUI : MonoBehaviour
 {
-    [SerializeField] private Vector3 offset = Vector3.zero;
-    [SerializeField] private GameObject targetObject = null;
+    [ReadOnly(true)] public Vector3 Offset = Vector3.zero;
+    [ReadOnly(true)] public GameObject TargetObject = null;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        if (TargetObject == null) TargetObject = GameObject.Find("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (targetObject != null)
+        if (TargetObject != null)
         {
-            transform.position = Camera.main.WorldToScreenPoint(targetObject.transform.position + offset);
+            transform.position = Camera.main.WorldToScreenPoint(TargetObject.transform.position + Offset);
         }
     }
 }

@@ -51,7 +51,12 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
         if (photonView == null)
             photonView = GetComponent<PhotonView>();
         if (nameUI.textObject == null)
-            nameUI.textObject = Instantiate(PrefabManager.Instance.HealthBar, transform.position, quaternion.identity, GameObjectResource.Instance.Canvas.transform).GetComponent<TextMeshProUGUI>();
+        {
+            nameUI.textObject = Instantiate(PrefabManager.Instance.NameUI, transform.position, quaternion.identity, GameObjectResource.Instance.Canvas.transform).GetComponent<TextMeshProUGUI>();
+            ObjectFollowUI objectFollowUI =  nameUI.textObject.GetComponent<ObjectFollowUI>();
+            objectFollowUI.TargetObject = gameObject;
+            objectFollowUI.Offset = namePosGap;
+        }
 
         nameUI.str = (PhotonNetwork.NickName != "") ? PhotonNetwork.NickName : nameUI.str;
         nameUI.textObject.text = nameUI.str;
