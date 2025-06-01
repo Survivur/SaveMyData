@@ -6,24 +6,36 @@ public class GameManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] private Transform[] spawnPoints;
 
+    private bool hasSpawned = false;
+
     void Start()
     {
-        if (PhotonNetwork.IsConnected && PhotonNetwork.InRoom)
-        {
-            if (spawnPoints.Length == 0)
-            {
-                Debug.LogWarning("spawnPoint is Empty!!");
-            }
+        TrySpawn();
+    }
 
-            int randomIndex = Random.Range(0, spawnPoints.Length);
-            Vector3 spawnPos = spawnPoints[randomIndex].position;
+    public override void OnJoinedRoom()
+    {
+        base.OnJoinedRoom();
+        TrySpawn();
+    }
 
-            PhotonNetwork.Instantiate("Prefabs/Player", spawnPos, Quaternion.identity);
-        }
-        else
+    private void TrySpawn()
+    {
+        if (hasSpawned) return; // 중복 방지
+        if (!PhotonNetwork.InRoom) return;
+
+        if (spawnPoints.Length == 0)
         {
-            Debug.LogWarning("룸에 참가하지 않은 상태입니다.");
+            Debug.LogWarning("spawnPoints가 비어 있습니다.");
+            return;
         }
+
+        int randomIndex = Random.Range(0, spawnPoints.Length);
+        Vector3 spawnPos = spawnPoints[randomIndex].position;
+
+        GameObject player = PhotonNetwork.Instantiate("Prefabs/Player", spawnPos, Quaternion.identity);
+        hasSpawned = true;
+
+        Debug.Log("플레이어 생성 완료: " + player.name);
     }
 }
-
