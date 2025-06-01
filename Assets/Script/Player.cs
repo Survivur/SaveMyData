@@ -129,9 +129,13 @@ public class Player : Character
         if (bulletText == null) bulletText = GameObject.Find("Canvas").transform.Find("PlayerBulletCount").GetComponent<TextMeshProUGUI>();
 
         if (UpsideChild == null) UpsideChild = transform.Find("Upside").gameObject;
-        if (UpsideChildSprite == null) UpsideChildSprite = UpsideChild.GetComponent<SpriteRenderer>();
         if (DownsideChild == null) DownsideChild = transform.Find("Downside").gameObject;
         if (ArmChild == null) ArmChild = transform.Find("Arm").gameObject;
+
+        if (UpsideChildSprite == null) UpsideChildSprite = UpsideChild.GetComponent<SpriteRenderer>();
+        UpsideChild.SetActive(false);
+        DownsideChild.SetActive(false);
+        ArmChild.SetActive(false);
 
         TargetTags.Add(Tags.Enemy);
 

@@ -159,7 +159,6 @@ GameObject:
   - component: {fileID: 5770070590173950152}
   - component: {fileID: 5010202534175201184}
   - component: {fileID: 1574987363596874154}
-  - component: {fileID: 7427051578802409498}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -343,6 +342,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1116715825516029912}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -402,6 +402,8 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> origin/Park
   m_GameObject: {fileID: 1116715825516029912}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -410,14 +412,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Speed>k__BackingField: 5
   <Damage>k__BackingField: 1
-  <MaxHealth>k__BackingField: 2000
-  <Health>k__BackingField: 1000
+  <MaxHealth>k__BackingField: 10
+  <Health>k__BackingField: 10
   <AimPosition>k__BackingField: {x: 0, y: 0}
   nameUI:
     str: 
     textObject: {fileID: 0}
     strTextName: 
-  bulletSpeed: 50
+  bulletSpeed: 10
   <TargetTags>k__BackingField: []
   rigidbody2D: {fileID: 0}
   sprite: {fileID: 0}
@@ -427,7 +429,7 @@ MonoBehaviour:
   dash:
     startSpeed: 2
     minSpeed: 1
-    maxCount: 2
+    maxCount: 1
     coolDown: 1
     delay: 0.2
     goRight: 0
@@ -435,13 +437,13 @@ MonoBehaviour:
     velocityX: 1
     count: 1
   jump:
-    speed: 15
-    countMax: 2
-    coolDown: 1
+    speed: 7
+    countMax: 1
+    coolDown: 0
     count: 1
     isKeyDown: 0
     isJumping: 0
-  bulletCountMax: 2000
+  bulletCountMax: 10
   bulletCount: 0
   reloadSpeed: 1.5
   bulletDelay: 0.3
