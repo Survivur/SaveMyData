@@ -17,6 +17,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     void Start()
     {
+
+        PhotonNetwork.AutomaticallySyncScene = true;
         // 시작할 때는 플레이 버튼만 비활성화
         playButton.gameObject.SetActive(false);
         RoomOutButton.gameObject.SetActive(true);
@@ -82,7 +84,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            PhotonNetwork.AutomaticallySyncScene = true;
+            
 
             //이동할 씬 리스트
             //string[] stageScenes = { "SampleScene", "StageScene1", "StageScene2" };

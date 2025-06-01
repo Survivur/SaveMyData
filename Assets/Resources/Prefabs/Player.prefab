@@ -16,6 +16,17 @@ GameObject:
   m_Layer: 0
   m_Name: Arm
   m_TagString: Untagged
+  - component: {fileID: 9204588806768455344}
+  - component: {fileID: 6651286694157706537}
+  - component: {fileID: 3856135420702083922}
+  - component: {fileID: 2931135039519516632}
+  - component: {fileID: 3644890736303297049}
+  - component: {fileID: 8228976892640454491}
+  - component: {fileID: 9084416146243665906}
+  - component: {fileID: 2992212168994699403}
+  m_Layer: 7
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -342,7 +353,46 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1116715825516029912}
+  m_GameObject: {fileID: 5759046794407360509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef02a88569a4b4afcb87119dbe095cb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  namePosGap: {x: 0, y: 2, z: 0}
+  playerName: John Wick
+  nameText_name: PlayerName
+  shootGap: {x: 0, y: 0, z: 0}
+  moveSpeed: 1
+  DashSpeed: 2
+  DashVelocity: 1
+  DashVelocityNormal: 1
+  DashCount: 1
+  DashCountMax: 1
+  DashCoolDown: 0.5
+  DashDuration: 0.4
+  DashInput: 0
+  JumpSpeed: 10
+  JumpCount: 1
+  JumpCountMax: 1
+  JumpInput: 0
+  bulletPath: Prefabs/bullet_gun
+  bulletCountMax: 10
+  bulletCount: 0
+  reloadSpeed: 1.5
+  bulletSpeed: 10
+  bulletDelay: 0.3
+  bulletText: {fileID: 0}
+  ghostDuration: 0.3
+  animator: {fileID: 0}
+  ShootKeyCode: j
+--- !u!114 &9084416146243665906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5759046794407360509}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
@@ -354,7 +404,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 2992212168994699403}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
