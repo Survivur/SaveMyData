@@ -142,12 +142,12 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
             Quaternion.identity);
         int bulletID = bulletObj.GetComponent<PhotonView>().ViewID;
 
-            photonView.RPC("SetBullet_RPC", RpcTarget.AllBuffered, bulletID,
-                bulletSpeed,
-                damage,
-                dir,
-                isBlockedByBlock);
-    }
+        photonView.RPC(nameof(SetBullet_RPC), RpcTarget.AllBuffered, bulletID,
+            bulletSpeed,
+            damage,
+            dir,
+            isBlockedByBlock);
+}
 
 
     public virtual void Shoot(Bullet bullet)
@@ -159,7 +159,7 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
             Quaternion.identity);
         int bulletID = bulletObj.GetComponent<PhotonView>().ViewID;
 
-        photonView.RPC("SetBullet_RPC", RpcTarget.AllBuffered, bulletID,
+        photonView.RPC(nameof(SetBullet_RPC), RpcTarget.AllBuffered, bulletID,
          bullet.Speed,
          bullet.Damage,
          bullet.dir,
@@ -186,7 +186,7 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
     // }
 
     [PunRPC]
-    void SetBullet_RPC(int viewID, float bulletSpeed, float? damage = null, Vector2? dir = null, bool isBlockedByBlock = true)
+    protected void SetBullet_RPC(int viewID, float bulletSpeed, float? damage = null, Vector2? dir = null, bool isBlockedByBlock = true)
     {
         GameObject bulletObj = PhotonView.Find(viewID)?.gameObject;
         if (bulletObj == null)

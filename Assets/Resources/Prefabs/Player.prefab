@@ -375,7 +375,7 @@ MonoBehaviour:
   <Damage>k__BackingField: 1
   <MaxHealth>k__BackingField: 10
   <Health>k__BackingField: 10
-  <AimPosition>k__BackingField: {x: 0, y: 0}
+  <AimDirection>k__BackingField: {x: 0, y: 0}
   nameUI:
     str: 
     textObject: {fileID: 0}

@@ -55,7 +55,6 @@ public static class CodeExtensions
         if (target == null) target = value;
     }
 
-
     /// <summary>
     ///condition�� true�� �� value�� target�� �Ҵ��մϴ�.
     /// </summary>
