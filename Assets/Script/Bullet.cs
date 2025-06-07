@@ -3,15 +3,30 @@ using System.Collections.Generic;
 
 public class Bullet : MonoBehaviour, IAttackable, IMoveable
 {
-    public Vector2 dir = Vector2.zero;
+    [SerializeField, ReadOnly] public Vector2 dir = Vector2.zero;
+        
+    [SerializeField, ReadOnly(true)] private float _damage = 1f;
+    public float Damage
+    {
+        get => _damage;
+        set => _damage = value;
+    }
 
-    public float Damage { get; set; } = 1f;
-
-    public float Speed { get; set; } = 10f;
-
+    [SerializeField, ReadOnly(true)] private float _speed = 10f;
+    public float Speed
+    {
+        get => _speed;
+        set => _speed = value;
+    }
+    
     public virtual Vector2 Velocity => dir * Speed;
 
-    public List<string> TargetTags { get; private set; } = null;
+    [SerializeField, ReadOnly] private List<string> _targetTags = null;
+    public List<string> TargetTags
+    {
+        get => _targetTags;
+        private set => _targetTags = value;
+    }
 
     protected void FixedUpdate()
     {
@@ -38,7 +53,7 @@ public class Bullet : MonoBehaviour, IAttackable, IMoveable
 
     void OnBecameInvisible()
     {
-        // 3ÃÊ µÚ¿¡ ÃÑ¾ËÀ» ÆÄ±«ÇÕ´Ï´Ù.
+        // 3ï¿½ï¿½ ï¿½Ú¿ï¿½ ï¿½Ñ¾ï¿½ï¿½ï¿½ ï¿½Ä±ï¿½ï¿½Õ´Ï´ï¿½.
         Invoke(nameof(DestroyBullet), 3f);
     }
     

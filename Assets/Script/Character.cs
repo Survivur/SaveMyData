@@ -136,59 +136,73 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
             damage = Damage;
         }
 
-        //��Ʈ��ũ�� ���� �Ѿ� ����
-        GameObject bulletObj = CreateBullet(
+        GameObject bulletObj = PhotonNetwork.Instantiate(
             ObjectPath.Bullet,
             transform.position + (Vector3)dir,
             Quaternion.identity);
-        SetBullet_RPC(bulletObj, bulletSpeed, damage, dir, isBlockedByBlock);
+        int bulletID = bulletObj.GetComponent<PhotonView>().ViewID;
 
+            photonView.RPC("SetBullet_RPC", RpcTarget.AllBuffered, bulletID,
+                bulletSpeed,
+                damage,
+                dir,
+                isBlockedByBlock);
     }
 
 
     public virtual void Shoot(Bullet bullet)
     {
         //��Ʈ��ũ�� ���� �Ѿ� ����
-        GameObject bulletObj = CreateBullet(
+        GameObject bulletObj = PhotonNetwork.Instantiate(
             ObjectPath.Bullet,
             transform.position + (Vector3)bullet.dir,
             Quaternion.identity);
-        SetBullet_RPC(bulletObj, bullet.Speed, bullet.Damage, bullet.dir);
+        int bulletID = bulletObj.GetComponent<PhotonView>().ViewID;
+
+        photonView.RPC("SetBullet_RPC", RpcTarget.AllBuffered, bulletID,
+         bullet.Speed,
+         bullet.Damage,
+         bullet.dir,
+         bullet.TargetTags.Exists(val => val == Tags.Ground));
     }
 
-    GameObject CreateBullet(string bulletPath, Vector3 position, Quaternion rotation)
-    {
+    // GameObject CreateBullet(string bulletPath, Vector3 position, Quaternion rotation)
+    // {
 
-        if (PhotonNetwork.IsConnected)
-        {
-            return PhotonNetwork.Instantiate(bulletPath, position, rotation);
-        }
-        else
-        {
-            GameObject prefab = Resources.Load<GameObject>(bulletPath);
-            if (prefab == null)
-            {
-                Debug.LogError($"Resources.Load ����: ��� {bulletPath}");
-                return null;
-            }
-            return Instantiate(prefab, position, rotation);
-        }
-    }
+    //     if (PhotonNetwork.IsConnected)
+    //     {
+    //         return PhotonNetwork.Instantiate(bulletPath, position, rotation);
+    //     }
+    //     else
+    //     {
+    //         GameObject prefab = Resources.Load<GameObject>(bulletPath);
+    //         if (prefab == null)
+    //         {
+    //             Debug.LogError($"Resources.Load ����: ��� {bulletPath}");
+    //             return null;
+    //         }
+    //         return Instantiate(prefab, position, rotation);
+    //     }
+    // }
 
     [PunRPC]
-    void SetBullet_RPC(GameObject bulletObj, float bulletSpeed, float? damage = null, Vector2? dir = null, bool isBlockedByBlock = true)
+    void SetBullet_RPC(int viewID, float bulletSpeed, float? damage = null, Vector2? dir = null, bool isBlockedByBlock = true)
     {
+        GameObject bulletObj = PhotonView.Find(viewID)?.gameObject;
+        if (bulletObj == null)
+        {
+            Debug.LogWarning("총알 오브젝트를 찾을 수 없습니다.");
+            return;
+        }
+
         bulletObj.transform.parent = GameObject.Find("BulletManager").transform;
 
         Bullet b = bulletObj.GetComponent<Bullet>();
         if (isBlockedByBlock)
-        {
             TargetTags.Add(Tags.Ground);
-        }
         else
-        {
             TargetTags.Remove(Tags.Ground);
-        }
+
         b.SetTargetTags(TargetTags);
         b.dir = dir ?? Vector2.zero;
         b.Speed = bulletSpeed;
