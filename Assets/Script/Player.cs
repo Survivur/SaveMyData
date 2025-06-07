@@ -9,9 +9,9 @@ using UnityEngine;
 public struct DashData
 {
     [Header("Options")]
+    [SerializeField] public Counter counter;
     [SerializeField] public float startSpeed;
     [SerializeField] public float minSpeed;
-    [SerializeField] public int maxCount;
     [SerializeField] public float coolDown;
     [SerializeField] public float delay;
 
@@ -19,7 +19,6 @@ public struct DashData
     [SerializeField, ReadOnly] public bool goRight;
     [SerializeField, ReadOnly] public bool isKeyDown;
     [SerializeField, ReadOnly] public float velocityX;
-    [SerializeField, ReadOnly] public int count;
 }
 
 [System.Serializable]
@@ -37,12 +36,13 @@ public struct JumpData
 }
 
 [System.Serializable]
-public struct ShootInfo
+public struct GunData
 {
-    [SerializeField, ReadOnly(true)] public int bulletCountMax;
-    [SerializeField, ReadOnly(true)] public int bulletCount;
+    [Header("Options")]
+    [SerializeField] public Counter bulletCount;
     [SerializeField] public float reloadSpeed;
-    [SerializeField, ReadOnly(true)] public float bulletSpeed;
+
+    [Header("Information")]
     [SerializeField, ReadOnly(true)] public float bulletDelay;
     [SerializeField, ReadOnly(true)] public float shootGap;
 }
@@ -70,16 +70,15 @@ public class Player : Character
     public bool isAnimating => animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f;
 
     [SerializeField] private DashData dash = new DashData {
+        counter = new Counter(1),
         startSpeed = 2f,
         minSpeed = 1f,
-        maxCount = 1,
         coolDown = 1f,
         delay = 0.2f,
 
         goRight = false,
         isKeyDown = false,
         velocityX = 1f,
-        count = 1,
     };
 
     [SerializeField] private JumpData jump = new JumpData
@@ -91,12 +90,22 @@ public class Player : Character
         isJumping = false
     };
 
+    [SerializeField]
+    private GunData gun = new GunData
+    {
+        bulletCount = new Counter(10),
+        reloadSpeed = 1.5f,
+        bulletDelay = 0.3f,
+        shootGap = 1f
+    };
 
-    [SerializeField, ReadOnly(true)] protected int bulletCountMax = 10;
-    [SerializeField, ReadOnly(true)] protected int bulletCount = 0;
-    [SerializeField, ReadOnly(true)] protected float reloadSpeed = 1.5f;
-    [SerializeField, ReadOnly(true)] protected float bulletDelay = 0.3f;
-    [SerializeField, ReadOnly(true)] protected float ShootGap = 1f;
+    public string BulletText => $"{gun.bulletCount}/{gun.bulletCount.Max}";
+    
+    // [SerializeField, ReadOnly(true)] protected int bulletCountMax = 10;
+    // [SerializeField, ReadOnly(true)] protected int bulletCount = 0;
+    // [SerializeField, ReadOnly(true)] protected float reloadSpeed = 1.5f;
+    // [SerializeField, ReadOnly(true)] protected float bulletDelay = 0.3f;
+    // [SerializeField, ReadOnly(true)] protected float ShootGap = 1f;
 
     [Header("ghost", order = 1)]
     [SerializeField, ReadOnly(true)] private float ghostDuration = 0.3f;
@@ -146,9 +155,8 @@ public class Player : Character
         }
 
         JumpCountReset();
-        DashCountReset();
-        BulletUpdate();
-        BulletTextUpdate();
+        dash.counter.Reset();
+        gun.bulletCount.Reset();
     }
 
     protected override void Update()
@@ -162,13 +170,15 @@ public class Player : Character
         {
             dash.isKeyDown = true;
         }
-
+        if (Input.GetButtonDown("Jump"))
+        {
+            jump.isKeyDown = true;
+        }
         AnimationCheck();
     }
 
     protected override void FixedUpdate()
     {
-        jump.isKeyDown = Input.GetAxis("Jump") > 0;
         base.FixedUpdate();
         if (dash.isKeyDown)
         {
@@ -245,7 +255,7 @@ public class Player : Character
     /// <returns>이동 했는지</returns>
     bool CalcurateDashVelocity(ref Vector2 velocity)
     {
-        if (dash.isKeyDown && dash.count > 0)
+        if (dash.isKeyDown && dash.counter > 0)
         {
             dash.velocityX = dash.startSpeed;
             dash.goRight = seeRight;
@@ -270,16 +280,10 @@ public class Player : Character
 
     void DashCounting()
     {
-        dash.count--;
-        if (dash.count == 0 && !IsInvoking(nameof(DashCountReset)))
+        if (dash.counter.Counting())
         {
-            Invoke(nameof(DashCountReset), dash.coolDown);
+            Invoke(nameof(dash.counter.Reset), dash.coolDown);
         }
-    }
-
-    void DashCountReset()
-    {
-        dash.count = dash.maxCount;
     }
 
     bool JumpCheck(ref Vector2 velocity, bool condition)
@@ -326,14 +330,9 @@ public class Player : Character
         jump.isJumping = false;
     }
 
-    private void BulletTextUpdate()
+    private void BulletCountReset()
     {
-        bulletText.text = $"{bulletCount} / {bulletCountMax}";
-    }
-
-    private void BulletUpdate()
-    {
-        bulletCount = bulletCountMax;
+        Bullet.co = bulletCountMax;
     }
 
     public override void Shoot(float? damage = null, Vector2? dir = null, bool isBlockedByBlock = true)
@@ -355,7 +354,7 @@ public class Player : Character
     {
         ReloadCoroutineFlag = true;
         yield return new WaitForSeconds(reloadSpeed);
-        BulletUpdate();
+        BulletCountReset();
         BulletTextUpdate();
         ReloadCoroutineFlag = false;
     }
