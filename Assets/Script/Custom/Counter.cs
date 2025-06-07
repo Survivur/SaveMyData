@@ -1,9 +1,10 @@
 using System;
+using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 
 [Serializable]
-public struct Counter
+public class Counter
 {
     [SerializeField, ReadOnly]
     private int count;
@@ -30,6 +31,12 @@ public struct Counter
     public static implicit operator int(Counter c) => c.count;
 
     public void Reset() => count = max;
+    public IEnumerator CountResetCoroutine(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        count = max;
+    }
+
 
     /// <summary>
     /// Decreases the counter value by the given offset and returns true only when the value reaches 0.

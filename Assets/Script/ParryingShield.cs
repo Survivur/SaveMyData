@@ -22,7 +22,7 @@ public class ParryingShield : MonoBehaviour, IHittable
     public void TakeDamage(Bullet bullet, Vector2 direction)
     {
         SpawnHands(bullet.dir);
-        bullet.dir = ParentsCharacter.AimPosition;
+        bullet.dir = ParentsCharacter.AimDirection;
         ParentsCharacter.Shoot(bullet);
         Destroy(bullet);
     }

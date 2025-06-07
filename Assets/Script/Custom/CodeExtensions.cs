@@ -1,10 +1,12 @@
 using System;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
+using WebSocketSharp;
 
 /// <summary>
-/// °´Ã¼¸¦ ÇÔ¼öÀÇ ÀÎ¼ö·Î Àü´ÞÇÏ¿© ÀÛ¾÷À» ¼öÇàÇÏ°í °á°ú¸¦ ¹ÝÈ¯ÇÕ´Ï´Ù. <br />
-/// ¿¹: someCoroutine.Let(StartCoroutine) => StartCoroutine(someCoroutine)
+/// ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Õ´Ï´ï¿½. <br />
+/// ï¿½ï¿½: someCoroutine.Let(StartCoroutine) => StartCoroutine(someCoroutine)
 /// </summary>
 public static class CodeExtensions
 {
@@ -23,63 +25,80 @@ public static class CodeExtensions
     }
 
     /// <summary>
-    /// °´Ã¼¸¦ ÇÔ¼ö¿¡ Àü´ÞÇÏ¿© Æ¯Á¤ ÀÛ¾÷À» ¼öÇàÇÏ°í °á°ú¸¦ ¹ÝÈ¯ÇÕ´Ï´Ù.
+    /// ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ Æ¯ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Õ´Ï´ï¿½.
     /// </summary>
-    /// <typeparam name="T">ÀÔ·Â °´Ã¼ÀÇ Å¸ÀÔ</typeparam>
-    /// <typeparam name="TResult">°á°ú °´Ã¼ÀÇ Å¸ÀÔ</typeparam>
-    /// <param name="obj">ÀÛ¾÷ÀÇ ´ë»ó °´Ã¼</param>
-    /// <param name="block">ÀÛ¾÷À» ¼öÇàÇÏ´Â ÇÔ¼ö</param>
-    /// <returns>ÇÔ¼ö ½ÇÇàÀÇ °á°ú</returns>
-    /// <exception cref="ArgumentNullException">block ÇÔ¼ö°¡ nullÀÏ ¶§</exception>
+    /// <typeparam name="T">ï¿½Ô·ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ Å¸ï¿½ï¿½</typeparam>
+    /// <typeparam name="TResult">ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ Å¸ï¿½ï¿½</typeparam>
+    /// <param name="obj">ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼</param>
+    /// <param name="block">ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½</param>
+    /// <returns>ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½</returns>
+    /// <exception cref="ArgumentNullException">block ï¿½Ô¼ï¿½ï¿½ï¿½ nullï¿½ï¿½ ï¿½ï¿½</exception>
     public static TResult Let<T, TResult>(this T obj, Func<T, TResult> block)
     {
         if (block == null) throw new ArgumentNullException(nameof(block));
         return block(obj);
     }
 
+
+    public static void SetIfNullOrEmpty(ref string target, string value)
+    {        
+        if (target.IsNullOrEmpty()) target = value;
+    }
+
+    public static void SetIfUnityNull<T>(ref T target, T value) where T : UnityEngine.Object
+    {
+        if (target == null) target = value;
+    }
+
+    public static void SetIfNull<T>(ref T target, T value) where T : class
+    {
+        if (target == null) target = value;
+    }
+
+
     /// <summary>
-    ///conditionÀÌ trueÀÏ ¶§ value¸¦ target¿¡ ÇÒ´çÇÕ´Ï´Ù.
+    ///conditionï¿½ï¿½ trueï¿½ï¿½ ï¿½ï¿½ valueï¿½ï¿½ targetï¿½ï¿½ ï¿½Ò´ï¿½ï¿½Õ´Ï´ï¿½.
     /// </summary>
-    /// <typeparam name="T">ÀÔ·Â °´Ã¼ÀÇ Å¸ÀÔ</typeparam>
-    /// <param name="target">ÀÛ¾÷ÀÇ ´ë»ó °´Ã¼</param>
-    /// <param name="condition">Á¶°Ç</param>
-    /// <param name="value">¹Ù²Ü °ª</param>
+    /// <typeparam name="T">ï¿½Ô·ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ Å¸ï¿½ï¿½</typeparam>
+    /// <param name="target">ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼</param>
+    /// <param name="condition">ï¿½ï¿½ï¿½ï¿½</param>
+    /// <param name="value">ï¿½Ù²ï¿½ ï¿½ï¿½</param>
     public static void SetIfTrue<T>(this T target, bool condition, T value) where T : class
     {
         target = condition ? value : target;
     }
 
     /// <summary>
-    ///conditionÀÌ trueÀÏ ¶§ value¸¦ target¿¡ ÇÒ´çÇÕ´Ï´Ù.(struct Àü¿ë)
+    ///conditionï¿½ï¿½ trueï¿½ï¿½ ï¿½ï¿½ valueï¿½ï¿½ targetï¿½ï¿½ ï¿½Ò´ï¿½ï¿½Õ´Ï´ï¿½.(struct ï¿½ï¿½ï¿½ï¿½)
     /// </summary>
-    /// <typeparam name="T">ÀÔ·Â °´Ã¼ÀÇ Å¸ÀÔ</typeparam>
-    /// <param name="target">ÀÛ¾÷ÀÇ ´ë»ó °´Ã¼</param>
-    /// <param name="condition">Á¶°Ç</param>
-    /// <param name="value">¹Ù²Ü °ª</param>
+    /// <typeparam name="T">ï¿½Ô·ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ Å¸ï¿½ï¿½</typeparam>
+    /// <param name="target">ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼</param>
+    /// <param name="condition">ï¿½ï¿½ï¿½ï¿½</param>
+    /// <param name="value">ï¿½Ù²ï¿½ ï¿½ï¿½</param>
     public static void SetIfTrue<T>(this ref T target, bool condition, T value) where T : struct
     {
         target = condition ? value : target;
     }
 
     /// <summary>
-    ///conditionÀÌ trueÀÏ ¶§ value¸¦ target´ë½Å value°¡ ¹ÝÈ¯µË´Ï´Ù.
+    ///conditionï¿½ï¿½ trueï¿½ï¿½ ï¿½ï¿½ valueï¿½ï¿½ targetï¿½ï¿½ï¿½ valueï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ë´Ï´ï¿½.
     /// </summary>
-    /// <typeparam name="T">ÀÔ·Â °´Ã¼ÀÇ Å¸ÀÔ</typeparam>
-    /// <param name="target">ÀÛ¾÷ÀÇ ´ë»ó °´Ã¼</param>
-    /// <param name="condition">Á¶°Ç</param>
-    /// <param name="value">¹Ù²Ü °ª</param>
+    /// <typeparam name="T">ï¿½Ô·ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ Å¸ï¿½ï¿½</typeparam>
+    /// <param name="target">ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼</param>
+    /// <param name="condition">ï¿½ï¿½ï¿½ï¿½</param>
+    /// <param name="value">ï¿½Ù²ï¿½ ï¿½ï¿½</param>
     public static T GetIfTrue<T>(this T target, bool condition, T value) where T : UnityEngine.Object
     {
         return condition ? value : target;
     }
 
     /// <summary>
-    ///conditionÀÌ trueÀÏ ¶§ value¸¦ target´ë½Å value°¡ ¹ÝÈ¯µË´Ï´Ù.(struct Àü¿ë)
+    ///conditionï¿½ï¿½ trueï¿½ï¿½ ï¿½ï¿½ valueï¿½ï¿½ targetï¿½ï¿½ï¿½ valueï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ë´Ï´ï¿½.(struct ï¿½ï¿½ï¿½ï¿½)
     /// </summary>
-    /// <typeparam name="T">ÀÔ·Â °´Ã¼ÀÇ Å¸ÀÔ</typeparam>
-    /// <param name="target">ÀÛ¾÷ÀÇ ´ë»ó °´Ã¼</param>
-    /// <param name="condition">Á¶°Ç</param>
-    /// <param name="value">¹Ù²Ü °ª</param>
+    /// <typeparam name="T">ï¿½Ô·ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ Å¸ï¿½ï¿½</typeparam>
+    /// <param name="target">ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼</param>
+    /// <param name="condition">ï¿½ï¿½ï¿½ï¿½</param>
+    /// <param name="value">ï¿½Ù²ï¿½ ï¿½ï¿½</param>
     public static T ChangeIfTrue<T>(this ref T target, bool condition, T value) where T : struct
     {
         return condition ? value : target;
@@ -92,7 +111,7 @@ public static class CodeExtensions
     }
 
     /// <summary>
-    /// value°¡ TrueÀÏ ¶§ 1fÀ» ¹ÝÈ¯ÇÏ°í, FalseÀÏ ¶§ -1fÀ» ¹ÝÈ¯ÇÕ´Ï´Ù.
+    /// valueï¿½ï¿½ Trueï¿½ï¿½ ï¿½ï¿½ 1fï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ï°ï¿½, Falseï¿½ï¿½ ï¿½ï¿½ -1fï¿½ï¿½ ï¿½ï¿½È¯ï¿½Õ´Ï´ï¿½.
     /// </summary>
     /// <param name="goRight"></param>
     /// <returns></returns>
@@ -102,7 +121,7 @@ public static class CodeExtensions
     }
 
     /// <summary>
-    /// vector2ÀÇ x°ªÀ» º¯°æÇÕ´Ï´Ù.
+    /// vector2ï¿½ï¿½ xï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     /// </summary>
     /// <param name="target"></param>
     /// <param name="x"></param>
@@ -114,7 +133,7 @@ public static class CodeExtensions
     }
 
     /// <summary>
-    /// vector2ÀÇ y°ªÀ» º¯°æÇÕ´Ï´Ù.
+    /// vector2ï¿½ï¿½ yï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     /// </summary>
     /// <param name="target"></param>
     /// <param name="y"></param>
@@ -124,7 +143,7 @@ public static class CodeExtensions
     }
 
     /// <summary>
-    /// vector3ÀÇ x°ªÀ» º¯°æÇÕ´Ï´Ù.
+    /// vector3ï¿½ï¿½ xï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     /// </summary>
     /// <param name="target"></param>
     /// <param name="x"></param>
@@ -134,7 +153,7 @@ public static class CodeExtensions
     }
 
     /// <summary>
-    /// vector3ÀÇ y°ªÀ» º¯°æÇÕ´Ï´Ù.
+    /// vector3ï¿½ï¿½ yï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     /// </summary>
     /// <param name="target"></param>
     /// <param name="y"></param>
@@ -144,7 +163,7 @@ public static class CodeExtensions
     }
 
     /// <summary>
-    /// vector3ÀÇ z°ªÀ» º¯°æÇÕ´Ï´Ù.
+    /// vector3ï¿½ï¿½ zï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     /// </summary>
     /// <param name="target"></param>
     /// <param name="z"></param>
@@ -154,7 +173,7 @@ public static class CodeExtensions
     }
 
     /// <summary>
-    /// target¿¡ valueÀÇ ÃÖ¼Ò°ªÀ» ´ëÀÔÇÕ´Ï´Ù.
+    /// targetï¿½ï¿½ valueï¿½ï¿½ ï¿½Ö¼Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     /// </summary>
     /// <param name="target"></param>
     /// <param name="value"></param>
@@ -169,7 +188,7 @@ public static class CodeExtensions
     }
 
     /// <summary>
-    /// target¿¡ valueÀÇ ÃÖ´ë°ªÀ» ´ëÀÔÇÕ´Ï´Ù.
+    /// targetï¿½ï¿½ valueï¿½ï¿½ ï¿½Ö´ë°ªï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     /// </summary>
     /// <param name="target"></param>
     /// <param name="value"></param>

@@ -24,7 +24,7 @@ public class Enemy : Character
     protected override void Update()
     {
         base.Update();
-        AimPosition = ((Vector2)(Player.transform.position - transform.position)).normalized;
+        AimDirection = ((Vector2)(Player.transform.position - transform.position)).normalized;
     }
 
     IEnumerator ShootForSecond()
@@ -32,7 +32,7 @@ public class Enemy : Character
         while (true)
         {
             if (Player != null)
-                Shoot(Damage, AimPosition);
+                Shoot(Damage, AimDirection);
             yield return new WaitForSeconds(ShootDelay);
         }
     }

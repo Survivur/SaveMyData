@@ -22,7 +22,7 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
     [field: SerializeField] public float MaxHealth { get; protected set; } = 10f;
     [field: SerializeField, ReadOnly] public float Health { get; protected set; } = 10f;
 
-    [field: SerializeField, ReadOnly] public Vector2 AimPosition { get; protected set; } = Vector2.zero;
+    [field: SerializeField, ReadOnly] public Vector2 AimDirection { get; protected set; } = Vector2.zero;
 
     [SerializeField] protected NameUI nameUI = new NameUI
     {
@@ -35,21 +35,18 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
     [field: SerializeField, ReadOnly] public virtual List<string> TargetTags { get; protected set; } = new List<string>();
 
     [SerializeField, ReadOnly] new protected Rigidbody2D rigidbody2D;
-    [SerializeField, ReadOnly] protected SpriteRenderer sprite;
-    [SerializeField, ReadOnly] protected PhotonView photonView;
-
     [SerializeField, ReadOnly] protected SpriteRenderer spriteRenderer;
+    [SerializeField, ReadOnly] protected PhotonView photonView;
     [SerializeField, ReadOnly] protected Vector3 namePosGap = new Vector3(0, 2f, 0);
 
     public virtual Vector2 Velocity => this.VelocityDefault(rigidbody2D);
 
     protected virtual void Start()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
-        sprite = GetComponent<SpriteRenderer>();
+        CodeExtensions.SetIfUnityNull(ref rigidbody2D, GetComponent<Rigidbody2D>());
+        CodeExtensions.SetIfUnityNull(ref spriteRenderer, GetComponent<SpriteRenderer>());
 
-        if (photonView == null)
-            photonView = GetComponent<PhotonView>();
+        CodeExtensions.SetIfNull(ref photonView, GetComponent<PhotonView>());
         if (nameUI.textObject == null)
         {
             nameUI.textObject = Instantiate(PrefabManager.Instance.NameUI, transform.position, quaternion.identity, GameObjectResource.Instance.Canvas.transform).GetComponent<TextMeshProUGUI>();
@@ -66,13 +63,25 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
 
     protected virtual void Update()
     {
-        AimPosition = ((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized;
+        AimDirection = ((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized;
     }
 
     protected virtual void FixedUpdate()
     {
         rigidbody2D.linearVelocity = UpdateVelocity(rigidbody2D.linearVelocity);
     }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+{
+    if (stream.IsWriting)
+    {
+        stream.SendNext(AimDirection);
+    }
+    else
+    {
+        AimDirection = (Vector2)stream.ReceiveNext();
+    }
+}
 
     protected virtual void OnDestroy()
     {
@@ -81,7 +90,7 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
     }
 
     /// <summary>
-    /// FixedUpdate¿¡¼­ ½ÇÇàµÈ´Ù.
+    /// FixedUpdateï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È´ï¿½.
     /// </summary>
     /// <param name="velocity"></param>
     /// <returns></returns>
@@ -94,7 +103,7 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
     {
         IHittable.ApplyKnockback(rigidbody2D, dmg, dir);
         Debug.Log($"{name} takes {dmg} damage. now hp is {Health}.");
-        // µ¥¹ÌÁö¸¦ ÃÖ´ë Ã¼·Â¸¸Å­¸¸ ¹ÞÀ» ¼ö ÀÖ°ÔÇÕ´Ï´Ù.
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ Ã¼ï¿½Â¸ï¿½Å­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö°ï¿½ï¿½Õ´Ï´ï¿½.
         Health -= Mathf.Min(dmg, Health);
         if (IHittable.CheckDead(this))
         {
@@ -106,7 +115,7 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
     {
         IHittable.ApplyKnockback(rigidbody2D, bullet.Damage, dir);
         //Debug.Log($"{name} takes {bullet.Damage} damage. now hp is {Health}.");
-        // µ¥¹ÌÁö¸¦ ÃÖ´ë Ã¼·Â¸¸Å­¸¸ ¹ÞÀ» ¼ö ÀÖ°ÔÇÕ´Ï´Ù.
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ Ã¼ï¿½Â¸ï¿½Å­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö°ï¿½ï¿½Õ´Ï´ï¿½.
         Health -= Mathf.Min(bullet.Damage, Health);
         if (IHittable.CheckDead(this))
         {
@@ -114,18 +123,19 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
         }
     }
 
+    //[PunRPC]
     public virtual void Shoot(float? damage = null, Vector2? dir = null, bool isBlockedByBlock = true)
     {
         if (dir == null)
         {
-            dir = AimPosition;
+            dir = AimDirection;
         }
         if (damage == null)
         {
             damage = Damage;
         }
 
-        //³×Æ®¿öÅ©¸¦ ÅëÇØ ÃÑ¾Ë »ý¼º
+        //ï¿½ï¿½Æ®ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ ï¿½ï¿½ï¿½ï¿½
         GameObject bulletObj = CreateBullet(
             ObjectPath.Bullet,
             transform.position + (Vector3)dir,
@@ -148,9 +158,10 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
     }
 
 
+    //[PunRPC]
     public virtual void Shoot(Bullet bullet)
     {
-        //³×Æ®¿öÅ©¸¦ ÅëÇØ ÃÑ¾Ë »ý¼º
+        //ï¿½ï¿½Æ®ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ ï¿½ï¿½ï¿½ï¿½
         GameObject bulletObj = CreateBullet(
             ObjectPath.Bullet,
             transform.position + (Vector3)bullet.dir,
@@ -166,12 +177,6 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
 
     GameObject CreateBullet(string bulletPath, Vector3 position, Quaternion rotation)
     {
-        GameObject prefab = Resources.Load<GameObject>(bulletPath);
-        if (prefab == null)
-        {
-            Debug.LogError($"Resources.Load ½ÇÆÐ: °æ·Î {bulletPath}");
-            return null;
-        }
 
         if (PhotonNetwork.IsConnected)
         {
@@ -179,6 +184,12 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
         }
         else
         {
+            GameObject prefab = Resources.Load<GameObject>(bulletPath);
+            if (prefab == null)
+            {
+                Debug.LogError($"Resources.Load ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ {bulletPath}");
+                return null;
+            }
             return Instantiate(prefab, position, rotation);
         }
     }
