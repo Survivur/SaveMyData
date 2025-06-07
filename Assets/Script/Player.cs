@@ -148,9 +148,9 @@ public class Player : Character
 
         TargetTags.Add(Tags.Enemy);
 
-        if (!photonView.IsMine)  // ÀÚ±â ÇÃ·¹ÀÌ¾î°¡ ¾Æ´Ï¸é ÀÔ·Â ¹ÞÁö ¾ÊÀ½
+        if (!photonView.IsMine)  // ï¿½Ú±ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½Æ´Ï¸ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         {
-            enabled = false;  // ½ºÅ©¸³Æ® ºñÈ°¼ºÈ­
+            enabled = false;  // ï¿½ï¿½Å©ï¿½ï¿½Æ® ï¿½ï¿½È°ï¿½ï¿½È­
             return;
         }
 
@@ -226,14 +226,14 @@ public class Player : Character
     }
 
     /// <summary>
-    /// ÁÂ, ¿ì ÀÌµ¿
+    /// ï¿½ï¿½, ï¿½ï¿½ ï¿½Ìµï¿½
     /// </summary>
     /// <param name="velocity"></param>
-    /// <returns>ÀÌµ¿ ÇÞ´ÂÁö</returns>
+    /// <returns>ï¿½Ìµï¿½ ï¿½Þ´ï¿½ï¿½ï¿½</returns>
     bool HorizontalMovement(ref Vector2 velocity)
     {
         HorizontalInput = Input.GetAxisRaw("Horizontal");
-        // ¿òÁ÷ÀÌ¸é
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½
         if (HorizontalInput != 0)
         {
             sprite.flipX = HorizontalInput < 0f;
@@ -249,10 +249,10 @@ public class Player : Character
     }
 
     /// <summary>
-    /// ´ë½¬
+    /// ï¿½ë½¬
     /// </summary>
     /// <param name="velocity"></param>
-    /// <returns>ÀÌµ¿ Çß´ÂÁö</returns>
+    /// <returns>ï¿½Ìµï¿½ ï¿½ß´ï¿½ï¿½ï¿½</returns>
     bool CalcurateDashVelocity(ref Vector2 velocity)
     {
         if (dash.isKeyDown && dash.counter > 0)
@@ -301,12 +301,12 @@ public class Player : Character
 
     /*************  ? Windsurf Command ?  *************/
         /// <summary>
-        /// Á¡ÇÁ
+        /// ï¿½ï¿½ï¿½ï¿½
         /// </summary>
-        /// <param name="velocity">Á¡ÇÁÇÑ ÈÄÀÇ ¼Óµµ</param>
-        /// <returns>Á¡ÇÁÇß´ÂÁö</returns>
+        /// <param name="velocity">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½</param>
+        /// <returns>ï¿½ï¿½ï¿½ï¿½ï¿½ß´ï¿½ï¿½ï¿½</returns>
         /// <remarks>
-        /// Á¡ÇÁ Á¦ÇÑÀÌ °É·Á ÀÖÁö ¾ÊÀ» °æ¿ì Á¡ÇÁ ¼Óµµ¸¦ velocity¿¡ ÀúÀåÇÏ°í, Á¦ÇÑÀ» °É¾î ÁØ´Ù.
+        /// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ velocityï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¾ï¿½ ï¿½Ø´ï¿½.
         /// </remarks>
     /*******  c9744dbd-065d-493a-b0d8-42f446fd130d  *******/    
     bool CalcurateJumpVelocity(ref Vector2 velocity)
@@ -337,7 +337,7 @@ public class Player : Character
 
     public override void Shoot(float? damage = null, Vector2? dir = null, bool isBlockedByBlock = true)
     {
-        // bullet count ºÎºÐ
+        // bullet count ï¿½Îºï¿½
         if (bulletCount != 0)
         {
             base.Shoot(damage, dir, isBlockedByBlock);

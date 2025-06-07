@@ -184,6 +184,7 @@ Transform:
   - {fileID: 4464042404116370419}
   - {fileID: 1387116039437119299}
   - {fileID: 3090109200175691041}
+  - {fileID: 415124716923431929}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2636957748243068469
@@ -342,6 +343,68 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 1116715825516029912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef02a88569a4b4afcb87119dbe095cb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Speed>k__BackingField: 5
+  <Damage>k__BackingField: 1
+  <MaxHealth>k__BackingField: 10
+  <Health>k__BackingField: 10
+  <AimPosition>k__BackingField: {x: 0, y: 0}
+  nameUI:
+    str: 
+    textObject: {fileID: 0}
+    strTextName: 
+  bulletSpeed: 10
+  <TargetTags>k__BackingField: []
+  rigidbody2D: {fileID: 0}
+  sprite: {fileID: 0}
+  photonView: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  namePosGap: {x: 0, y: 2, z: 0}
+  dash:
+    startSpeed: 2
+    minSpeed: 1
+    maxCount: 1
+    coolDown: 1
+    delay: 0.2
+    goRight: 0
+    isKeyDown: 0
+    velocityX: 1
+    count: 1
+  jump:
+    speed: 7
+    countMax: 1
+    coolDown: 0
+    count: 1
+    isKeyDown: 0
+    isJumping: 0
+  bulletCountMax: 10
+  bulletCount: 0
+  reloadSpeed: 1.5
+  bulletDelay: 0.3
+  ShootGap: 1
+  ghostDuration: 0.3
+  needCheckingAnimate: 1
+  bulletText: {fileID: 0}
+  animator: {fileID: 0}
+  UpsideChild: {fileID: 0}
+  DownsideChild: {fileID: 0}
+  ArmChild: {fileID: 0}
+  UpsideChildSprite: {fileID: 0}
+  HorizontalInput: 0
+--- !u!114 &7427051578802409498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> origin/Park
   m_GameObject: {fileID: 1116715825516029912}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -828,3 +891,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpsideSpriteController: {fileID: 0}
   StartLocalPosition: {x: 0, y: 0, z: 0}
+--- !u!1 &9166071021109698605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 415124716923431929}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &415124716923431929
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9166071021109698605}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4285707427341113435}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
