@@ -24,7 +24,8 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
 
     [field: SerializeField, ReadOnly] public Vector2 AimDirection { get; protected set; } = Vector2.zero;
 
-    [SerializeField] protected NameUI nameUI = new NameUI
+    [SerializeField]
+    protected NameUI nameUI = new NameUI
     {
         str = "",
         textObject = null,
@@ -50,7 +51,7 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
         if (nameUI.textObject == null)
         {
             nameUI.textObject = Instantiate(PrefabManager.Instance.NameUI, transform.position, quaternion.identity, GameObjectResource.Instance.Canvas.transform).GetComponent<TextMeshProUGUI>();
-            ObjectFollowUI objectFollowUI =  nameUI.textObject.GetComponent<ObjectFollowUI>();
+            ObjectFollowUI objectFollowUI = nameUI.textObject.GetComponent<ObjectFollowUI>();
             objectFollowUI.TargetObject = gameObject;
             objectFollowUI.Offset = namePosGap;
         }
@@ -72,16 +73,16 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-{
-    if (stream.IsWriting)
     {
-        stream.SendNext(AimDirection);
+        if (stream.IsWriting)
+        {
+            stream.SendNext(AimDirection);
+        }
+        else
+        {
+            AimDirection = (Vector2)stream.ReceiveNext();
+        }
     }
-    else
-    {
-        AimDirection = (Vector2)stream.ReceiveNext();
-    }
-}
 
     protected virtual void OnDestroy()
     {
@@ -140,25 +141,11 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
             ObjectPath.Bullet,
             transform.position + (Vector3)dir,
             Quaternion.identity);
-        bulletObj.transform.parent = GameObject.Find("BulletManager").transform;
+        SetBullet_RPC(bulletObj, bulletSpeed, damage, dir, isBlockedByBlock);
 
-        Bullet b = bulletObj.GetComponent<Bullet>();
-        if (isBlockedByBlock)
-        {
-            TargetTags.Add(Tags.Box);
-        }
-        else
-        {
-            TargetTags.Remove(Tags.Box);
-        }
-        b.SetTargetTags(TargetTags);
-        b.dir = dir ?? Vector2.zero;
-        b.Speed = bulletSpeed;
-        b.Damage = damage ?? 0;
     }
 
 
-    //[PunRPC]
     public virtual void Shoot(Bullet bullet)
     {
         //��Ʈ��ũ�� ���� �Ѿ� ����
@@ -166,13 +153,7 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
             ObjectPath.Bullet,
             transform.position + (Vector3)bullet.dir,
             Quaternion.identity);
-        bulletObj.transform.parent = GameObject.Find("BulletManager").transform;
-
-        Bullet b = bulletObj.GetComponent<Bullet>();
-        b.SetTargetTags(TargetTags);
-        b.dir = bullet.dir;
-        b.Speed = bullet.Speed;
-        b.Damage = bullet.Damage;
+        SetBullet_RPC(bulletObj, bullet.Speed, bullet.Damage, bullet.dir);
     }
 
     GameObject CreateBullet(string bulletPath, Vector3 position, Quaternion rotation)
@@ -192,5 +173,25 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
             }
             return Instantiate(prefab, position, rotation);
         }
+    }
+
+    [PunRPC]
+    void SetBullet_RPC(GameObject bulletObj, float bulletSpeed, float? damage = null, Vector2? dir = null, bool isBlockedByBlock = true)
+    {
+        bulletObj.transform.parent = GameObject.Find("BulletManager").transform;
+
+        Bullet b = bulletObj.GetComponent<Bullet>();
+        if (isBlockedByBlock)
+        {
+            TargetTags.Add(Tags.Ground);
+        }
+        else
+        {
+            TargetTags.Remove(Tags.Ground);
+        }
+        b.SetTargetTags(TargetTags);
+        b.dir = dir ?? Vector2.zero;
+        b.Speed = bulletSpeed;
+        b.Damage = damage ?? 0;
     }
 }
