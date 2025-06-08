@@ -1,5 +1,6 @@
 using UnityEngine;
 using Photon.Pun;
+using Unity.VisualScripting;
 
 public class PlayerMove : MonoBehaviour, IMoveable
 {
@@ -38,7 +39,8 @@ public class PlayerMove : MonoBehaviour, IMoveable
 
     protected void FixedUpdate()
     {
-        photonView.RPC(nameof(RPC_HorizionInput), RpcTarget.All);
+        if (photonView.IsMine)
+            photonView.RPC(nameof(RPC_HorizionInput), RpcTarget.All);
         rigidbody2D.linearVelocity = UpdateVelocity(rigidbody2D.linearVelocity);
     }
 
@@ -62,6 +64,8 @@ public class PlayerMove : MonoBehaviour, IMoveable
     /// <returns>??? ?????</returns>
     bool HorizontalMovement(ref Vector2 velocity)
     {
+        HorizontalInput = Input.GetAxisRaw("Horizontal");        
+
         // ???????
         if (HorizontalInput != 0)
         {
@@ -74,8 +78,8 @@ public class PlayerMove : MonoBehaviour, IMoveable
     }
     
     [PunRPC]
-    public void RPC_HorizionInput()
+    public void RPC_HorizionInput(float horizontalInput)
     {
-        HorizontalInput = Input.GetAxisRaw("Horizontal");        
+        HorizontalInput = horizontalInput;        
     }
 }

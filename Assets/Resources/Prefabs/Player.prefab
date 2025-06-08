@@ -384,9 +384,11 @@ MonoBehaviour:
   playerDash: {fileID: 0}
   playerJump: {fileID: 0}
   playerGun: {fileID: 0}
+  playerGhost: {fileID: 0}
   _upsideChild: {fileID: 0}
   _downsideChild: {fileID: 0}
   _armChild: {fileID: 0}
+  _parrychild: {fileID: 0}
 --- !u!114 &7280633547977043039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,7 +423,7 @@ MonoBehaviour:
     count: 1
     max: 2
   speed: 15
-  coolDown: 1
+  delay: 0.2
   isJumping: 0
   jumpFlag: 0
 --- !u!114 &5070884181464100491

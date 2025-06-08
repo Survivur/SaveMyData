@@ -81,9 +81,12 @@ public class Player : Character
     protected override void Update()
     {
         KeyChecker();
-        base.Update();
         AnimationCheck();
-        photonView.RPC(nameof(RPC_SetAim), RpcTarget.All);
+        if (photonView.IsMine)
+        {
+            photonView.RPC(nameof(RPC_SetAim), RpcTarget.All);
+            base.Update();
+        }
     }
 
     void KeyChecker()
@@ -102,7 +105,7 @@ public class Player : Character
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            photonView.RPC(nameof(RPC_Reload), RpcTarget.All);
+            photonView.RPC(nameof(RPC_Dash), RpcTarget.All);
         }
         if (Input.GetButtonDown("Jump"))
         {
@@ -156,7 +159,7 @@ public class Player : Character
     }
     
     [PunRPC]
-    public void RPC_ParryOff()
+    public void RPC_Parry_Off()
     {
         ParryChild.SetActive(false);
     }
