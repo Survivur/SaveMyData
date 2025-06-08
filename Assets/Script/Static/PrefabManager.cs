@@ -39,7 +39,7 @@ public class PrefabManager : Singleton<PrefabManager>
         {
             if (healthBar == null)
             {
-                healthBar = Resources.Load<GameObject>(ObjectPath.HpBar);
+                healthBar = Resources.Load<GameObject>(ResourcePath.HpBar);
             }
             return healthBar;
         }
@@ -52,7 +52,7 @@ public class PrefabManager : Singleton<PrefabManager>
         {
             if (nameUI == null)
             {
-                nameUI = Resources.Load<GameObject>(ObjectPath.nameUI);
+                nameUI = Resources.Load<GameObject>(ResourcePath.nameUI);
             }
             return nameUI;
         }

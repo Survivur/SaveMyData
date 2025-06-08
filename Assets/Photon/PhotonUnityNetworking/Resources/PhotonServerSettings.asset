@@ -44,6 +44,7 @@ MonoBehaviour:
   - RPC_Shoot
   - SetBullet_RPC
   - RPC_SetAim
+  - RPC_HorizionInput
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

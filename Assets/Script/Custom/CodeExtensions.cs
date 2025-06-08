@@ -40,19 +40,23 @@ public static class CodeExtensions
     }
 
 
-    public static void SetIfNullOrEmpty(ref string target, string value)
-    {        
+    public static string SetIfNullOrEmpty(ref string target, string value)
+    {
         if (target.IsNullOrEmpty()) target = value;
+        return target;
     }
 
-    public static void SetIfUnityNull<T>(ref T target, T value) where T : UnityEngine.Object
+    public static T SetIfUnityNull<T>(ref T target, T value) where T : UnityEngine.Object
     {
         if (target == null) target = value;
+        return target;
     }
 
-    public static void SetIfNull<T>(ref T target, T value) where T : class
+    public static T SetIfNull<T>(ref T target, T value) where T : class
     {
         if (target == null) target = value;
+        return target;
+
     }
 
     /// <summary>

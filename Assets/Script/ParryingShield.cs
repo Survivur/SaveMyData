@@ -23,7 +23,7 @@ public class ParryingShield : MonoBehaviour, IHittable
     {
         SpawnHands(bullet.dir);
         bullet.dir = ParentsCharacter.AimDirection;
-        ParentsCharacter.Shoot(bullet);
+        ParentsCharacter.GetComponent<PlayerGun>().Shoot(bullet);
         Destroy(bullet);
     }
 

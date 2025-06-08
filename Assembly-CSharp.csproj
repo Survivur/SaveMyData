@@ -72,6 +72,7 @@
     <Compile Include="Assets\Script\Static\ObjectManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Script\MetalSlugFontTranslater.cs" />
+    <Compile Include="Assets\Script\Character\PlayerDash.cs" />
     <Compile Include="Assets\Network\RoomSceneManager.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChannelSelector.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
@@ -107,8 +108,10 @@
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\NamePickGui.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
+    <Compile Include="Assets\Script\Character\PlayerJump.cs" />
     <Compile Include="Assets\Script\SpriteController.cs" />
     <Compile Include="Assets\Script\Interface\IAttackable.cs" />
+    <Compile Include="Assets\Script\CacheComponents.cs" />
     <Compile Include="Assets\Network\LobbySceneManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
@@ -116,7 +119,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Script\GameobjectResource.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
-    <Compile Include="Assets\Script\MoveableCharacter.cs" />
     <Compile Include="Assets\Script\Custom\Counter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
@@ -145,20 +147,26 @@
     <Compile Include="Assets\Script\Character.cs" />
     <Compile Include="Assets\Script\PlayerDownsideAnimation.cs" />
     <Compile Include="Assets\Script\SpriteShaker.cs" />
+    <Compile Include="Assets\Script\Character\PlayerMove.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
     <Compile Include="Assets\Script\abstract\SingleTon.cs" />
+    <Compile Include="Assets\Script\Character\PlayerGhost.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Script\ObjectFollowUI.cs" />
     <Compile Include="Assets\Script\MouseAimRotationWithSprite.cs" />
+    <Compile Include="Assets\Script\GameObjectRegistry.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\EventSystemSpawner.cs" />
     <Compile Include="Assets\Script\HpBarSync.cs" />
+    <Compile Include="Assets\Script\Character\PlayerGun.cs" />
     <Compile Include="Assets\Network\LobbyManager.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextButtonTransition.cs" />
+    <Compile Include="Assets\Script\ParentsSpriteColorSync.cs" />
+    <Compile Include="Assets\Script\GetTextGUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

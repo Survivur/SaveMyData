@@ -24,15 +24,14 @@ public class GameManager : MonoBehaviourPunCallbacks
         TrySpawn();
     }
 
-
     private void TrySpawn()
     {
-        if (hasSpawned) return; // Áßº¹ ¹æÁö
+        if (hasSpawned) return; // ï¿½ßºï¿½ ï¿½ï¿½ï¿½ï¿½
         if (!PhotonNetwork.InRoom) return;
         
         if (spawnPoints.Length == 0)
         {
-            Debug.LogWarning("spawnPoints°¡ ºñ¾î ÀÖ½À´Ï´Ù.");
+            Debug.LogWarning("spawnPointsï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.");
             return;
         }
 
@@ -42,6 +41,6 @@ public class GameManager : MonoBehaviourPunCallbacks
         player = PhotonNetwork.Instantiate("Prefabs/Player", spawnPos, Quaternion.identity);
         hasSpawned = true;
 
-        Debug.Log("ÇÃ·¹ÀÌ¾î »ý¼º ¿Ï·á: " + player.name);
+        Debug.Log("ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½: " + player.name);
     }
 }

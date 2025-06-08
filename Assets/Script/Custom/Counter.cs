@@ -22,10 +22,10 @@ public class Counter
         set => max = value > 0 ? value : 1;
     }
 
-    public Counter(int max = 0, int count = 0)
+    public Counter(int max = 1, int count = -1)
     {
         this.max = max;
-        this.count = count <= 0 ? max : count;
+        this.count = count < 0 ? max : count;
     }
 
     public static implicit operator int(Counter c) => c.count;
@@ -36,7 +36,6 @@ public class Counter
         yield return new WaitForSeconds(delay);
         count = max;
     }
-
 
     /// <summary>
     /// Decreases the counter value by the given offset and returns true only when the value reaches 0.

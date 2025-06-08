@@ -31,8 +31,8 @@ public class Enemy : Character
     {
         while (true)
         {
-            if (Player != null)
-                Shoot(Damage, AimDirection);
+            // if (Player != null)
+            //     //Shoot(Damage, AimDirection);
             yield return new WaitForSeconds(ShootDelay);
         }
     }
