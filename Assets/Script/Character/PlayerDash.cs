@@ -21,8 +21,6 @@ public class PlayerDash : MonoBehaviour
     [SerializeField, ReadOnly(true)] private PlayerMove playerMove = null;
     [SerializeField, ReadOnly(true)] private PlayerGhost playerGhost = null;
 
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

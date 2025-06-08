@@ -17,6 +17,7 @@ public class Player : Character
     [SerializeField, ReadOnly(true)] private PlayerDash playerDash = null;
     [SerializeField, ReadOnly(true)] private PlayerJump playerJump = null;
     [SerializeField, ReadOnly(true)] private PlayerGun playerGun = null;
+    [SerializeField, ReadOnly(true)] private PlayerGhost playerGhost = null;
 
     [Header("Children", order = 0)]
     [SerializeField, ReadOnly(true)] private GameObject _upsideChild = null;
@@ -38,13 +39,13 @@ public class Player : Character
     public GameObject ArmChild => CodeExtensions.SetIfUnityNull(
         ref _armChild,
         GameObjectRegistry.GetOrRegister(ObjectPath.Player_Arm, gameObject)
-    ); 
+    );
 
     public GameObject ParryChild => CodeExtensions.SetIfUnityNull(
         ref _parrychild,
         GameObjectRegistry.GetOrRegister(ObjectPath.Player_Arm, gameObject)
-    ); 
-    
+    );
+
     public override List<string> TargetTags { get; protected set; } = new List<string>();
 
     protected override void Start()
@@ -64,6 +65,7 @@ public class Player : Character
         CodeExtensions.SetIfUnityNull(ref playerDash, gameObject.GetComponentCached<PlayerDash>());
         CodeExtensions.SetIfUnityNull(ref playerJump, gameObject.GetComponentCached<PlayerJump>());
         CodeExtensions.SetIfUnityNull(ref playerGun, gameObject.GetComponentCached<PlayerGun>());
+        CodeExtensions.SetIfUnityNull(ref playerGhost, gameObject.GetComponentCached<PlayerGhost>());
 
         //CodeExtensions.SetIfUnityNull(ref dash, GetComponent<PlayerDash>());
         //CodeExtensions.SetIfUnityNull(ref DownsideChildSprite, DownsideChild.GetComponent<SpriteRenderer>());
@@ -97,6 +99,10 @@ public class Player : Character
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             photonView.RPC(nameof(RPC_Dash), RpcTarget.All);
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            photonView.RPC(nameof(RPC_Reload), RpcTarget.All);
         }
         if (Input.GetButtonDown("Jump"))
         {
@@ -132,9 +138,26 @@ public class Player : Character
     }
 
     [PunRPC]
+    public void RPC_Reload()
+    {
+        playerGun.Reload();
+    }
+
+    [PunRPC]
     public void RPC_SetAim()
     {
         AimDirection = ((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized;
     }
 
+    [PunRPC]
+    public void RPC_Parry()
+    {
+        ParryChild.SetActive(true);
+    }
+    
+    [PunRPC]
+    public void RPC_ParryOff()
+    {
+        ParryChild.SetActive(false);
+    }
 }

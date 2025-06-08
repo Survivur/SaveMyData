@@ -1399,6 +1399,7 @@ GameObject:
   - component: {fileID: 883420817}
   - component: {fileID: 883420818}
   - component: {fileID: 883420819}
+  - component: {fileID: 883420820}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1454,6 +1455,19 @@ MonoBehaviour:
   - {fileID: 186747058}
   - {fileID: 1368108950}
   - {fileID: 2075708461}
+--- !u!114 &883420820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883420816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27f86d47511f2de42984aa8498af8950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabPath: 
 --- !u!1 &1014974047
 GameObject:
   m_ObjectHideFlags: 0
@@ -1919,6 +1933,7 @@ GameObject:
   - component: {fileID: 1675555900}
   - component: {fileID: 1675555902}
   - component: {fileID: 1675555901}
+  - component: {fileID: 1675555903}
   m_Layer: 5
   m_Name: PlayerBulletCount
   m_TagString: Untagged
@@ -2044,6 +2059,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675555899}
   m_CullTransparentMesh: 1
+--- !u!114 &1675555903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675555899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2c54830d73659246bd3d8c415c9374d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
 --- !u!1 &1676082752
 GameObject:
   m_ObjectHideFlags: 0

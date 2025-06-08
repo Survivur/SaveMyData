@@ -15,6 +15,7 @@ bin/
 UserSettings/
 Logs/
 MemoryCaptures/
+Assembly-CSharp.csproj
 
 # IDE 관련 설정 파일 (JetBrains Rider, VSCode 등)
 .idea/

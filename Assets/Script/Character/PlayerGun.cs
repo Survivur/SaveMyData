@@ -4,14 +4,13 @@ using System.Collections.Generic;
 
 public class PlayerGun : MonoBehaviour, IShootable
 {
-    public string BulletText => $"{bulletCount}/{bulletCount.Max}";
+    public string BulletText => $"{bulletCount.Count} / {bulletCount.Max}";
 
     [Header("Options")]
     [SerializeField] public Counter bulletCount = new Counter(10);
     [SerializeField] public float reloadSpeed = 1.5f;
     [SerializeField] protected float _bulletSpeed = 50f;
     [SerializeField] public float BulletSpeed => _bulletSpeed;
-
 
     [Header("Information")]
     [SerializeField, ReadOnly(true)] public float bulletDelay = 0.3f;
@@ -27,6 +26,8 @@ public class PlayerGun : MonoBehaviour, IShootable
     {
         CodeExtensions.SetIfUnityNull(ref player, gameObject.GetComponentCached<Player>());
         CodeExtensions.SetIfUnityNull(ref photonView, gameObject.GetComponentCached<PhotonView>());
+
+        GameObjectRegistry.GetOrRegister("Canvas/PlayerBulletCount").GetComponent<GetTextGUI>().getTextFunc = () => BulletText;
     }
 
     public void Shoot(float damage, Vector2 dir, bool isBlockedByBlock = true)
@@ -49,7 +50,7 @@ public class PlayerGun : MonoBehaviour, IShootable
             bulletCount.Count--;
 
             if (bulletCount == 0)
-                Invoke(nameof(Reload), reloadSpeed);
+                Reload();
         }
         //BulletTextUpdate();
     }
@@ -70,11 +71,17 @@ public class PlayerGun : MonoBehaviour, IShootable
          bullet.TargetTags.Exists(val => val == Tags.Ground));
     }
 
-    private void Reload()
+    public void Reload()
+    {
+        bulletCount.Count = 0;
+        Invoke(nameof(Reset), reloadSpeed);
+    }
+
+    private void Reset()
     {
         bulletCount.Reset();
-    }    
-    
+    }
+
     [PunRPC]
     protected void SetBullet_RPC(int viewID, float bulletSpeed, float? damage = null, Vector2? dir = null, bool isBlockedByBlock = true)
     {

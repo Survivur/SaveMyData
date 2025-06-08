@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class GetTextGUI : MonoBehaviour
 {
-    [Header("Info", order = 0)]
-    Func<string> getText;
+    public Func<string> getTextFunc;
 
     [Header("Components", order = 0)]
     [SerializeField, ReadOnly(true)] private TextMeshProUGUI text;
@@ -19,6 +18,7 @@ public class GetTextGUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = getText();
+        if (getTextFunc != null)
+            text.text = getTextFunc();
     }
 }

@@ -45,6 +45,8 @@ MonoBehaviour:
   - SetBullet_RPC
   - RPC_SetAim
   - RPC_HorizionInput
+  - RPC_Parry
+  - RPC_Parry_Off
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

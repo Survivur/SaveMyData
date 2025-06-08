@@ -6,11 +6,6 @@ public class GameObjectRegistry : Singleton<GameObjectRegistry>
 {
     private static readonly Dictionary<string, GameObject> _cache = new();
 
-    void Start()
-    {
-        
-    }
-
     // /// <summary>
     // /// 경로 기반으로 GameObject를 찾아 캐싱 (예: "UI/Panel/Button")
     // /// </summary>
@@ -42,7 +37,7 @@ public class GameObjectRegistry : Singleton<GameObjectRegistry>
     /// </summary>
     public static GameObject GetOrRegister(string path, GameObject parent = null)
     {
-        if (parent.IsUnityNull()) return null;
+        if (parent != null && parent.IsUnityNull()) return null;
         if (string.IsNullOrEmpty(path)) return parent;
         if (path[0] == '/') path = path.Substring(1);
 
@@ -113,7 +108,6 @@ public class GameObjectRegistry : Singleton<GameObjectRegistry>
             tr = tr.parent;
         }
     }
-
 
     /// <summary>
     /// 강제로 캐시 갱신
