@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 4380359119969864870}
   m_Layer: 7
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -375,12 +375,13 @@ MonoBehaviour:
     str: 
     textObject: {fileID: 0}
     strTextName: 
+  HpBar: {fileID: 0}
   <TargetTags>k__BackingField: []
   rigidbody2D: {fileID: 0}
   spriteRenderer: {fileID: 0}
   photonView: {fileID: 0}
   namePosGap: {x: 0, y: 2, z: 0}
-  parryTime: 0.5
+  HpBarGap: {x: 0, y: 3, z: 0}
   needCheckingAnimate: 1
   animator: {fileID: 0}
   playerDash: {fileID: 0}
@@ -514,7 +515,7 @@ MonoBehaviour:
   coolDown: 2
   delay: 0.2
   goRight: 0
-  isParry: 0
+  parryFlag: 0
   _parrychild: {fileID: 0}
 --- !u!114 &4380359119969864870
 MonoBehaviour:

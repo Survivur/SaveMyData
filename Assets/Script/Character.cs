@@ -22,13 +22,15 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable
 
     [field: SerializeField, ReadOnly] public Vector2 AimDirection { get; protected set; } = Vector2.zero;
 
-    [SerializeField]
-    protected NameUI nameUI = new NameUI
+    [SerializeField] protected NameUI nameUI = new NameUI
     {
         str = "",
         textObject = null,
         strTextName = ""
     };
+
+    [SerializeField] protected GameObject HpBar = null;
+
 
     [field: SerializeField, ReadOnly] public virtual List<string> TargetTags { get; protected set; } = new List<string>();
 
@@ -36,14 +38,13 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable
     [SerializeField, ReadOnly] protected SpriteRenderer spriteRenderer;
     [SerializeField, ReadOnly] protected PhotonView photonView;
     [SerializeField, ReadOnly] protected Vector3 namePosGap = new Vector3(0, 2f, 0);
+    [SerializeField, ReadOnly] protected Vector3 HpBarGap = new Vector3(0, 3f, 0);
 
 
     protected virtual void Start()
     {
         CodeExtensions.SetIfUnityNull(ref rigidbody2D, GetComponent<Rigidbody2D>());
-
         CodeExtensions.SetIfUnityNull(ref spriteRenderer, GetComponent<SpriteRenderer>());
-
         CodeExtensions.SetIfNull(ref photonView, GetComponent<PhotonView>());
         if (nameUI.textObject == null)
         {
@@ -51,6 +52,14 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable
             ObjectFollowUI objectFollowUI = nameUI.textObject.GetComponent<ObjectFollowUI>();
             objectFollowUI.TargetObject = gameObject;
             objectFollowUI.Offset = namePosGap;
+        }
+
+        if (HpBar == null)
+        {
+            HpBar = Instantiate(PrefabManager.Instance.HealthBar, transform.position, quaternion.identity, GameObjectResource.Instance.Canvas.transform);
+            ObjectFollowUI objectFollowUI = HpBar.GetComponentCached<ObjectFollowUI>();
+            objectFollowUI.TargetObject = gameObject;
+            objectFollowUI.Offset = HpBarGap;
         }
 
         nameUI.str = (PhotonNetwork.NickName != "") ? PhotonNetwork.NickName : nameUI.str;

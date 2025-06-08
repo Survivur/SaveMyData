@@ -10,7 +10,7 @@ public class HpBarSync : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (character == null) character = GameManager.Player.GetComponentInParent<Character>();
+        if (character == null) character = GameManager.Player.GetComponentInParent<Character>();        
         slider = GetComponent<Slider>();
         slider.maxValue = character.MaxHealth;
     }
@@ -18,6 +18,6 @@ public class HpBarSync : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        slider.value = (character == null) ? -666f : character.Health;
+        slider.value = (character == null) ? -666f : character.MaxHealth - character.Health;
     }
 }

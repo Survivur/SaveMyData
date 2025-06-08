@@ -44,16 +44,15 @@ public class Player : Character
 
     protected override void Start()
     {
-        // if (!photonView.IsMine)  // ??? ??????? ???? ??? ???? ????
-        // {
-        //     enabled = false;  // ?????? ??????
-        //     return;
-        // }
-
         CodeExtensions.SetIfNullOrEmpty(ref nameUI.str, "John Wick");
         CodeExtensions.SetIfNullOrEmpty(ref nameUI.strTextName, "PlayerName");
 
         base.Start();
+
+        if (!photonView.IsMine)  // ??? ??????? ???? ??? ???? ????
+        {
+            gameObject.tag = "Enemy";
+        }
 
         CodeExtensions.SetIfUnityNull(ref animator, gameObject.GetComponentCached<Animator>());
         CodeExtensions.SetIfUnityNull(ref playerDash, gameObject.GetComponentCached<PlayerDash>());
@@ -78,7 +77,7 @@ public class Player : Character
         if (photonView.IsMine)
         {
             KeyChecker();
-            photonView.RPC(nameof(RPC_SetAim), RpcTarget.All, ((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized);
+            photonView.RPC(nameof(RPC_SetAim), RpcTarget.All, Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
     }
 
@@ -98,7 +97,7 @@ public class Player : Character
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            photonView.RPC(nameof(RPC_Dash), RpcTarget.All);
+            photonView.RPC(nameof(RPC_Reload), RpcTarget.All);
         }
         if (Input.GetButtonDown("Jump"))
         {
@@ -140,9 +139,9 @@ public class Player : Character
     }
 
     [PunRPC]
-    public void RPC_SetAim(Vector2 aim)
+    public void RPC_SetAim(Vector3 aim)
     {
-        AimDirection = aim;
+        AimDirection = ((Vector2)(aim - transform.position)).normalized;
     }
 
     [PunRPC]

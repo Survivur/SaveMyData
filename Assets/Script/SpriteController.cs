@@ -17,6 +17,7 @@ public class SpriteController : MonoBehaviour
 
     [Header("Components")]
     [ReadOnly, SerializeField] private SpriteRenderer spriteRenderer = null;
+    [ReadOnly, SerializeField] private Player player = null;
 
     [Header("Info")]
     [ReadOnly] public float MouseAimAngle = 0;
@@ -28,6 +29,7 @@ public class SpriteController : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        player = GameObjectRegistry.GetOrRegister("", transform.parent.gameObject).GetComponentCached<Player>();
         if (FlipPostionGap == Vector3.zero) FlipPostionGap.x = transform.localPosition.x * 2;
     }
 
@@ -73,8 +75,7 @@ public class SpriteController : MonoBehaviour
 
     private float UpdateAngle()
     {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 dir = mousePos - transform.position;
+        Vector3 dir = (Vector3)player.AimDirection;
         return Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
     }
 }
