@@ -66,7 +66,7 @@ public class PlayerDash : MonoBehaviour
 
     public void Ready()
     {
-        if (!isDashing && !dashFlag)
+        if (!isDashing && !dashFlag && counter > 0)
         {
             dashFlag = true;
         }

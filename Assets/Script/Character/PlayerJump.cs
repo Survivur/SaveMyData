@@ -47,7 +47,7 @@ public class PlayerJump : MonoBehaviour
 
     public void Ready()
     {
-        if (!isJumping && !jumpFlag)
+        if (!isJumping && !jumpFlag && counter > 0)
         {
             jumpFlag = true;
         }   

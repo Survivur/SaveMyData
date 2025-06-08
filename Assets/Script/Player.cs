@@ -9,9 +9,7 @@ public class Player : Character
 {
     public bool isAnimating => animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f;
 
-
     [Header("Info", order = 0)]
-    [SerializeField, ReadOnly] private float parryTime = 0.5f;
     [SerializeField, ReadOnly] private bool needCheckingAnimate = true;
 
     [Header("Components", order = 0)]

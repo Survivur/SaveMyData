@@ -27,7 +27,8 @@ public class PlayerGun : MonoBehaviour, IShootable
         CodeExtensions.SetIfUnityNull(ref player, gameObject.GetComponentCached<Player>());
         CodeExtensions.SetIfUnityNull(ref photonView, gameObject.GetComponentCached<PhotonView>());
 
-        GameObjectRegistry.GetOrRegister("Canvas/PlayerBulletCount").GetComponent<GetTextGUI>().getTextFunc = () => BulletText;
+        if (photonView.IsMine)
+            GameObjectRegistry.GetOrRegister("Canvas/PlayerBulletCount").GetComponent<GetTextGUI>().getTextFunc = () => BulletText;
     }
 
     public void Shoot(float damage, Vector2 dir, bool isBlockedByBlock = true)
@@ -52,7 +53,6 @@ public class PlayerGun : MonoBehaviour, IShootable
             if (bulletCount == 0)
                 Reload();
         }
-        //BulletTextUpdate();
     }
 
     public void Shoot(Bullet bullet)
