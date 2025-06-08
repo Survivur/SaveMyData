@@ -78,7 +78,7 @@ public class Player : Character
         if (photonView.IsMine)
         {
             KeyChecker();
-            photonView.RPC(nameof(RPC_SetAim), RpcTarget.All);
+            photonView.RPC(nameof(RPC_SetAim), RpcTarget.All, ((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized);
         }
     }
 
@@ -140,9 +140,9 @@ public class Player : Character
     }
 
     [PunRPC]
-    public void RPC_SetAim()
+    public void RPC_SetAim(Vector2 aim)
     {
-        AimDirection = ((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized;
+        AimDirection = aim;
     }
 
     [PunRPC]
