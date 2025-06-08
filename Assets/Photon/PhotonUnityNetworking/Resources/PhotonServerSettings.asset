@@ -43,6 +43,7 @@ MonoBehaviour:
   - RPC_Jump
   - RPC_Shoot
   - SetBullet_RPC
+  - RPC_SetAim
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

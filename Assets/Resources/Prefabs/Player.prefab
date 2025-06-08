@@ -418,7 +418,7 @@ MonoBehaviour:
   UpsideChild: {fileID: 0}
   DownsideChild: {fileID: 0}
   ArmChild: {fileID: 0}
-  UpsideChildSprite: {fileID: 0}
+  DownsideChildSprite: {fileID: 0}
   HorizontalInput: 0
 --- !u!1 &4351013150004507843
 GameObject:

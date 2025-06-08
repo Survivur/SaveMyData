@@ -64,7 +64,7 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable, IMoveab
 
     protected virtual void Update()
     {
-        AimDirection = ((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized;
+        AimDirection = ((Vector2)(Vector3.zero - transform.position)).normalized;
     }
 
     protected virtual void FixedUpdate()

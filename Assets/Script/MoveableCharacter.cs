@@ -78,7 +78,7 @@ public struct ObjectRefs
 
 public class MoveableCharacter : Character
 {
-    public bool seeRight => UpsideChildSprite.flipX;
+    public bool seeRight => DownsideChildSprite.flipX;
     public bool isAnimating => animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f;
 
     [SerializeField] protected DashData dash = new DashData {
@@ -131,7 +131,7 @@ public class MoveableCharacter : Character
     [SerializeField, ReadOnly(true)] private GameObject UpsideChild = null;
     [SerializeField, ReadOnly(true)] private GameObject DownsideChild = null;
     [SerializeField, ReadOnly(true)] private GameObject ArmChild = null;
-    [SerializeField, ReadOnly(true)] private SpriteRenderer UpsideChildSprite = null;
+    [SerializeField, ReadOnly(true)] private SpriteRenderer DownsideChildSprite = null;
 
     [Header("Info", order = 0)]
     [SerializeField, ReadOnly] protected float HorizontalInput = 0f;
@@ -154,7 +154,7 @@ public class MoveableCharacter : Character
         CodeExtensions.SetIfUnityNull(ref DownsideChild, transform.Find("Downside").gameObject);
         CodeExtensions.SetIfUnityNull(ref ArmChild, transform.Find("Arm").gameObject);
 
-        CodeExtensions.SetIfUnityNull(ref UpsideChildSprite, UpsideChild.GetComponent<SpriteRenderer>());
+        CodeExtensions.SetIfUnityNull(ref DownsideChildSprite, DownsideChild.GetComponent<SpriteRenderer>());
 
         UpsideChild.SetActive(false);
         DownsideChild.SetActive(false);
@@ -171,21 +171,6 @@ public class MoveableCharacter : Character
     protected override void Update()
     {
         base.Update();
-        // if (Input.GetMouseButtonDown(0))
-        // {
-        //     Shoot();
-        // }
-        // if (Input.GetKeyDown(KeyCode.LeftShift))
-        // {
-        //     dash.isKeyDown = true;
-        // }
-        // if (Input.GetButtonDown("Jump"))
-        // {
-        //     if (!jump.isJumping)
-        //     {
-        //         jump.isKeyDown = true;
-        //     }
-        // }
         AnimationCheck();
     }
 
@@ -349,6 +334,11 @@ public class MoveableCharacter : Character
         jump.isKeyDown = true;
     }
 
+    [PunRPC]
+    public void RPC_SetAim()
+    {
+        AimDirection = ((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized;
+    }
 
     private IEnumerator Reload()
     {
@@ -367,8 +357,8 @@ public class MoveableCharacter : Character
             GameObjectResource.Instance.GhostManager.transform);
         ghost.transform.localScale = transform.localScale;
         SpriteRenderer spriteRenderer = ghost.GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = spriteRenderer.sprite;
-        spriteRenderer.flipX = spriteRenderer.flipX;
+        spriteRenderer.sprite = this.spriteRenderer.sprite;
+        spriteRenderer.flipX = this.spriteRenderer.flipX;
         spriteRenderer.color = new Color(1, 1, 1, 0.2f);
     }
 
