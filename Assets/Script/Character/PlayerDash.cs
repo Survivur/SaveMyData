@@ -27,7 +27,8 @@ public class PlayerDash : MonoBehaviour
         CodeExtensions.SetIfUnityNull(ref playerMove, GetComponent<PlayerMove>());
         CodeExtensions.SetIfUnityNull(ref playerGhost, GetComponent<PlayerGhost>());
 
-        CodeExtensions.SetIfUnityNull(ref DownsideChildSprite, transform.Find("Downside").gameObject.GetComponent<SpriteRenderer>());
+        CodeExtensions.SetIfUnityNull(ref DownsideChildSprite, GameObjectRegistry.GetOrRegister(ObjectPath.Player_Downside, gameObject).GetComponentCached<SpriteRenderer>());
+
 
         Reset();
     }

@@ -59,11 +59,6 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable
         GameObjectResource.Instance.CameraFocusObjects.Add(gameObject);
     }
 
-    protected virtual void Update()
-    {
-        AimDirection = ((Vector2)(Vector3.zero - transform.position)).normalized;
-    }
-
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)

@@ -40,7 +40,7 @@ public class PlayerMove : MonoBehaviour, IMoveable
     protected void FixedUpdate()
     {
         if (photonView.IsMine)
-            photonView.RPC(nameof(RPC_HorizionInput), RpcTarget.All);
+            photonView.RPC(nameof(RPC_HorizionInput), RpcTarget.All, Input.GetAxisRaw("Horizontal"));
         rigidbody2D.linearVelocity = UpdateVelocity(rigidbody2D.linearVelocity);
     }
 
@@ -64,8 +64,6 @@ public class PlayerMove : MonoBehaviour, IMoveable
     /// <returns>??? ?????</returns>
     bool HorizontalMovement(ref Vector2 velocity)
     {
-        HorizontalInput = Input.GetAxisRaw("Horizontal");        
-
         // ???????
         if (HorizontalInput != 0)
         {

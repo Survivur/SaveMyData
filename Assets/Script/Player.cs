@@ -9,7 +9,9 @@ public class Player : Character
 {
     public bool isAnimating => animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f;
 
-    [Header("Animation", order = 0)]
+
+    [Header("Info", order = 0)]
+    [SerializeField, ReadOnly] private float parryTime = 0.5f;
     [SerializeField, ReadOnly] private bool needCheckingAnimate = true;
 
     [Header("Components", order = 0)]
@@ -18,13 +20,12 @@ public class Player : Character
     [SerializeField, ReadOnly(true)] private PlayerJump playerJump = null;
     [SerializeField, ReadOnly(true)] private PlayerGun playerGun = null;
     [SerializeField, ReadOnly(true)] private PlayerGhost playerGhost = null;
+    [SerializeField, ReadOnly(true)] private PlayerParry playerParry = null;
 
     [Header("Children", order = 0)]
     [SerializeField, ReadOnly(true)] private GameObject _upsideChild = null;
     [SerializeField, ReadOnly(true)] private GameObject _downsideChild = null;
     [SerializeField, ReadOnly(true)] private GameObject _armChild = null;
-    [SerializeField, ReadOnly(true)] private GameObject _parrychild = null;
-
 
     public GameObject UpsideChild => CodeExtensions.SetIfUnityNull(
         ref _upsideChild,
@@ -38,11 +39,6 @@ public class Player : Character
 
     public GameObject ArmChild => CodeExtensions.SetIfUnityNull(
         ref _armChild,
-        GameObjectRegistry.GetOrRegister(ObjectPath.Player_Arm, gameObject)
-    );
-
-    public GameObject ParryChild => CodeExtensions.SetIfUnityNull(
-        ref _parrychild,
         GameObjectRegistry.GetOrRegister(ObjectPath.Player_Arm, gameObject)
     );
 
@@ -66,6 +62,7 @@ public class Player : Character
         CodeExtensions.SetIfUnityNull(ref playerJump, gameObject.GetComponentCached<PlayerJump>());
         CodeExtensions.SetIfUnityNull(ref playerGun, gameObject.GetComponentCached<PlayerGun>());
         CodeExtensions.SetIfUnityNull(ref playerGhost, gameObject.GetComponentCached<PlayerGhost>());
+        CodeExtensions.SetIfUnityNull(ref playerParry, gameObject.GetComponentCached<PlayerParry>());
 
         //CodeExtensions.SetIfUnityNull(ref dash, GetComponent<PlayerDash>());
         //CodeExtensions.SetIfUnityNull(ref DownsideChildSprite, DownsideChild.GetComponent<SpriteRenderer>());
@@ -73,19 +70,17 @@ public class Player : Character
         UpsideChild.SetActive(false);
         DownsideChild.SetActive(false);
         ArmChild.SetActive(false);
-        ParryChild.SetActive(false);
 
         TargetTags.Add(Tags.Enemy);
     }
 
-    protected override void Update()
+    protected void Update()
     {
-        KeyChecker();
         AnimationCheck();
         if (photonView.IsMine)
         {
+            KeyChecker();
             photonView.RPC(nameof(RPC_SetAim), RpcTarget.All);
-            base.Update();
         }
     }
 
@@ -97,7 +92,7 @@ public class Player : Character
         }
         if (Input.GetMouseButtonDown(1))
         {
-            photonView.RPC(nameof(RPC_Jump), RpcTarget.All);
+            photonView.RPC(nameof(RPC_Parry), RpcTarget.All);
         }
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -155,12 +150,6 @@ public class Player : Character
     [PunRPC]
     public void RPC_Parry()
     {
-        ParryChild.SetActive(true);
-    }
-    
-    [PunRPC]
-    public void RPC_Parry_Off()
-    {
-        ParryChild.SetActive(false);
-    }
+        playerParry.Parry();
+    }    
 }

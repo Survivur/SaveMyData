@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 5070884181464100491}
   - component: {fileID: 1789431844958118161}
   - component: {fileID: 6035739754110282760}
+  - component: {fileID: 4245596973679172302}
   - component: {fileID: 4380359119969864870}
   m_Layer: 7
   m_Name: Player
@@ -379,16 +380,17 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   photonView: {fileID: 0}
   namePosGap: {x: 0, y: 2, z: 0}
+  parryTime: 0.5
   needCheckingAnimate: 1
   animator: {fileID: 0}
   playerDash: {fileID: 0}
   playerJump: {fileID: 0}
   playerGun: {fileID: 0}
   playerGhost: {fileID: 0}
+  playerParry: {fileID: 0}
   _upsideChild: {fileID: 0}
   _downsideChild: {fileID: 0}
   _armChild: {fileID: 0}
-  _parrychild: {fileID: 0}
 --- !u!114 &7280633547977043039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,6 +496,26 @@ MonoBehaviour:
   shootGap: 1
   player: {fileID: 0}
   photonView: {fileID: 0}
+--- !u!114 &4245596973679172302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116715825516029912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2296667d6fb80ff4d9e94eb76676d8c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counter:
+    count: 1
+    max: 1
+  coolDown: 2
+  delay: 0.2
+  goRight: 0
+  isParry: 0
+  _parrychild: {fileID: 0}
 --- !u!114 &4380359119969864870
 MonoBehaviour:
   m_ObjectHideFlags: 0

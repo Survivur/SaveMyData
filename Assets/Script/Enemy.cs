@@ -21,12 +21,6 @@ public class Enemy : Character
         StartCoroutine(ShootForSecond());
     }
 
-    protected override void Update()
-    {
-        base.Update();
-        AimDirection = ((Vector2)(Player.transform.position - transform.position)).normalized;
-    }
-
     IEnumerator ShootForSecond()
     {
         while (true)
