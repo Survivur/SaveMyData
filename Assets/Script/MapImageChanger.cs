@@ -22,6 +22,9 @@ public class MapImageChanger : MonoBehaviour
     void Update()
     {
         if (prevStageNum != roomManager.StageNum)
+        {
             image.sprite = Resources.Load<Sprite>($"Sprite/Stage{roomManager.StageNum}Background"); //roomManager.
+            prevStageNum = roomManager.StageNum;
+        }
     }
 }

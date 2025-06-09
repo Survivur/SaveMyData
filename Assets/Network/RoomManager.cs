@@ -15,26 +15,38 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public Button playButton;
     public Button RoomOutButton;
 
-    [SerializeField, ReadOnly] private int stageNum = 1;
+    // StageNum 값을 Room의 공유 속성으로 설정
     public int StageNum
     {
-        get => stageNum;
-        set => stageNum = (value + 2) % 3 + 1;
+        get
+        {
+            if (PhotonNetwork.CurrentRoom == null || 
+                PhotonNetwork.CurrentRoom.CustomProperties == null || 
+                !PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey("StageNum"))
+            {
+                return 1; // 기본값 반환 또는 로그 출력
+            }
+            return (int)PhotonNetwork.CurrentRoom.CustomProperties["StageNum"];
+        }
+        set
+        {
+            if (PhotonNetwork.CurrentRoom == null) return;
+
+            ExitGames.Client.Photon.Hashtable props = new ExitGames.Client.Photon.Hashtable
+            {
+                { "StageNum", (value + 2) % 3 + 1 }
+            };
+            PhotonNetwork.CurrentRoom.SetCustomProperties(props);
+        }
     }
 
-    public void StageAdd() => photonView.RPC(nameof(RPC_StageAdd), RpcTarget.All);
 
-    [PunRPC]
-    public void RPC_StageAdd() => StageNum++;
+    public void StageAdd() => StageNum++;
 
-    public void StageSub() => photonView.RPC(nameof(RPC_StageSub), RpcTarget.All);
-
-
-    [PunRPC]
-    public void RPC_StageSub() => StageNum++;
+    public void StageSub() => StageNum--;
     void Start()
     {
-
+        StageNum = 1;
         PhotonNetwork.AutomaticallySyncScene = true;
         // 시작할 때는 플레이 버튼만 비활성화
         playButton.gameObject.SetActive(false);
@@ -51,7 +63,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
             playerListText.text = "방에 입장 중...";
         }
 
-        GameObjectRegistry.GetOrRegister("Canvas/MapGroup/Subscript").GetComponent<GetTextGUI>().getTextFunc = () => $"Stage{stageNum}";
+        GameObjectRegistry.GetOrRegister("Canvas/MapGroup/Subscript").GetComponent<GetTextGUI>().getTextFunc = () => $"Stage{StageNum}";
     }
 
     public override void OnJoinedRoom()
@@ -115,7 +127,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
             //PhotonNetwork.LoadLevel(selectedScene);
 
             //테스트용 코드
-            PhotonNetwork.LoadLevel($"Stage{stageNum}Scene");
+            PhotonNetwork.LoadLevel($"Stage{StageNum}Scene");
 
         }
     }
