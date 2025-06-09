@@ -55,7 +55,7 @@ public class Player : Character
         CodeExtensions.SetIfUnityNull(ref playerJump, gameObject.GetComponentCached<PlayerJump>());
         CodeExtensions.SetIfUnityNull(ref playerGun, gameObject.GetComponentCached<PlayerGun>());
         CodeExtensions.SetIfUnityNull(ref playerGhost, gameObject.GetComponentCached<PlayerGhost>());
-        CodeExtensions.SetIfUnityNull(ref playerParry, gameObject.GetComponentCached<PlayerParry>());
+        CodeExtensions.SetIfUnityNull(ref playerParry, gameObject.GetComponent<PlayerParry>());
 
         //CodeExtensions.SetIfUnityNull(ref dash, GetComponent<PlayerDash>());
         //CodeExtensions.SetIfUnityNull(ref DownsideChildSprite, DownsideChild.GetComponent<SpriteRenderer>());
@@ -65,7 +65,9 @@ public class Player : Character
         ArmChild.SetActive(false);
 
         if (photonView.IsMine)
-        {
+        {            
+            gameObject.tag = Tags.Player;
+            playerParry.ParryChild.tag = Tags.Player;
             //photonView.RPC(nameof(RPC_UISync), RpcTarget.All);
             GameObjectRegistry.GetOrRegister("Canvas/Game Panel/GameObject/Player1/HP Group/HP Text").GetComponent<GetTextGUI>().getTextFunc = () => $"Health : {Health} / {MaxHealth}";
             GameObjectRegistry.GetOrRegister("Canvas/Game Panel/GameObject/Player1/Status Group/Player Text").GetComponent<GetTextGUI>().getTextFunc = () => $"{nameUI.str}";

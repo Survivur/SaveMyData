@@ -83,7 +83,7 @@ public class PlayerGun : MonoBehaviour, IShootable
     }
 
     [PunRPC]
-    protected void SetBullet_RPC(int viewID, float bulletSpeed, float? damage = null, Vector2? dir = null, bool isBlockedByBlock = false)
+    protected void SetBullet_RPC(int viewID, float bulletSpeed, float damage, Vector2 dir, bool isBlockedByBlock)
     {
         GameObject bulletObj = PhotonView.Find(viewID)?.gameObject;
         if (bulletObj == null)
@@ -105,8 +105,8 @@ public class PlayerGun : MonoBehaviour, IShootable
 
         
     Debug.Log($"TargetTags count after: {b.TargetTags.Count}");
-        b.dir = dir ?? Vector2.zero;
+        b.dir = dir;
         b.Speed = bulletSpeed;
-        b.Damage = damage ?? 0;
+        b.Damage = damage;
     }
 }
