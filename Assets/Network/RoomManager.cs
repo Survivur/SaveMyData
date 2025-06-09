@@ -15,6 +15,16 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public Button playButton;
     public Button RoomOutButton;
 
+    [SerializeField, ReadOnly] private int stageNum = 1;
+    public int StageNum
+    {
+        get => stageNum;
+        set => stageNum = (value + 2) % 3 + 1;
+    }
+
+    public void StageAdd() => StageNum++;
+    public void StageSub() => StageNum--;
+
     void Start()
     {
 
@@ -33,6 +43,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
             Debug.Log("아직 방에 입장하지 않았습니다. 방 입장 시 플레이어 목록이 업데이트됩니다.");
             playerListText.text = "방에 입장 중...";
         }
+
+        GameObjectRegistry.GetOrRegister("Canvas/MapGroup/Subscript").GetComponent<GetTextGUI>().getTextFunc = () => $"Stage{stageNum}";
     }
 
     public override void OnJoinedRoom()
@@ -96,7 +108,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
             //PhotonNetwork.LoadLevel(selectedScene);
 
             //테스트용 코드
-            PhotonNetwork.LoadLevel("SampleScene");
+            PhotonNetwork.LoadLevel($"Stage{stageNum}Scene");
 
         }
     }

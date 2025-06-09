@@ -38,7 +38,7 @@ public class Weapon : MonoBehaviour
                 break;
             case WeaponType.Shotgun:
                 weaponName = "Shotgun";
-                break;            
+                break;
             default:
                 weaponName = "Unknown";
                 break;
