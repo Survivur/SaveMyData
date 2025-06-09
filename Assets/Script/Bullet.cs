@@ -59,7 +59,7 @@ public class Bullet : MonoBehaviour, IAttackable, IMoveable
     
     public void SetTargetTags(List<string> targetTags)
     {
-        TargetTags ??= new List<string>(targetTags);
+        TargetTags = new List<string>(targetTags);
     }
 
     void DestroyBullet()

@@ -32,7 +32,7 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable
     [SerializeField] protected GameObject HpBar = null;
 
 
-    [field: SerializeField, ReadOnly] public virtual List<string> TargetTags { get; protected set; } = new List<string>();
+    [field: SerializeField, ReadOnly] public List<string> TargetTags { get; protected set; } = new List<string>();
 
     [SerializeField, ReadOnly] new protected Rigidbody2D rigidbody2D;
     [SerializeField, ReadOnly] protected SpriteRenderer spriteRenderer;
@@ -84,6 +84,7 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable
     {
         GameObjectResource.Instance?.CameraFocusObjects.Remove(gameObject);
         Destroy(nameUI.textObject);
+        Destroy(HpBar);
     }
 
 
@@ -110,8 +111,6 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable
             Destroy(gameObject);
         }
     }
-
-
 
     // GameObject CreateBullet(string bulletPath, Vector3 position, Quaternion rotation)
     // {

@@ -130,6 +130,7 @@ MonoBehaviour:
   rotationType: 1
   FlipPostionGap: {x: 0, y: 0, z: 0}
   spriteRenderer: {fileID: 0}
+  player: {fileID: 0}
   MouseAimAngle: 0
   Angle: 0
 --- !u!114 &670435491116934414
@@ -181,7 +182,7 @@ GameObject:
   - component: {fileID: 4380359119969864870}
   m_Layer: 7
   m_Name: Player
-  m_TagString: Enemy
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -405,10 +406,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.3
-  UpsideChild: {fileID: 0}
-  DownsideChild: {fileID: 0}
-  ArmChild: {fileID: 0}
-  DownsideChildSprite: {fileID: 0}
   spriteRenderer: {fileID: 0}
 --- !u!114 &1421597302479218316
 MonoBehaviour:
@@ -809,6 +806,7 @@ MonoBehaviour:
   rotationType: 1
   FlipPostionGap: {x: 0, y: 0, z: 0}
   spriteRenderer: {fileID: 0}
+  player: {fileID: 0}
   MouseAimAngle: 0
   Angle: 0
 --- !u!114 &8923285745839802519

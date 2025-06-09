@@ -40,19 +40,12 @@ public class Player : Character
         GameObjectRegistry.GetOrRegister(ObjectPath.Player_Arm, gameObject)
     );
 
-    public override List<string> TargetTags { get; protected set; } = new List<string>();
-
     protected override void Start()
     {
         CodeExtensions.SetIfNullOrEmpty(ref nameUI.str, "John Wick");
         CodeExtensions.SetIfNullOrEmpty(ref nameUI.strTextName, "PlayerName");
 
         base.Start();
-
-        if (!photonView.IsMine)  // ??? ??????? ???? ??? ???? ????
-        {
-            gameObject.tag = "Enemy";
-        }
 
         CodeExtensions.SetIfUnityNull(ref animator, gameObject.GetComponentCached<Animator>());
         CodeExtensions.SetIfUnityNull(ref playerDash, gameObject.GetComponentCached<PlayerDash>());
@@ -67,6 +60,13 @@ public class Player : Character
         UpsideChild.SetActive(false);
         DownsideChild.SetActive(false);
         ArmChild.SetActive(false);
+
+        if (!photonView.IsMine)  // ??? ??????? ???? ??? ???? ????
+        {
+            gameObject.tag = Tags.Enemy;
+
+            playerParry.ParryChild.tag = Tags.Enemy;
+        }
 
         TargetTags.Add(Tags.Enemy);
     }
@@ -117,6 +117,15 @@ public class Player : Character
             ArmChild.SetActive(true);
 
             needCheckingAnimate = false;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        IHittable hitable = other.GetComponent<IHittable>();    
+        if (hitable != null)
+        {
+            hitable?.TakeDamage(Damage, (Vector2)transform.right);
         }
     }
 

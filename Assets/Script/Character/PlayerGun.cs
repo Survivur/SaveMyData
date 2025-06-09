@@ -102,6 +102,9 @@ public class PlayerGun : MonoBehaviour, IShootable
             TargetTags.Remove(Tags.Ground);
 
         b.SetTargetTags(TargetTags);
+
+        
+    Debug.Log($"TargetTags count after: {b.TargetTags.Count}");
         b.dir = dir ?? Vector2.zero;
         b.Speed = bulletSpeed;
         b.Damage = damage ?? 0;

@@ -75,7 +75,11 @@ public class SpriteController : MonoBehaviour
 
     private float UpdateAngle()
     {
-        Vector3 dir = (Vector3)player.AimDirection;
+        Vector3 dir;
+        if (player != null)
+            dir = (Vector3)player.AimDirection;
+        else
+            dir = ((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized;
         return Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
     }
 }

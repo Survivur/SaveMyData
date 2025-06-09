@@ -6,12 +6,6 @@ public class PlayerGhost : MonoBehaviour
     [Header("Option", order = 1)]
     [SerializeField, ReadOnly(true)] private float duration = 0.3f;
 
-    [Header("Children", order = 0)]
-    [SerializeField, ReadOnly(true)] private GameObject UpsideChild = null;
-    [SerializeField, ReadOnly(true)] private GameObject DownsideChild = null;
-    [SerializeField, ReadOnly(true)] private GameObject ArmChild = null;
-    [SerializeField, ReadOnly(true)] private SpriteRenderer DownsideChildSprite = null;
-
     [Header("Components", order = 0)]
     [SerializeField, ReadOnly] protected SpriteRenderer spriteRenderer;
 
@@ -20,10 +14,6 @@ public class PlayerGhost : MonoBehaviour
     void Start()
     {
         CodeExtensions.SetIfUnityNull(ref spriteRenderer, gameObject.GetComponentCached<SpriteRenderer>());
-
-        CodeExtensions.SetIfUnityNull(ref UpsideChild, transform.Find("Upside").gameObject);
-        CodeExtensions.SetIfUnityNull(ref DownsideChild, transform.Find("Downside").gameObject);
-        CodeExtensions.SetIfUnityNull(ref ArmChild, transform.Find("Arm").gameObject);
     }
 
     public void SpawnGhost()

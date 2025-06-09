@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class Enemy : Character
 {
-    public override List<string> TargetTags { get; protected set; } = new List<string> { Tags.Player };
     [SerializeField] float ShootDelay = 1f;
     [Header("Components")]
     [SerializeField, ReadOnly] GameObject Player = null;
 
     protected override void Start()
     {
+        TargetTags = new List<string> { Tags.Player };
         if (nameUI.str == "") nameUI.str = "abs";
         if (nameUI.strTextName == "") nameUI.strTextName = "EnemyName";
         base.Start();
