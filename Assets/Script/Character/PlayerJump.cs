@@ -4,13 +4,14 @@ public class PlayerJump : MonoBehaviour
 {
     [Header("Options")]
     [SerializeField] protected Counter counter = new Counter();
+    public Counter Counter => counter;
     [SerializeField] protected float speed = 15f;
     [SerializeField] protected float delay = 0.2f;
 
     [Header("Information")]
     [SerializeField, ReadOnly] protected bool isJumping = false;
+    public bool IsJumping => isJumping;
     [SerializeField, ReadOnly] protected bool jumpFlag = false;
-
 
     public void Start()
     {
@@ -36,7 +37,7 @@ public class PlayerJump : MonoBehaviour
         if (jumpFlag && !isJumping && counter > 0)
         {
             velocity.y = speed;
-            isJumping = true;            
+            isJumping = true;
             jumpFlag = false;
             Counting();
             Invoke(nameof(JumpAble), delay);
@@ -50,8 +51,9 @@ public class PlayerJump : MonoBehaviour
         if (!isJumping && !jumpFlag && counter > 0)
         {
             jumpFlag = true;
-        }   
+        }
     }
+
 
     private void Counting()
     {
@@ -68,4 +70,9 @@ public class PlayerJump : MonoBehaviour
     {
         isJumping = false;
     }     
+    
+    public bool JumpCountMax()
+    {
+        return counter.Count == counter.Max;
+    }    
 }

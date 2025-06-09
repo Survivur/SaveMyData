@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerUpsideAnimation : MonoBehaviour
 {
     [Header("Components")]
-    [ReadOnly, SerializeField] private Animator animatior;
+    [ReadOnly, SerializeField] private Animator animator;
     [ReadOnly, SerializeField] private SpriteController spriteController;
 
     static int prevSeeAngle = 0;
@@ -11,7 +11,7 @@ public class PlayerUpsideAnimation : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        animatior = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         spriteController = GetComponent<SpriteController>();
 
         spriteController.rotationType = RotationType.rotation180;
@@ -22,8 +22,8 @@ public class PlayerUpsideAnimation : MonoBehaviour
     {
         float seeAngle = spriteController.MouseAimAngle / 22.5f;
 
-        animatior.SetBool("needChange", (int)seeAngle != prevSeeAngle);
-        animatior.SetInteger("SeeType", (int)seeAngle);
+        animator.SetBool("needChange", (int)seeAngle != prevSeeAngle);
+        animator.SetInteger("SeeType", (int)seeAngle);
 
         prevSeeAngle = (int)seeAngle;
     }

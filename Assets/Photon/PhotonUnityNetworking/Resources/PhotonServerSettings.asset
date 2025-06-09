@@ -49,6 +49,9 @@ MonoBehaviour:
   - RPC_Parry_Off
   - RPC_Reload
   - RPC_ParryOff
+  - RPC_UISync
+  - RPC_Sit
+  - RPC_Stand
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

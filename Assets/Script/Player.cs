@@ -25,6 +25,9 @@ public class Player : Character
     [SerializeField, ReadOnly(true)] private GameObject _downsideChild = null;
     [SerializeField, ReadOnly(true)] private GameObject _armChild = null;
 
+    private int prevCount = 0;
+    public bool isSit = false;
+
     public GameObject UpsideChild => CodeExtensions.SetIfUnityNull(
         ref _upsideChild,
         GameObjectRegistry.GetOrRegister(ObjectPath.Player_Upside, gameObject)
@@ -61,10 +64,15 @@ public class Player : Character
         DownsideChild.SetActive(false);
         ArmChild.SetActive(false);
 
+        if (photonView.IsMine)
+        {
+            GameObjectRegistry.GetOrRegister("Canvas/Game Panel/GameObject/Player1/HP Group/HP Text").GetComponent<GetTextGUI>().getTextFunc = () => $"Health : {Health} / {MaxHealth}";
+            GameObjectRegistry.GetOrRegister("Canvas/Game Panel/GameObject/Player1/Status Group/Player Text").GetComponent<GetTextGUI>().getTextFunc = () => $"{nameUI.str}";
+            photonView.RPC(nameof(RPC_UISync), RpcTarget.All);
+        }
         if (!photonView.IsMine)  // ??? ??????? ???? ??? ???? ????
         {
             gameObject.tag = Tags.Enemy;
-
             playerParry.ParryChild.tag = Tags.Enemy;
         }
 
@@ -103,6 +111,14 @@ public class Player : Character
         {
             photonView.RPC(nameof(RPC_Jump), RpcTarget.All);
         }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            photonView.RPC(nameof(RPC_Sit), RpcTarget.All);
+        }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            photonView.RPC(nameof(RPC_Stand), RpcTarget.All);
+        }
     }
 
     private void AnimationCheck()
@@ -118,6 +134,14 @@ public class Player : Character
 
             needCheckingAnimate = false;
         }
+
+        // animator.SetBool("needChange", prevCount != playerJump.Counter.Count);
+        // animator.SetBool("isJump", playerJump.IsJumping);
+        // animator.SetBool("isSit", isSit);
+        // animator.SetBool("isWalk", playerMove.Velocity.x != 0);
+
+
+        // prevCount = playerJump.Counter.Count;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -157,5 +181,27 @@ public class Player : Character
     public void RPC_Parry()
     {
         playerParry.Parry();
+    }
+
+    [PunRPC]
+    public void RPC_Sit()
+    {
+        //_downsideChild.GetComponentCached<PlayerDownsideAnimation>().isSit = true;
+    }
+
+    [PunRPC]
+    public void RPC_Stand()
+    {
+        //_downsideChild.GetComponentCached<PlayerDownsideAnimation>().isSit = false;
+    }
+
+    [PunRPC]
+    public void RPC_UISync()
+    {
+        if (!photonView.IsMine)  // ??? ??????? ???? ??? ???? ????
+        {
+            GameObjectRegistry.GetOrRegister("Canvas/Game Panel/GameObject/Player2/HP Group/HP Text").GetComponent<GetTextGUI>().getTextFunc = () => $"Health : {Health} / {MaxHealth}";
+            GameObjectRegistry.GetOrRegister("Canvas/Game Panel/GameObject/Player2/Status Group/Player Text").GetComponent<GetTextGUI>().getTextFunc = () => $"{nameUI.str}";
+        }
     }    
 }

@@ -393,6 +393,7 @@ MonoBehaviour:
   _upsideChild: {fileID: 0}
   _downsideChild: {fileID: 0}
   _armChild: {fileID: 0}
+  isSit: 0
 --- !u!114 &7280633547977043039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -961,7 +962,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UpsideSpriteController: {fileID: 0}
+  animator: {fileID: 0}
+  playerMove: {fileID: 0}
+  playerJump: {fileID: 0}
   StartLocalPosition: {x: 0, y: 0, z: 0}
+  isSit: 0
 --- !u!114 &2559096025022910925
 MonoBehaviour:
   m_ObjectHideFlags: 0

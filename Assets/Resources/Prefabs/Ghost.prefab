@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5735377846035522889}
   - component: {fileID: 7744010586851644926}
   - component: {fileID: 7530160171985526131}
-  - component: {fileID: 119411900496301651}
   - component: {fileID: 4253296342020682004}
   m_Layer: 0
   m_Name: Downside
@@ -112,20 +111,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &119411900496301651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2784944141580205469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9e8baf84fb234980a74ef0b0edbb8ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UpsideSpriteController: {fileID: 0}
-  StartLocalPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &4253296342020682004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,8 +238,6 @@ GameObject:
   - component: {fileID: 1811948078784807558}
   - component: {fileID: 8849443678755748998}
   - component: {fileID: 554042911342233301}
-  - component: {fileID: 3348601662395166205}
-  - component: {fileID: 6932494080107601503}
   - component: {fileID: 8987497348077636082}
   m_Layer: 0
   m_Name: Arm
@@ -355,39 +338,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3348601662395166205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4338852530402504587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30f73c2abd84d4869ab54fec48e778b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  needFlip: 1
-  isChangingPosition: 1
-  rotationType: 1
-  FlipPostionGap: {x: 0, y: 0, z: 0}
-  spriteRenderer: {fileID: 0}
-  MouseAimAngle: 0
-  Angle: 0
---- !u!114 &6932494080107601503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4338852530402504587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 725dff77a8a0840e780b8a45ec32e408, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteController: {fileID: 0}
-  seeAngle: 0
 --- !u!114 &8987497348077636082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,9 +361,7 @@ GameObject:
   - component: {fileID: 3932504502717910275}
   - component: {fileID: 2821373359350002084}
   - component: {fileID: 1185473092255869543}
-  - component: {fileID: 94010850318564418}
-  - component: {fileID: 5120628133873518719}
-  - component: {fileID: 363023555100131878}
+  - component: {fileID: 6524204724806453382}
   m_Layer: 0
   m_Name: Upside
   m_TagString: Untagged
@@ -513,41 +461,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &94010850318564418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4710077905321348354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30f73c2abd84d4869ab54fec48e778b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  needFlip: 1
-  isChangingPosition: 1
-  rotationType: 1
-  FlipPostionGap: {x: 0, y: 0, z: 0}
-  spriteRenderer: {fileID: 0}
-  MouseAimAngle: 0
-  Angle: 0
---- !u!114 &5120628133873518719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4710077905321348354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2b63e4de4fbb474caaa608aa763fd50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0.01}
-  roundTripDuration: 1
-  maxTime: 3
---- !u!114 &363023555100131878
+--- !u!114 &6524204724806453382
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

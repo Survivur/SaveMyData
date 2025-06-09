@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 public class PlayerGun : MonoBehaviour, IShootable
 {
-    public string BulletText => $"{bulletCount.Count} / {bulletCount.Max}";
-
     [Header("Options")]
     [SerializeField] public Counter bulletCount = new Counter(10);
     [SerializeField] public float reloadSpeed = 1.5f;
@@ -28,7 +26,9 @@ public class PlayerGun : MonoBehaviour, IShootable
         CodeExtensions.SetIfUnityNull(ref photonView, gameObject.GetComponentCached<PhotonView>());
 
         if (photonView.IsMine)
-            GameObjectRegistry.GetOrRegister("Canvas/PlayerBulletCount").GetComponent<GetTextGUI>().getTextFunc = () => BulletText;
+        {
+            GameObjectRegistry.GetOrRegister("Canvas/Game Panel/GameObject/Player1/Status Group/Bullet Text").GetComponent<GetTextGUI>().getTextFunc = () => $"Bullet : {bulletCount.Count} / {bulletCount.Max}";
+        }
     }
 
     public void Shoot(float damage, Vector2 dir, bool isBlockedByBlock = true)
