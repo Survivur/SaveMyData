@@ -22,9 +22,16 @@ public class RoomManager : MonoBehaviourPunCallbacks
         set => stageNum = (value + 2) % 3 + 1;
     }
 
-    public void StageAdd() => StageNum++;
-    public void StageSub() => StageNum--;
+    public void StageAdd() => photonView.RPC(nameof(RPC_StageAdd), RpcTarget.All);
 
+    [PunRPC]
+    public void RPC_StageAdd() => StageNum++;
+
+    public void StageSub() => photonView.RPC(nameof(RPC_StageSub), RpcTarget.All);
+
+
+    [PunRPC]
+    public void RPC_StageSub() => StageNum++;
     void Start()
     {
 
