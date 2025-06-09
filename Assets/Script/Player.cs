@@ -66,17 +66,21 @@ public class Player : Character
 
         if (photonView.IsMine)
         {
+            //photonView.RPC(nameof(RPC_UISync), RpcTarget.All);
             GameObjectRegistry.GetOrRegister("Canvas/Game Panel/GameObject/Player1/HP Group/HP Text").GetComponent<GetTextGUI>().getTextFunc = () => $"Health : {Health} / {MaxHealth}";
             GameObjectRegistry.GetOrRegister("Canvas/Game Panel/GameObject/Player1/Status Group/Player Text").GetComponent<GetTextGUI>().getTextFunc = () => $"{nameUI.str}";
-            photonView.RPC(nameof(RPC_UISync), RpcTarget.All);
+            TargetTags.Add(Tags.Enemy);
+
         }
-        if (!photonView.IsMine)  // ??? ??????? ???? ??? ???? ????
+        else // ??? ??????? ???? ??? ???? ????
         {
             gameObject.tag = Tags.Enemy;
             playerParry.ParryChild.tag = Tags.Enemy;
+            GameObjectRegistry.GetOrRegister("Canvas/Game Panel/GameObject/Player2/HP Group/HP Text").GetComponent<GetTextGUI>().getTextFunc = () => $"Health : {Health} / {MaxHealth}";
+            GameObjectRegistry.GetOrRegister("Canvas/Game Panel/GameObject/Player2/Status Group/Player Text").GetComponent<GetTextGUI>().getTextFunc = () => $"{nameUI.str}";
+            TargetTags.Add(Tags.Player);
         }
 
-        TargetTags.Add(Tags.Enemy);
     }
 
     protected void Update()
@@ -198,7 +202,5 @@ public class Player : Character
     [PunRPC]
     public void RPC_UISync()
     {
-        GameObjectRegistry.GetOrRegister("Canvas/Game Panel/GameObject/Player2/HP Group/HP Text").GetComponent<GetTextGUI>().getTextFunc = () => $"Health : {Health} / {MaxHealth}";
-        GameObjectRegistry.GetOrRegister("Canvas/Game Panel/GameObject/Player2/Status Group/Player Text").GetComponent<GetTextGUI>().getTextFunc = () => $"{nameUI.str}";
     }    
 }
