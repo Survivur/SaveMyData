@@ -4610,6 +4610,10 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: -0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 4380359119969864870, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5759046794407360509, guid: 7a6c1236810974cd8bc3acd3804e99a0, type: 3}
       propertyPath: m_Name
       value: 'Player '
@@ -5617,6 +5621,13 @@ MonoBehaviour:
   playerHealthTxt: {fileID: 989443990}
   playerAmmoTxt: {fileID: 1547356533}
   playerNameTxt: {fileID: 1722522625}
+  playerWeaponTxt: {fileID: 612287923}
+  Weapon:
+  - Minigun
+  - Shotgun
+  - Rocket
+  - Knife
+  - Smg
   spawnPoints:
   - {fileID: 0}
   - {fileID: 0}
