@@ -22,7 +22,8 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable
 
     [field: SerializeField, ReadOnly] public Vector2 AimDirection { get; protected set; } = Vector2.zero;
 
-    [SerializeField] protected NameUI nameUI = new NameUI
+    [SerializeField]
+    protected NameUI nameUI = new NameUI
     {
         str = "",
         textObject = null,
@@ -60,9 +61,10 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable
             ObjectFollowUI objectFollowUI = HpBar.GetComponentCached<ObjectFollowUI>();
             objectFollowUI.TargetObject = gameObject;
             objectFollowUI.Offset = HpBarGap;
+            HpBar.GetComponent<HpBarSync>().character = this;
         }
-
-        nameUI.str = (PhotonNetwork.NickName != "") ? PhotonNetwork.NickName : nameUI.str;
+        if(photonView.IsMine)
+            photonView.RPC(nameof(RPC_SetName), RpcTarget.All, PhotonNetwork.NickName);        
         nameUI.textObject.text = nameUI.str;
 
         GameObjectResource.Instance.CameraFocusObjects.Add(gameObject);
@@ -110,6 +112,12 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable
         {
             Destroy(gameObject);
         }
+    }
+
+    [PunRPC]
+    public void RPC_SetName(string NickName)
+    {
+        nameUI.str = NickName;
     }
 
     // GameObject CreateBullet(string bulletPath, Vector3 position, Quaternion rotation)
