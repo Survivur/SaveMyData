@@ -40,7 +40,7 @@ public class PlayerDownsideAnimation : MonoBehaviour
         }
         
         animator.SetBool("needChange", prevCount != playerJump.Counter.Count);
-        animator.SetBool("isJump", playerJump.IsJumping);
+        animator.SetBool("isJump", playerMove.Velocity.y != 0);
         animator.SetBool("isSit", isSit);
         animator.SetBool("isWalk", playerMove.Velocity.x != 0);
 

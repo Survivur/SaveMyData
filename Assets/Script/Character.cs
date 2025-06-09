@@ -37,8 +37,8 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable
     [SerializeField, ReadOnly] new protected Rigidbody2D rigidbody2D;
     [SerializeField, ReadOnly] protected SpriteRenderer spriteRenderer;
     [SerializeField, ReadOnly] protected PhotonView photonView;
-    [SerializeField, ReadOnly] protected Vector3 namePosGap = new Vector3(0, 2f, 0);
-    [SerializeField, ReadOnly] protected Vector3 HpBarGap = new Vector3(0, 3f, 0);
+    [SerializeField, ReadOnly] protected Vector3 namePosGap = new Vector3(0, 2.5f, 0);
+    [SerializeField, ReadOnly] protected Vector3 HpBarGap = new Vector3(0, 1.5f, 0);
 
 
     protected virtual void Start()
