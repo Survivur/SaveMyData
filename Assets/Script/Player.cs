@@ -82,6 +82,7 @@ public class Player : Character
             GameObjectRegistry.GetOrRegister("Canvas/Game Panel/GameObject/Player2/Status Group/Player Text").GetComponent<GetTextGUI>().getTextFunc = () => $"{nameUI.str}";
             TargetTags.Add(Tags.Player);
         }
+        playerParry.ParryChild.SetActive(false);
 
     }
 

@@ -19,7 +19,7 @@ public class PlayerParry : MonoBehaviour
     [SerializeField, ReadOnly(true)] private GameObject _parrychild = null;
     public GameObject ParryChild => CodeExtensions.SetIfUnityNull(
         ref _parrychild,
-        GameObjectRegistry.GetOrRegister(ObjectPath.Player_Parry, gameObject)
+        transform.Find(ObjectPath.Player_Parry).gameObject
     );
 
 
@@ -27,7 +27,6 @@ public class PlayerParry : MonoBehaviour
     void Start()
     {
         Reset();
-        ParryChild.SetActive(false);
     }
 
     public void Parry()
