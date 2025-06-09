@@ -5520,6 +5520,13 @@ MonoBehaviour:
   playerHealthTxt: {fileID: 989443990}
   playerAmmoTxt: {fileID: 1547356533}
   playerNameTxt: {fileID: 1722522625}
+  playerWeaponTxt: {fileID: 612287923}
+  Weapon:
+  - Minigun
+  - Shotgun
+  - Rocket
+  - Knife
+  - Smg
   spawnPoints:
   - {fileID: 0}
   - {fileID: 0}
