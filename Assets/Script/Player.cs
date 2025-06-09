@@ -198,10 +198,7 @@ public class Player : Character
     [PunRPC]
     public void RPC_UISync()
     {
-        if (!photonView.IsMine)  // ??? ??????? ???? ??? ???? ????
-        {
-            GameObjectRegistry.GetOrRegister("Canvas/Game Panel/GameObject/Player2/HP Group/HP Text").GetComponent<GetTextGUI>().getTextFunc = () => $"Health : {Health} / {MaxHealth}";
-            GameObjectRegistry.GetOrRegister("Canvas/Game Panel/GameObject/Player2/Status Group/Player Text").GetComponent<GetTextGUI>().getTextFunc = () => $"{nameUI.str}";
-        }
+        GameObjectRegistry.GetOrRegister("Canvas/Game Panel/GameObject/Player2/HP Group/HP Text").GetComponent<GetTextGUI>().getTextFunc = () => $"Health : {Health} / {MaxHealth}";
+        GameObjectRegistry.GetOrRegister("Canvas/Game Panel/GameObject/Player2/Status Group/Player Text").GetComponent<GetTextGUI>().getTextFunc = () => $"{nameUI.str}";
     }    
 }

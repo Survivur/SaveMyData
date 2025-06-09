@@ -31,7 +31,7 @@ public class PlayerGun : MonoBehaviour, IShootable
         }
     }
 
-    public void Shoot(float damage, Vector2 dir, bool isBlockedByBlock = true)
+    public void Shoot(float damage, Vector2 dir, bool isBlockedByBlock = false)
     {
         // bullet count ?��?
         if (bulletCount != 0)
@@ -83,7 +83,7 @@ public class PlayerGun : MonoBehaviour, IShootable
     }
 
     [PunRPC]
-    protected void SetBullet_RPC(int viewID, float bulletSpeed, float? damage = null, Vector2? dir = null, bool isBlockedByBlock = true)
+    protected void SetBullet_RPC(int viewID, float bulletSpeed, float? damage = null, Vector2? dir = null, bool isBlockedByBlock = false)
     {
         GameObject bulletObj = PhotonView.Find(viewID)?.gameObject;
         if (bulletObj == null)
