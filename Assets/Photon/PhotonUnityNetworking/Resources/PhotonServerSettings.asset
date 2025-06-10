@@ -54,6 +54,7 @@ MonoBehaviour:
   - RPC_Stand
   - RPC_StageAdd
   - RPC_StageSub
+  - RPC_SetName
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
