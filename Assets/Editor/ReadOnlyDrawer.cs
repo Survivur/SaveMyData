@@ -1,16 +1,17 @@
 using UnityEditor;
 using UnityEngine;
+
 public class ReadOnlyDrawer : PropertyDrawer
 {
     //public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     //{
-    //    // ÀÐ±â Àü¿ë »óÅÂ È°¼ºÈ­
+    //    // ï¿½Ð±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­
     //    GUI.enabled = !Application.isPlaying && ((ReadOnlyAttribute)attribute).runtimeOnly;
 
-    //    // Generic Å¸ÀÔ Ã³¸®
+    //    // Generic Å¸ï¿½ï¿½ Ã³ï¿½ï¿½
     //    if (property.propertyType == SerializedPropertyType.Generic)
     //    {
-    //        // FoldoutÀ» ·»´õ¸µ
+    //        // Foldoutï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     //        property.isExpanded = EditorGUI.Foldout(new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight), property.isExpanded, label);
 
     //        if (property.isExpanded)
@@ -33,11 +34,11 @@ public class ReadOnlyDrawer : PropertyDrawer
     //    }
     //    else
     //    {
-    //        // GenericÀÌ ¾Æ´Ñ ±âº» Å¸ÀÔ Ã³¸®
+    //        // Genericï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½âº» Å¸ï¿½ï¿½ Ã³ï¿½ï¿½
     //        DrawDefaultProperty(position, property, label);
     //    }
 
-    //    //// ÀÐ±â Àü¿ë »óÅÂ º¹±¸
+    //    //// ï¿½Ð±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     //    GUI.enabled = true;
     //}
 

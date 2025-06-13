@@ -25,7 +25,6 @@ public class Player : Character
     [SerializeField, ReadOnly(true)] private GameObject _downsideChild = null;
     [SerializeField, ReadOnly(true)] private GameObject _armChild = null;
 
-    private int prevCount = 0;
     public bool isSit = false;
 
     public GameObject UpsideChild => CodeExtensions.SetIfUnityNull(

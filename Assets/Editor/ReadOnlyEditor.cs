@@ -32,14 +32,14 @@ public class ReadOnlyEditor : Editor
 
         serializedObject.ApplyModifiedProperties();
 
-        // // ±âº» ÀÎ½ºÆåÅÍ UI À¯Áö
+        // // ï¿½âº» ï¿½Î½ï¿½ï¿½ï¿½ï¿½ï¿½ UI ï¿½ï¿½ï¿½ï¿½
         // //DrawDefaultInspector();
 
         // serializedObject.Update();
 
-        // // ¸ðµç ÇÊµå ¼øÈ¸
+        // // ï¿½ï¿½ï¿½ ï¿½Êµï¿½ ï¿½ï¿½È¸
         // SerializedProperty property = serializedObject.GetIterator();
-        // // ½ºÅ©¸³Æ® ÆÄÀÏÀÌ¸é
+        // // ï¿½ï¿½Å©ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½
         // if (property.NextVisible(true))
         // {
         //     do
@@ -64,7 +64,7 @@ public class ReadOnlyEditor : Editor
 
     private void DrawPropertyAndChildrenWithFoldout(SerializedProperty property)
     {
-        // °íÀ¯ Å°¸¦ À§ÇÑ °æ·Î »ç¿ë
+        // ï¿½ï¿½ï¿½ï¿½ Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         string key = property.propertyPath;
         if (!foldoutStates.ContainsKey(key))
             foldoutStates[key] = false;
@@ -86,7 +86,7 @@ public class ReadOnlyEditor : Editor
                     break;
 
                 if (child.propertyType == SerializedPropertyType.Generic)
-                    DrawPropertyAndChildrenWithFoldout(child); // Àç±Í
+                    DrawPropertyAndChildrenWithFoldout(child); // ï¿½ï¿½ï¿½
                 else
                     DrawWithReadOnlyCheck(child);
 
@@ -121,7 +121,7 @@ public class ReadOnlyEditor : Editor
         {
             string element = elements[i];
 
-            // ¹è¿­ÀÌ³ª ¸®½ºÆ® Ã³¸® (¿¹: myList.Array.data[0].value)
+            // ï¿½è¿­ï¿½Ì³ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® Ã³ï¿½ï¿½ (ï¿½ï¿½: myList.Array.data[0].value)
             if (element == "Array" && i + 2 < elements.Length && elements[i + 1].StartsWith("data["))
             {
                 i += 2; // Skip "Array" and "data[index]"

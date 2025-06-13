@@ -1,5 +1,3 @@
-using Microsoft.Unity.VisualStudio.Editor;
-using Mono.Cecil;
 using UnityEngine;
 
 public class Box : MonoBehaviour, IHittable

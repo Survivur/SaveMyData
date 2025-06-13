@@ -11,7 +11,7 @@ public class PlayerMove : MonoBehaviour, IMoveable
     [SerializeField, ReadOnly] protected float HorizontalInput = 0f;
 
     [Header("Components", order = 0)]
-    [SerializeField, ReadOnly(true)] new protected Rigidbody2D rigidbody2D;
+    [SerializeField, ReadOnly(true)] protected Rigidbody2D rigidbody2D;
     [SerializeField, ReadOnly] protected PhotonView photonView;
     
     [SerializeField, ReadOnly(true)] private Player player = null;

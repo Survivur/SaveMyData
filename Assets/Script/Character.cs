@@ -35,7 +35,7 @@ public abstract class Character : MonoBehaviour, IHittable, IAttackable
 
     [field: SerializeField, ReadOnly] public List<string> TargetTags { get; protected set; } = new List<string>();
 
-    [SerializeField, ReadOnly] new protected Rigidbody2D rigidbody2D;
+    [SerializeField, ReadOnly] protected Rigidbody2D rigidbody2D;
     [SerializeField, ReadOnly] protected SpriteRenderer spriteRenderer;
     [SerializeField, ReadOnly] protected PhotonView photonView;
     [SerializeField, ReadOnly] protected Vector3 namePosGap = new Vector3(0, 2.5f, 0);
